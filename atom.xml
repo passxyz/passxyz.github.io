@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PassXYZ</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://passxyz.github.io/"/>
+  <updated>2021-04-03T10:23:06.071Z</updated>
+  <id>https://passxyz.github.io/</id>
+  
+  <author>
+    <name>Roger Ye</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KeePass Command Line App (KPCLibPy)</title>
+    <link href="https://passxyz.github.io/en/kpy-kpclibpy-en/"/>
+    <id>https://passxyz.github.io/en/kpy-kpclibpy-en/</id>
+    <published>2021-04-03T09:31:17.000Z</published>
+    <updated>2021-04-03T10:23:06.071Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/shugaoye/KPCLibPy" target="_blank" rel="noopener">KPCLibPy</a> is a KeePass command application written in Python.</p><p>The original <a href="https://keepass.info/" target="_blank" rel="noopener">KeePass</a> by Dominik Reichl is a .NET application written in C#. <code>KeePassLib</code> is part of KeePass which can be built as a library to support the major functions of KeePass. However, at the moment, <code>KeePassLib</code> is still built for .NET framework which can run on Windows only. I modified <code>KeePassLib</code> and extended it as a .NET Standard library - <a href="https://github.com/shugaoye/KPCLib" target="_blank" rel="noopener">KPCLib</a>. <a href="https://github.com/shugaoye/KPCLib" target="_blank" rel="noopener">KPCLib</a> stands for KeePass Portable Class Library at the time when I started the work. Portable Class Library (PCL) is replaced by .NET Standard Library nowaday.</p><p><a href="https://github.com/shugaoye/KPCLibPy" target="_blank" rel="noopener">KPCLibPy</a> is just a Python wrapper of <a href="https://github.com/shugaoye/KPCLib" target="_blank" rel="noopener">KPCLib</a> using <a href="http://pythonnet.github.io/" target="_blank" rel="noopener">Python.NET</a>. In this perspective, <code>KPCLibPy</code> is fully compatiable to the original KeePass, since the majority of code is  the same as KeePass.</p><p>In order to save the development effort and have a nice user interface, the Python library <a href="https://github.com/facebookincubator/python-nubia" target="_blank" rel="noopener">python-nubia</a> from Facebook is used as the framework to support command line interface.</p><h2 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features"></a>Key Features</h2><ul><li>Full compatible with the original KeePass</li><li>.NET Standard 2.0 support with <a href="https://github.com/shugaoye/KPCLib" target="_blank" rel="noopener">KPCLib</a></li><li>Cross platform support with .NET Standard and .NET core</li><li>Nice user interface with <a href="https://github.com/facebookincubator/python-nubia" target="_blank" rel="noopener">python-nubia</a></li><li>Interactive mode that offers fish-style auto-completion</li></ul><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>As a developer, you can use <a href="https://github.com/shugaoye/KPCLibPy" target="_blank" rel="noopener">KPCLibPy</a> from GitHub directly.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/shugaoye/KPCLibPy.git</span><br><span class="line"><span class="built_in">cd</span> KPCLibPy</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">python3 ./nubia_main.py</span><br></pre></td></tr></table></figure></p><h2 id="Docker-image"><a href="#Docker-image" class="headerlink" title="Docker image"></a>Docker image</h2><p>A Dockr image - <a href="https://github.com/shugaoye/docker-mono" target="_blank" rel="noopener">docker-mono</a> can be used on Linux or Windows 10 (WSL).</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/shugaoye/KPCLibPy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;KPCLibPy&lt;/a&gt; is a KeePass command application written in Py
+      
+    
+    </summary>
+    
+      <category term="KPCLibPy" scheme="https://passxyz.github.io/categories/KPCLibPy/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在PassXYZ中建立新账户</title>
+    <link href="https://passxyz.github.io/zh-CN/PxCreateUser-cn-md/"/>
+    <id>https://passxyz.github.io/zh-CN/PxCreateUser-cn-md/</id>
+    <published>2019-02-17T03:11:20.000Z</published>
+    <updated>2021-03-07T09:18:48.476Z</updated>
+    
+    <content type="html"><![CDATA[<p>在PassXYZ中每个账户是与数据库一一对应的。当有需要时，如何建立一个新的账户呢？一般来说，可以通过以下三种方式建立新账户：</p><ol><li>新安装时，可以在注册页面建立新账户；</li><li>在登陆页面，点击<strong>注册</strong>按钮建立新账户；</li><li>在登陆或注册页面，点击<strong>导入</strong>按钮，导入已有的KeePass数据库亦可建立新账户。</li></ol><p>对于上述1、2项的两种情况，即，新安装或在登陆页面建立新账户，可以参考以下的动画图片：</p><p><img src="https://passxyz.github.io/images/r241/create_user.gif" alt="生成新用户"></p><p>用户通过导入已有的KeePass数据库建立新账户，可以参考文章<a href="https://passxyz.github.io/zh-CN/PxImport-cn/">如何导入KeePass数据文件</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在PassXYZ中每个账户是与数据库一一对应的。当有需要时，如何建立一个新的账户呢？一般来说，可以通过以下三种方式建立新账户：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新安装时，可以在注册页面建立新账户；&lt;/li&gt;
+&lt;li&gt;在登陆页面，点击&lt;strong&gt;注册&lt;/strong&gt;按钮建立新
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to create a new account in PassXYZ</title>
+    <link href="https://passxyz.github.io/en/PxCreateUser-en-md/"/>
+    <id>https://passxyz.github.io/en/PxCreateUser-en-md/</id>
+    <published>2019-02-17T03:11:06.000Z</published>
+    <updated>2021-03-07T09:18:48.476Z</updated>
+    
+    <content type="html"><![CDATA[<p>There are multiple ways to create a new account in PassXYZ. In this article, we discuss three major approaches that can be used for most of the cases.</p><ol><li>For a new installation, a new account can be created in the SignUp page;</li><li>In the Login page, select the <strong>SignUp</strong> button on the toolbar to create a new account;</li><li>In either SignUp or Login page, select the <strong>Import</strong> button on the toolbar to import an existing KeePass database so as to create a new account.</li></ol><p>For the cases 1 and 2, Please refer to the below animated picture on how to create a new account:</p><p><img src="https://passxyz.github.io/images/r241/create_user.gif" alt="Create a new user"></p><p>To import an existing KeePass database for creating a new account, please refer to the article <a href="https://passxyz.github.io/en/PxImport-en/">Import KeePass Data</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;There are multiple ways to create a new account in PassXYZ. In this article, we discuss three major approaches that can be used for most 
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to use custom icons (PassXYZ 2.1.1/PassXYZ Cloud 2.4.1)</title>
+    <link href="https://passxyz.github.io/en/PxCustomIcon-en/"/>
+    <id>https://passxyz.github.io/en/PxCustomIcon-en/</id>
+    <published>2019-02-10T05:05:09.000Z</published>
+    <updated>2021-03-07T09:18:48.523Z</updated>
+    
+    <content type="html"><![CDATA[<p>There are built-in icons in PassXYZ and users can change the icon of an entry or a group using the built-in icons. However, users may want to use their own icons as well. PassXYZ uses KeePassLib as the base for password management. KeePassLib does support custom icons, but this function can be used only on Windows platform. However, PassXYZ needs to support three platforms (iOS, Android and Windows). In the version 1.1.9 of KPCLib, the custom icon can be supported on all three platforms by using Skiasharp library from Xamarin. KPCLib is a modified version of KeePassLib and the source code can be found in GitHub.</p><p>In version PassXYZ 2.1.1/PassXYZ Cloud 2.4.1, KPCLib is updated to 1.1.9, so custom icons can be used from this version onwards. Please refer to the below animated picture on how to use custom icons.</p><p><img src="https://passxyz.github.io/images/r241/change_icon.gif" alt="change_icons"></p><p>From the above figure, we can see that users can access “Change Icon” option in the context menu of an entry or a group. After selecting “Change Icon” option, a page with built-in icons will be listed. There is a toolbar item “+” at the top of the page. This toolbar item can be used to add a custom icon as we can see from the above figure.</p><h3 id="Requirements-of-custom-icon"><a href="#Requirements-of-custom-icon" class="headerlink" title="Requirements of custom icon"></a>Requirements of custom icon</h3><ol><li>The icon must be a square with at least 96x96 pixels</li><li>in JPEG or PNG format</li></ol><h2 id="How-to-remove-a-custom-icon"><a href="#How-to-remove-a-custom-icon" class="headerlink" title="How to remove a custom icon"></a>How to remove a custom icon</h2><p>After a custom icon is added, users can removed it as well if needed. Please refer to the below animated picture on how to remove a custom icon.</p><p><img src="https://passxyz.github.io/images/r241/delete_icon.gif" alt="remove_icons"></p><p>As you can see in the above figure, users can delete a custom icon from the context menu of the custom icon.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;There are built-in icons in PassXYZ and users can change the icon of an entry or a group using the built-in icons. However, users may wan
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Import KeePass Data (PassXYZ 2.1.1/PassXYZ Cloud 2.4.1)</title>
+    <link href="https://passxyz.github.io/en/PxImport-en/"/>
+    <id>https://passxyz.github.io/en/PxImport-en/</id>
+    <published>2019-02-10T04:42:26.000Z</published>
+    <updated>2021-03-07T09:18:48.554Z</updated>
+    
+    <content type="html"><![CDATA[<p>PassXYZ can import and export different file types through file type or sharing supported by operating system. However, different systems handle file type and sharing slightly different. Users may have difficulties to use file type or sharing to import or export. I can still see questions from the user’s feedback concerning how to import a KeePass file. In version PassXYZ 2.1.1/PassXYZ Cloud 2.4.1, a simple option is added to simplify the import of KeePass data file.</p><p>In the toolbar of both login and sign-up page, an import option is added as shown in the below animated picture.</p><p><img src="https://passxyz.github.io/images/r241/import_keepass.gif" alt="Import"></p><p>After choosing this toolbar item, the system file explorer will be shown. In the above figure, the file explorer of Android is shown. It is very similar in either iOS or Windows. After selecting the KeePass data file from file explorer, the imported data file can be accessed in PassXYZ.</p><p>To find more on import and export, please refer to another article <a href="https://passxyz.github.io/en/PxImportExport-en/">Import and Export of PassXYZ data files</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PassXYZ can import and export different file types through file type or sharing supported by operating system. However, different systems
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何导入KeePass数据文件（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1）</title>
+    <link href="https://passxyz.github.io/zh-CN/PxImport-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxImport-cn/</id>
+    <published>2019-02-10T04:15:41.000Z</published>
+    <updated>2021-03-07T09:18:48.554Z</updated>
+    
+    <content type="html"><![CDATA[<p>PassXYZ可以通过文件类型和系统的分享功能实现各种类型文件的导入和导出。由于不同系统的文件类型处理和分享功能略有不同，用户在使用时可能会碰到一些困难。因为常会在用户反馈中看到询问如何导入KeePass数据文件的问题，所以在版本PassXYZ 2.1.1/PassXYZ Cloud 2.4.1中，增加了一个简单的导入选项。</p><p>在登陆和注册页面的工具栏中，都增加了一个导入的图标，如下面的动画图片所示：</p><p><img src="https://passxyz.github.io/images/r241/import_keepass.gif" alt="导入"></p><p>选择这个导入图标按钮后，便进入系统的文件浏览界面。上图所示的是Android系统的文件浏览界面。在文件浏览界面中选择所要导入的KeePass数据文件后，即可在PassXYZ中打开KeePass文件了。</p><p>进一步了解各类文件的导入和导出，请参考文章<a href="https://passxyz.github.io/zh-CN/PxImportExport-zh-CN/">PassXYZ数据文件的导入和导出</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PassXYZ可以通过文件类型和系统的分享功能实现各种类型文件的导入和导出。由于不同系统的文件类型处理和分享功能略有不同，用户在使用时可能会碰到一些困难。因为常会在用户反馈中看到询问如何导入KeePass数据文件的问题，所以在版本PassXYZ 2.1.1/PassXYZ 
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用自定义图标（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1）</title>
+    <link href="https://passxyz.github.io/zh-CN/PxCustomIcon-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxCustomIcon-cn/</id>
+    <published>2019-02-10T03:12:06.000Z</published>
+    <updated>2021-03-07T09:18:48.492Z</updated>
+    
+    <content type="html"><![CDATA[<p>自定义图标是PassXYZ用户反馈中要求最多的一项功能。虽然KeePassLib本身是支持自定义图标的，但只适用于Windows环境。而PassXYZ需要在Windows，iOS和Android这三个平台上同时支持这一功能。为了达到这一目的，先要在KPCLib中实现这一功能。在最新的KPCLib 1.1.9版本中，通过利用SkiaSharp图形库，将自定义图标功能同时实现在了三个平台上。有兴趣的朋友可以在GitHub上找到相关的代码。</p><p>在PassXYZ 2.1.1/PassXYZ Cloud 2.4.1版本中，KPCLib已被更新到1.1.9，所以用户就可以使用自定义图标功能了。关于如何使用自定义图标，请参考以下的动画图片：</p><p><img src="https://passxyz.github.io/images/r241/change_icon.gif" alt="更改图标"></p><p>如上图所示，可以使用更换图标的上下文菜单来添加自定义图标。关于如何使用更换图标的上下文菜单，请参考另一篇文章“<a href="https://passxyz.github.io/zh-CN/PxChangeIcon-cn/">如何更改图标</a>”。当用户选择了更换图标后，在更换图标的页面，可以看到一个新增加的”+”按钮，选择这个按钮便可以通过相册或文件浏览来选择想要的图标。</p><h3 id="自定义图标的要求："><a href="#自定义图标的要求：" class="headerlink" title="自定义图标的要求："></a>自定义图标的要求：</h3><p>用户自定义的图标需符合如下要求：</p><ol><li>图标必须是正方形的，并且像素需要大于96x96。</li><li>建议使用JPEG或PNG格式。</li></ol><h2 id="如何删除自定义图标"><a href="#如何删除自定义图标" class="headerlink" title="如何删除自定义图标"></a>如何删除自定义图标</h2><p>添加了自定义图标后，如果有需要，用户也可以删除自定义图标。如何删除自定义图标，请参考下面的动画图片：</p><p><img src="https://passxyz.github.io/images/r241/delete_icon.gif" alt="删除图标"></p><p>在更换图标的页面，用户可以使用上下文菜单来删除图标。如在Android系统中，可以长按自定义图标来显示上下文菜单。关于在不同系统中的上下文菜单使用，可以参考文章<a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;自定义图标是PassXYZ用户反馈中要求最多的一项功能。虽然KeePassLib本身是支持自定义图标的，但只适用于Windows环境。而PassXYZ需要在Windows，iOS和Android这三个平台上同时支持这一功能。为了达到这一目的，先要在KPCLib中实现这一功能
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PassXYZ 1.7.1和PassXYZ Cloud 2.0.1版本更新</title>
+    <link href="https://passxyz.github.io/zh-CN/PxRelease2-0-1-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxRelease2-0-1-cn/</id>
+    <published>2018-12-08T07:27:30.000Z</published>
+    <updated>2021-03-07T09:18:48.677Z</updated>
+    
+    <content type="html"><![CDATA[<p>PassXYZ和PassXYZ Cloud的版本在2018年12月17日分别更新至1.7.1和2.0.1了。这次更新带来了以下三个新功能：</p><ol><li>用户可以更改“组”和“条目”的图标。</li><li>PassXYZ用户可以通过拍照或截屏来快速抓取信息并保存为附件。</li><li>增加了“模板重置”选项。在新版本中，用户可以通过此选项自行更新模板。</li></ol><p>如何使用上述新功能，请参考下面“扩展阅读”部分的文章。</p><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxChangeIcon-cn/">如何更改图标</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCamera-cn/">通过拍照或相册添加附件</a></li><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PassXYZ和PassXYZ Cloud的版本在2018年12月17日分别更新至1.7.1和2.0.1了。这次更新带来了以下三个新功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户可以更改“组”和“条目”的图标。&lt;/li&gt;
+&lt;li&gt;PassXYZ用户可以通过拍照或截屏来快速抓取信息并
+      
+    
+    </summary>
+    
+      <category term="版本" scheme="https://passxyz.github.io/categories/%E7%89%88%E6%9C%AC/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用无线路由器同步或备份PassXYZ数据，教你如何把无线路由器打造成网络存储</title>
+    <link href="https://passxyz.github.io/zh-CN/PxRouter-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxRouter-cn/</id>
+    <published>2018-12-08T07:07:45.000Z</published>
+    <updated>2021-03-07T09:18:48.677Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在有不少的无线路由器都自带USB接口。利用这个USB接口，可以连接移动硬盘或U盘，把无线路由器变成网络存储服务器。这样，家里所有的电脑或移动设备都可以共享移动硬盘或U盘上面的数据。目前小米路由器和荣耀路由器都具备此项功能。这里，我们就以荣耀路由器为例，来说明如何使用路由器的网络存储功能，以及如何使用网络存储来备份和同步PassXYZ数据。</p><h2 id="设置路由器的网络存储"><a href="#设置路由器的网络存储" class="headerlink" title="设置路由器的网络存储"></a>设置路由器的网络存储</h2><ol><li>先将U盘或移动硬盘连到路由器的USB接口；</li><li>在PC浏览器中登录荣耀路由器的管理页面，如下图；</li></ol><p><img src="https://passxyz.github.io/images/PxSMB/pxsmb01.png" alt="pxsmb01"></p><ol start="3"><li>在管理页面中选择“更多功能”；</li><li>在“更多功能”页面可以看到“存储共享”选项如下图；</li></ol><p><img src="https://passxyz.github.io/images/PxSMB/pxsmb02.png" alt="pxsmb02"></p><ol start="5"><li>选择“开启文件共享服务”以使用网络存储。可以选择“访问加密”并设置用户名和密码以增加安全性。</li></ol><h2 id="在“PassXYZ云版”中使用网络存储"><a href="#在“PassXYZ云版”中使用网络存储" class="headerlink" title="在“PassXYZ云版”中使用网络存储"></a>在“PassXYZ云版”中使用网络存储</h2><p>在“PassXYZ云版”2.2.1.1之后增加了对SMB/CIFS的支持。SMB(Server Message Block)或者CIFS(Common Internet File System)是微软Windows中用于共享网络存储的协议。路由器的网络存储就是用SMB/CIFS来实现“存储共享”的。</p><p>在“PassXYZ云版”中使用SMB协议与使用WebDAV协议非常类似。关于如何使用，请参考另一篇文章“<a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a>”。</p><p>设置SMB与WebDAV唯一的不同点是，在建立用于登录的“条目”时，要选择模板中的“SMB 服务”。</p><p>选择了模板中的“SMB 服务”后，需要填写如下信息用于登录路由器的“存储共享”服务：</p><ol><li><strong>UserName</strong> - 如果在路由器的设置中开启了“访问加密”，UserName即是之前设置的“用户名”。</li><li><strong>Password</strong> - 即是“访问加密”设置中的“密码”。</li><li><strong>Hostname</strong> - 路由器的IP地址。一般荣耀路由器缺省的IP是192.168.3.1。</li><li><strong>Remote Folder</strong> - U盘或移动硬盘中存储PassXYZ数据的目录名，如“/Documents/PassXYZ/”或“/文件/PassXYZ/”等。</li></ol><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;现在有不少的无线路由器都自带USB接口。利用这个USB接口，可以连接移动硬盘或U盘，把无线路由器变成网络存储服务器。这样，家里所有的电脑或移动设备都可以共享移动硬盘或U盘上面的数据。目前小米路由器和荣耀路由器都具备此项功能。这里，我们就以荣耀路由器为例，来说明如何使用路由器
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过拍照或相册添加附件</title>
+    <link href="https://passxyz.github.io/zh-CN/PxCamera-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxCamera-cn/</id>
+    <published>2018-12-08T07:07:14.000Z</published>
+    <updated>2021-03-07T09:18:48.414Z</updated>
+    
+    <content type="html"><![CDATA[<p>在PassXYZ 1.7.1和PassXYZ Cloud 2.0.1版本中增加的一个新功能是<strong>通过拍照或相册添加附件</strong>。这是一个许多用户想要的功能。</p><p>PassXYZ用户经常会发现，最简便的方法莫过于在注册了一个账号之后，拍个照或者截个屏把信息存储下来。之后当需要查找时，看下截图就可以了。重要账号才会按模板中的项目填写。这样操作确实非常方便和省时。</p><h2 id="通过拍照添加附件"><a href="#通过拍照添加附件" class="headerlink" title="通过拍照添加附件"></a>通过拍照添加附件</h2><p>在新版本中添加了一个相机按钮，用户可以直接点击开启相机拍照来建立一个“条目”。具体步骤可以参考下面的动图。</p><p><img src="https://passxyz.github.io/images/r201/r201_camera.gif" alt="拍照添加"></p><ol><li>点击相机按钮后就会开启系统的相机。拍照后会建立一个“条目”，并把所拍照片添加为附件。</li><li>给“条目”起一个合适名称加以保存即可。</li></ol><h2 id="通过相册添加附件"><a href="#通过相册添加附件" class="headerlink" title="通过相册添加附件"></a>通过相册添加附件</h2><p>如果要添加多个附件，可以在“条目”中点击“附件”按钮来添加。参考下面的动图，可以通过相机或相册来添加附件。</p><p><img src="https://passxyz.github.io/images/r201/r201_allery.gif" alt="拍照添加"></p><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在PassXYZ 1.7.1和PassXYZ Cloud 2.0.1版本中增加的一个新功能是&lt;strong&gt;通过拍照或相册添加附件&lt;/strong&gt;。这是一个许多用户想要的功能。&lt;/p&gt;
+&lt;p&gt;PassXYZ用户经常会发现，最简便的方法莫过于在注册了一个账号之后，拍个照或者
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何更改图标</title>
+    <link href="https://passxyz.github.io/zh-CN/PxChangeIcon-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxChangeIcon-cn/</id>
+    <published>2018-12-08T07:06:46.000Z</published>
+    <updated>2021-03-07T09:18:48.429Z</updated>
+    
+    <content type="html"><![CDATA[<p>PassXYZ 1.7.1和PassXYZ Cloud 2.0.1之后的版本，用户可以自行修改“组”或者“条目”的图标了。如何更改请参考下面的动画图片：</p><p><img src="https://passxyz.github.io/images/r201/r201_change_icon.gif" alt="更改图标"></p><p>从上图中我们可以看到，更改图标的步骤如下：</p><ol><li>选择一个“条目”或“组”的上下文菜单（不同的系统，使用上下文菜单的方法略有不同）。关于不同系统的上下文菜单，可以参考文章“<a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a>”。</li><li>在菜单中选择“更换图标”后，可以看到一个图标的列表。可以直接选择其中的图标或在搜索栏中搜索相关的图标。</li><li>选择好图标后，点击右上角的存储按钮即可。</li></ol><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PassXYZ 1.7.1和PassXYZ Cloud 2.0.1之后的版本，用户可以自行修改“组”或者“条目”的图标了。如何更改请参考下面的动画图片：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://passxyz.github.io/images/r201/r201_
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Backup and Synchronization 2, Step-by-step guides of password database backup and synchronization using cloud storage</title>
+    <link href="https://passxyz.github.io/en/PxWebDAV2-en/"/>
+    <id>https://passxyz.github.io/en/PxWebDAV2-en/</id>
+    <published>2018-12-06T00:00:08.000Z</published>
+    <updated>2021-03-07T09:18:48.739Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://passxyz.github.io/images/PxWebDAV/px-webdav01-en.png" alt="cover"></p><blockquote><p>PassXYZ is a password management software built on top of KeePass library for Android, iOS and Windows 10. KeePass data format is a popular open-sourced password database format used by many KeePass derived applications. However, KeePass can only run on Windows platform by itself. The goal of PassXYZ is to support KeePass database on all major platforms.</p><p>PassXYZ has been published in the following two releases to meet the different requirements from KeePass users.</p><ul><li><strong>PassXYZ</strong> is a standalone application without any networking capability.</li><li><strong>PassXYZ Cloud</strong> is an enhanced version with backup and synchronization functionalities using cloud storage.</li></ul></blockquote><p>This article together with another named “Backup and Synchronization 1, finding the best solution for backup and synchronization when using password management software” introduce how to use cloud storage for backup and synchronization.</p><p><strong>PassXYZ Cloud</strong> version 1.8.1 and later provides full cloud storage support by adding most of common used storage protocols, such as WebDAV, FTP and SFTP etc. WebDAV, FTP and SFTP are standard storage protocols used by cloud storage. </p><h2 id="Backup-and-synchronization-using-Box"><a href="#Backup-and-synchronization-using-Box" class="headerlink" title="Backup and synchronization using Box"></a>Backup and synchronization using Box</h2><p>Box is a popular cloud storage service and can be accessed through WebDAV. We will use Box as an example to explain how to connect a cloud service through WebDAV. You may choose other cloud storage services following the similar setup procedure.</p><p>To connect to Box using WebDAV, we can use the following configurations:</p><ul><li><strong>Server</strong>: <a href="https://dav/box.com/dav" target="_blank" rel="noopener">https://dav/box.com/dav</a></li><li><strong>Login</strong>: Your Box login email address and password.</li></ul><h2 id="PassXYZ-Cloud-Setting"><a href="#PassXYZ-Cloud-Setting" class="headerlink" title="PassXYZ Cloud Setting"></a>PassXYZ Cloud Setting</h2><p>To use WebDAV, we need to choose the cloud storage type in PassXYZ settings as below. In order to easily explain the steps to set the cloud storage type, we insert a picture in GIF format with animation.</p><p><img src="https://passxyz.github.io/images/PxWebDAV/cloud-settings-en.gif" alt="cloud-settings-en"></p><p>As we can see from the above picture, the cloud storage type was set to “WebDAV” according to the steps below:</p><ol><li>Select “Settings” from the menu</li><li>Choose “Cloud Storage” in the “Settings” page</li><li>Select “WebDAV” from the popup menu</li></ol><h2 id="Create-a-new-entry-for-Box-WebDAV"><a href="#Create-a-new-entry-for-Box-WebDAV" class="headerlink" title="Create a new entry for Box WebDAV"></a>Create a new entry for Box WebDAV</h2><p>The information to access Box WebDAV service can be stored in an entry of PassXYZ. We can create a new entry first and use this entry to login to Box WebDAV service. The relevant procedures are shown in the following GIF image.</p><p><img src="https://passxyz.github.io/images/PxWebDAV/create-entry-en.gif" alt=" create-entry-en"></p><p>From the above GIF image, we can see that a new entry has been created with the following steps:</p><ol><li>Click the “+” button to create a new entry.</li><li>Select “Using template” from the pull-down menu.</li><li>Search “WebDAV” from the template and select the entry from the filtered list.</li><li>Fill in username, password and server URL.</li><li>Save the entry and a new record is created.</li></ol><h2 id="Login-to-Box"><a href="#Login-to-Box" class="headerlink" title="Login to Box"></a>Login to Box</h2><p>Now we can use the new entry as created above to login to Box. The relevant GIF image is shown below.</p><p><img src="https://passxyz.github.io/images/PxWebDAV/login-en.gif" alt="login-en"></p><p>As we can see from the above animated image, the steps to login to Box are:</p><ol><li>Select “Cloud Storage” from the menu.</li><li>In the “Cloud Storage” page, click the “Login” button.</li><li>After clicking the “Login” button, a page with available entries for login will be shown. Multiple entries can be seen in this page for us to choose a service available.</li><li>We can select the Box entry that we just created.</li><li>After login to Box, a list of data files will be shown. This list includes both local and remote data files.</li><li>We can use context menu to enable or disable the synchronization with cloud.</li></ol><p>In PassXYZ Cloud, the procedures to setup WebDAV, FTP and SFTP are similar to the above steps.</p><h2 id="Using-Personal-Cloud-for-backup-and-synchronization"><a href="#Using-Personal-Cloud-for-backup-and-synchronization" class="headerlink" title="Using Personal Cloud for backup and synchronization"></a>Using Personal Cloud for backup and synchronization</h2><p>The storage protocols (WebDAV, FTP or SFTP) can be used in personal network storage as well. Below is a setting page of Personal Cloud from Seagate. From this figure, we can see that all protocols (WebDAV, FTP and SFTP) that we mentioned in this article are supported by Seagate Personal Cloud.</p><p><img src="https://passxyz.github.io/images/PxWebDAV/px_personalcloud01.png" alt="px_personalcloud01"></p><p>PassXYZ Cloud supports WebDAV, FTP, SFTP and OneDrive as cloud storage. Since OneDrive uses a proprietary protocol, the setup procedure is a bit different and has been depicted in another article named “A balance between security and convenience, PassXYZ and PassXYZ Cloud”. You may wish to refer to it, if you want to use OneDrive as cloud storage.</p><hr><p><strong>Further reading</strong>:</p><ul><li><a href="https://passxyz.github.io/en/PxWebDAV1-en">Backup and Synchronization 1, Finding the best solution for backup and synchronization</a></li><li><a href="https://passxyz.github.io/en/PxMFA1-en/">What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?</a></li><li><a href="https://passxyz.github.io/en/PxMarkdown-en/">How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management</a></li><li><a href="https://passxyz.github.io/en/PxCloud-en/">A balance between security and convenience, PassXYZ and PassXYZ Cloud</a></li><li><a href="https://www.linkedin.com/pulse/story-password-management-software-from-keepass-passxyz-roger-ye/" target="_blank" rel="noopener">A story of password management software, from KeePass to PassXYZ</a></li><li><a href="https://www.linkedin.com/pulse/can-passwords-replaced-biometrics-like-fingerprint-face-roger-ye/" target="_blank" rel="noopener">Can the passwords be replaced by biometrics like fingerprint or face recognition?</a></li></ul><hr><p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p><p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://passxyz.github.io/images/PxWebDAV/px-webdav01-en.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PassXYZ is a password management
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+      <category term="Cloud" scheme="https://passxyz.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Backup and Synchronization 1, Finding the best solution for backup and synchronization</title>
+    <link href="https://passxyz.github.io/en/PxWebDAV1-en/"/>
+    <id>https://passxyz.github.io/en/PxWebDAV1-en/</id>
+    <published>2018-12-05T23:59:38.000Z</published>
+    <updated>2021-03-07T09:18:48.708Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://passxyz.github.io/images/PxWebDAV/px-webdav01-en.png" alt="cover"></p><blockquote><p>PassXYZ is a password management software built on top of KeePass library for Android, iOS and Windows 10. KeePass data format is a popular open-sourced password database format used by many KeePass derived applications. However, KeePass can only run on Windows platform by itself. The goal of PassXYZ is to support KeePass database on all major platforms.</p><p>PassXYZ has been published in the following two releases to meet the different requirements from KeePass users:</p><ul><li>PassXYZ is a standalone application without any networking capability.</li><li>PassXYZ Cloud is an enhanced version with backup and synchronization functionalities using cloud storage.</li></ul></blockquote><p>This article together with another named “Backup and Synchronization 2, Step-by-step guides of password database backup and synchronization using cloud storage” introduce how to use cloud storage for backup and synchronization.</p><p><strong>PassXYZ Cloud</strong> version 1.8.1 and later provides full cloud storage support by adding most of common used storage protocols, such as WebDAV, FTP and SFTP etc. WebDAV, FTP and SFTP are standard storage protocols used by cloud storage. Even though many popular cloud services, such as OneDrive, Google Drive or iCloud, use proprietary protocol, there are also many cloud services supporting WebDAV, such as Box, DriveHQ and CloudMe etc.</p><h2 id="How-to-choose-a-solution-for-backup-and-synchronization"><a href="#How-to-choose-a-solution-for-backup-and-synchronization" class="headerlink" title="How to choose a solution for backup and synchronization"></a>How to choose a solution for backup and synchronization</h2><p>The users using password management software usually have to balance between security and convenience. Even though data safety is the number one factor to be considered, the convenience also plays an important role as time goes on. Backup and synchronization are major features requested by many users when considering both reliability and convenience, especially, when we have multiple devices and need to access the same database across platforms. Then, how do we choose the solution for backup and synchronization? To answer this question, let’s have a look at the table below first.</p><p><img src="https://passxyz.github.io/images/PxWebDAV/passxyz_comparison-en.png" alt="comparison"></p><p>From the above table, we can see that we have a few choices according to the data storage solution. Different choices have different features in terms of data safety and convenience of usage. Below is a summary:</p><ol><li><strong>Local storage</strong>: If we use only one device and backup data occasionally, PassXYZ is a good choice for this case.</li><li><strong>Intranet</strong> (home or internal network): This is a choice which can meet both safety and convenient usage requirements. As long as the internal network is safe enough, PassXYZ Cloud can be used and the data should be stored in the internal shared network storage only. However, the users with this option need to know how to setup home or internal network storage.</li><li><strong>Internet</strong>: To use PassXYZ Cloud and store data on internet, this is the most convenient solution. The safety of this solution depends on the knowledge of internet security. The safety can be low to high according to the configuration of PassXYZ, data files and cloud services.</li></ol><p>From the above summary, we can see that the best solution may be varying for different users. To choose the best solution, users need to balance between safety and convenience according to their knowledge on data security. For most of the users, they may not have enough knowledge about either cyber security or data security. In this case, they should consider classifying their data into different categories. Personal data can be classified according to the security requirements. For an example, we can have two categories of data as suggested below:</p><ul><li><strong>High security</strong>: banking, public services (ID, passport etc.)</li><li><strong>Normal</strong>: Social media, email or network services etc.</li></ul><p>Of course, you may have three or four categories according to your own preferences. After classifing your data, you may find that the data with higher security requirements usually have a longer life cycle and require less changes over the time. On the other hand, most frequently changed data require less security and normally have a shorter life time. As such, you may choose the above listed solutions according to the classification of your data. You may use local storage and backup manually for the most important data and, at the same time, choose to store your data which need to be changed frequently on the network storage.</p><p>After choosing the solution which is suitable for your needs, you may start to read another article “Backup and Synchronization 2, Step-by-step guides of password database backup and synchronization using cloud storage” which tells you how to backup or synchronize data with PassXYZ Cloud.</p><hr><p><strong>Further reading</strong>:</p><ul><li><a href="https://passxyz.github.io/en/PxWebDAV2-en">Backup and Synchronization 2, Step-by-step guides of password database backup and synchronization using cloud storage</a></li><li><a href="https://passxyz.github.io/en/PxMFA1-en/">What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?</a></li><li><a href="https://passxyz.github.io/en/PxMarkdown-en/">How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management</a></li><li><a href="https://passxyz.github.io/en/PxCloud-en/">A balance between security and convenience, PassXYZ and PassXYZ Cloud</a></li><li><a href="https://www.linkedin.com/pulse/story-password-management-software-from-keepass-passxyz-roger-ye/" target="_blank" rel="noopener">A story of password management software, from KeePass to PassXYZ</a></li><li><a href="https://www.linkedin.com/pulse/can-passwords-replaced-biometrics-like-fingerprint-face-roger-ye/" target="_blank" rel="noopener">Can the passwords be replaced by biometrics like fingerprint or face recognition?</a></li></ul><hr><p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p><p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://passxyz.github.io/images/PxWebDAV/px-webdav01-en.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PassXYZ is a password management
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+      <category term="Cloud" scheme="https://passxyz.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>备份与同步（二） 如何使用云存储来实现多设备的备份与同步</title>
+    <link href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxWebDAV2-cn/</id>
+    <published>2018-11-26T14:32:33.000Z</published>
+    <updated>2021-03-07T09:18:48.724Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png" alt="cover"></p><p>PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。</p><p>PassXYZ根据用户的需要发行了两个定制的版本：</p><ul><li><strong>PassXYZ</strong>本身是一款离线应用，不具有任何网络功能。</li><li><strong>PassXYZ云版</strong>，在PassXYZ的基础上增加了通过网络存储实现备份和同步的功能。</li></ul><p>本文和另一篇文章“备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案”，主要介绍如何使用云版的功能。用户可以根据自己的需要选择适合自己的备份与同步方案，并了解如何使用PassXYZ云版来进行备份与同步。</p><p>在PassXYZ云版1.8.1之后的版本，通过对WebDAV，FTP和SFTP的支持，我们可以使用多种网络协议支持云存储。WebDAV，FTP和SFTP都是标准的网络存储协议，所以即可以在公有云中使用，也可以在个人网络存储设备中使用。一般的个人云产品如Seagate的Personal Cloud或Western Digital的My Cloud等，对上面三种协议都支持。公有云有部分使用通用协议，但多数都使用非标准协议。虽然常用的公有云 ，如OneDrive，Google Drive，iCloud或百度云等，使用的是非标准的网络协议，但也有很多公有云服务支持标准网络存储协议，如Box，DriveHQ和坚果云等支持WebDAV。</p><h2 id="使用坚果云实现多设备间同步"><a href="#使用坚果云实现多设备间同步" class="headerlink" title="使用坚果云实现多设备间同步"></a>使用坚果云实现多设备间同步</h2><p>下面以坚果云为例，来说明如何在PassXYZ 云版中使用标准网络存储协议WebDAV。若使用支持FTP和SFTP的网络服务，其相关设置的步骤是跟WebDAV类似的。</p><h2 id="在坚果云设置中添加应用密码"><a href="#在坚果云设置中添加应用密码" class="headerlink" title="在坚果云设置中添加应用密码"></a>在坚果云设置中添加应用密码</h2><p>首先，要使用坚果云的WebDAV服务，需要在坚果云的设置中添加应用密码如下图：</p><p><img src="https://passxyz.github.io/images/PxWebDAV/jianguoyun01.png" alt="jianguoyun01"></p><p>为了增加第三方访问坚果云的安全性，任何第三方应用访问坚果云都需要一个单独的应用密码。如果有任何问题，可以在设置中随时撤销授权。在PassXYZ云版里使用坚果云，可以添加一个PassXYZ的应用密码。图中显示的“服务器地址”，“邮箱地址”和“应用密码”会在接下来的步骤中使用。</p><h2 id="PassXYZ中云存储的设置"><a href="#PassXYZ中云存储的设置" class="headerlink" title="PassXYZ中云存储的设置"></a>PassXYZ中云存储的设置</h2><p>有了应用密码后，就可以在PassXYZ云的设置中将云存储类型设为WebDAV。</p><p><img src="https://passxyz.github.io/images/PxWebDAV/px_settingscloud01-cn.png" alt="px_settingscloud01-cn"></p><p>在上图中选择了 “云存储”后，就可以看到下图中所列的选项。请选择其中“WebDAV”。</p><p><img src="https://passxyz.github.io/images/PxWebDAV/px_settingscloud02-cn.png" alt="px_settingscloud02-cn"></p><h2 id="添加坚果云记录"><a href="#添加坚果云记录" class="headerlink" title="添加坚果云记录"></a>添加坚果云记录</h2><p>接下来就可以设置坚果云的访问信息了。因为坚果云的访问信息就是一条可以记录在PassXYZ中的密码资料，所以我们可以先建立一条相关的记录，再用这个记录来登录坚果云。为了精简贴图数量，也为了更直观地了解使用方法，下面用了一张gif格式的动画贴图加以说明。</p><p><img src="https://passxyz.github.io/images/PxWebDAV/create-entry-cn.gif" alt="create-entry-cn"></p><p>上图中的步骤说明如下：</p><ol><li>在模板中搜索并选择<strong>WebDAV服务</strong></li><li>添加之前设置好的用户名、应用密码和服务器地址等，并保存</li></ol><p>在完成上述步骤后，我们就得到了一条存有坚果云账户信息的记录。</p><h2 id="使用坚果云记录登陆"><a href="#使用坚果云记录登陆" class="headerlink" title="使用坚果云记录登陆"></a>使用坚果云记录登陆</h2><p>使用上面建立的记录，就可以在菜单中选择“云存储”来登录坚果云了。同样地，为了方便了解，我们还是用一张动画贴图来说明：</p><p><img src="https://passxyz.github.io/images/PxWebDAV/login-cn.gif" alt="login-cn"></p><p>登录步骤说明如下：</p><ol><li>在菜单中选择“<strong>云存储</strong>” ；</li><li>在“<strong>云存储</strong>”页面中点击“<strong>登录</strong>”按钮；</li><li>点击登录按钮后会显示一个登录信息的选择页面，在此页面中选择之前建立的记录。如果我们建立了多个云服务的记录，它们都会显示在列表中。所以如果使用多个云服务，可以很方便地在各个服务之间切换；</li><li>登录后会显示所有当前的本地和云端的数据库；</li><li>可以使用上下文菜单将本地数据库同步到云端。</li></ol><p>在PassXYZ云版中，我们可以通过以上几个步骤来使用一个云服务。这些步骤对WebDAV，FTP和SFTP来说都是类似的。</p><h2 id="使用个人网络存储设备进行同步与备份"><a href="#使用个人网络存储设备进行同步与备份" class="headerlink" title="使用个人网络存储设备进行同步与备份"></a>使用个人网络存储设备进行同步与备份</h2><p>在家用的网络存储设备中，WebDAV，FTP和SFTP等协议也会经常用到。通过这些服务可以使用个人云来进行同步和备份。下图是一个Seagate的Personal Cloud设置，从中可以看到，Personal Cloud对WebDAV，FTP和SFTP都支持。</p><p><img src="https://passxyz.github.io/images/PxWebDAV/px_personalcloud01.png" alt="px_personalcloud01"></p><p>WebDAV，FTP和SFTP都是标准存储协议，所以使用方式类似。若您想使用OneDrive，请参阅另外一篇文章“谈安全性与易用性的权衡，PassXYZ与PassXYZ云”。OneDrive的使用和标准存储协议略有不同。</p><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li><li><a href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 1
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案</title>
+    <link href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/"/>
+    <id>https://passxyz.github.io/zh-CN/PxWebDAV1-cn/</id>
+    <published>2018-11-22T07:58:21.000Z</published>
+    <updated>2021-03-07T09:18:48.693Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png" alt="cover"></p><p>PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。 </p><p>PassXYZ根据用户的需要发行了两个定制的版本：</p><ul><li><strong>PassXYZ</strong>本身是一款离线应用，不具有任何网络功能。</li><li><strong>PassXYZ云版</strong>，在PassXYZ的基础上增加了通过网络存储实现备份和同步的功能。</li></ul><p>本文和另一篇文章“备份与同步（二） 如何使用云存储来实现多设备的备份与同步”主要介绍如何使用云版的功能。用户可以根据自己的需要选择适合自己的备份与同步方案，并了解如何使用PassXYZ云版来进行备份与同步。</p><p>PassXYZ 云版在1.8.1之后提供了较为完整的云存储支持。在此之前的版本只支持OneDrive作为云存储，从1.8.1版开始，除了支持OneDrive以外，还增加了常用的云存储协议如WebDAV，FTP和SFTP等。通过对WebDAV，FTP和SFTP等常见存储协议的支持，用户既可以选择如国外的Box，DriveHQ或者国内的坚果云等公有云，也可以选择个人云存储产品如Seagate的Personal Cloud或Western Digital的My Cloud等。</p><p>关于这一主题，会分别通过下列两篇文章来介绍：</p><ol><li>备份与同步（一） 在使用密码管理软件时，如何选择适合自己的备份与同步方案</li><li>备份与同步（二） 如何使用云存储来实现多设备的备份与同步</li></ol><h2 id="如何选择适合自己的存储方案"><a href="#如何选择适合自己的存储方案" class="headerlink" title="如何选择适合自己的存储方案"></a>如何选择适合自己的存储方案</h2><p>使用密码管理软件的用户通常会在安全性和方便性之间权衡适合自己的方案。虽然安全性是最重要的考虑因素，但方便性对长期使用者来说也不言而喻。云存储所提供的最主要功能是自动备份和同步。如何能同时兼顾安全性和方便性呢？我们来看下面这张表格：</p><p><img src="https://passxyz.github.io/images/PxWebDAV/passxyz_comparison-cn.png" alt="comparison"></p><p>通过上面的表格我们可以看到，不同的方案有不同的特点。根据对不同存储方法的总结，我们可以得到下面三种选择：</p><ol><li><strong>离线存储</strong>：使用离线产品PassXYZ。PassXYZ本身无任何网络访问能力，是一款离线应用。</li><li><strong>个人云或内部网</strong>：通过PassXYZ云版只在内部网使用。只要内部网本身的安全性够高，这个方案与方案1的安全性类似。但如何配置好内部网，使用者需要对网络安全有一定层度的了解。不是每个用户都可以轻易配置好高安全性的内部网或家庭网的。</li><li><strong>公有云或互联网</strong>：使用PassXYZ云版和公有云。这是最方便和容易使用的方案，但安全性取决于个人的使用习惯。所以在上表中，这个选项的安全性从低到高都有可能。</li></ol><p>从上面的总结可以看出，要达到最佳的使用效果，除了要选择适合的方案外，使用者的使用习惯和对网络安全知识的了解也要有一定的要求。而对大多数用户来说，如果还没有积累足够多的使用经验，对网络安全知识也不够了解的话，建议可以考虑将个人资料分类管理。</p><p>所谓的分类，是将资料根据安全性分类。可以将资料先粗略的归为高安全性和一般性两类：</p><ul><li>高安全性的如：银行，重要公共服务（社保或公积金等）</li><li>安全性要求一般的如：邮件，社交媒体或常用网络账号等</li></ul><p>当您将个人资料分类后，您会发现，往往重要资料具有的特性是生命周期长，不常更改，主要用于查询。而安全性一般的资料，通常生命周期短，且常常需要更改。根据这样的分类，可以将重要资料用方案1或方案2来管理，而安全性一般的资料使用方案3管理。对资深用户来说，方案2应该是最佳选择。如果实在有需要的话，也可以选择性地使用方案3来配合。</p><p>当您决定了合适的同步与备份方案后，可以阅读另一篇文章“备份与同步（二） 如何使用云存储来实现多设备的备份与同步”了解备份与同步的使用方法。</p><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">备份与同步（二） 如何使用云存储来实现多设备的备份与同步</a></li><li><a href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 1
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ</title>
+    <link href="https://passxyz.github.io/en/PxMFA2-en/"/>
+    <id>https://passxyz.github.io/en/PxMFA2-en/</id>
+    <published>2018-10-20T03:03:13.000Z</published>
+    <updated>2021-03-07T09:18:48.630Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/PxMFA2/cover.png" alt="cover"></p><p>With the respective releases of PassXYZ (1.5.4) and PassXYZ Cloud (1.6.4), you can now use PassXYZ or PassXYZ Cloud to manage your one time password. One time password (or OTP) is used by many internet service providers as the security method to improve the safety of user information. </p><p>In the past, I used to use both Google Authenticator and Microsoft Authenticator to generate OTP for respective accounts. Recently, I changed my mobile from iPhone to an Android phone since I need two SIM cards’ support. Thereafter, I found problems with both Google Authenticator and Microsoft Authenticator on the new Android phone. As there is no built-in Google Service on the Android phone in China, I cannot install Microsoft Authenticator on my new phone. I have tried to install Google Authenticator on the new phone. Even though I managed to install it, it seems that the Google Authenticator cannot work well without Google Service.</p><p>Therefore, when I was working on the PassXYZ development, I considered to add this function in PassXYZ. If PassXYZ supported OTP, I could also resolve another issue which is the backup of OTP setup. As you know, with either Google authenticator or Microsoft authenticator, if you change to a new phone, you have to setup all accounts again on the new device. However, with PassXYZ, the only thing that we need to do is to re-synchronize the database. That’s the reason why I have brought this feature to the new releases of PassXYZ/PassXYZ Cloud.</p><h2 id="Two-Factor-Authentication-and-One-Time-Password"><a href="#Two-Factor-Authentication-and-One-Time-Password" class="headerlink" title="Two Factor Authentication and One Time Password"></a>Two Factor Authentication and One Time Password</h2><p>Two factor authentication, or 2FA, is the most frequently used multi-factor authentication method. In 2FA, besides the username and password, one more authentication factor will be used. The most popular additional authentication method used nowadays is One Time Password (or OTP).</p><p>There are two ways for the end users to get one time password during an authentication session.</p><ul><li>Send an OTP through SMS</li><li>Generate an OTP using a hardware or software token generator</li></ul><p>Hardware-based token generators are popular in the past, but they are gradually replaced by software token generators due to the costs. The hardware tokens are still used today in some applications. For example, the popular hardware tokens used nowadays are for banking applications, like the one as shown below.</p><p><img src="/images/PxMFA2/digipass_hsbc.jpg" alt="digipass_hsbc"></p><p>As we can see, these hardware tokens used by the banks are more complicated comparing to the common used time-based OTP. The common OTP solution for most internet service providers are time-based OTP based on rfc4226 and rfc6238, such as Google Authenticator. In this article, we will discuss time-based OTP based on rfc4226 and rfc6238. </p><h2 id="Standard-of-Time-based-OTP"><a href="#Standard-of-Time-based-OTP" class="headerlink" title="Standard of Time-based OTP"></a>Standard of Time-based OTP</h2><p>For the time-based OTP, the default standards are rfc4226 and rfc6238. They are used by major service providers, such as Google, Facebook, GitHub, Dropbox, Microsoft or Aliyuan etc.</p><p>Most people may not know what are rfc4226 and rfc6238. RFC means “Request for Comments”. It is used to propose a standard for the standards organization. Both rfc4226 and rfc6238 are the proposed standards for OTP implementation. Rfc4226 is a RFC for event-based OTP whilst rfc6238 is for time-based OTP.</p><h2 id="Why-to-use-2FA"><a href="#Why-to-use-2FA" class="headerlink" title="Why to use 2FA"></a>Why to use 2FA</h2><p>Why we use 2FA? This is because the authentication based on username and password is vulnerable to the attack. As you might be aware, there were about 50 millions Facebook user profiles affected by the recent data breach in 2018. You might have seen the below message when you login to your Facebook account.</p><p><img src="/images/PxMFA2/facebook_2fa_02.png" alt="facebook_2fa_02"></p><p>Hackers gain the access to the system utilizing the flaw of Facebook so that they can obtain user database as they wish. One way to improve the safety of our account is to turn on the multi-factor authentication. Same as other service providers, Facebook supports both software-based OTP token and SMS-based OTP token. </p><p>Let’s take the Facebook as an example to demonstrate how to enable 2FA to improve the account safety.</p><h2 id="Store-Account-Information-in-PassXYZ"><a href="#Store-Account-Information-in-PassXYZ" class="headerlink" title="Store Account Information in PassXYZ"></a>Store Account Information in PassXYZ</h2><p>Before talking about two factor authentication for Facebook, you need to register a Facebook account first. Once the account is created, the best practice is to record down the relevant information using a password management app such as PassXYZ. To save the Facebook account information, you can choose Facebook from the PassXYZ template as shown below.</p><p><img src="/images/PxMFA2/facebook01.png" alt="facebook01"></p><p>After selecting Facebook from the above figure, you can see the screen as shown below which can be used to enter the account information for Facebook.</p><p><img src="/images/PxMFA2/facebook02.png" alt="facebook02"></p><p>The information that can be recorded includes name used for Facebook, email address, password and mobile number, etc. For any additional information, it can be taken down in the “Notes” section. After filling in all the information, the record can be saved by clicking the “Save” button at the top right corner. There are four buttons at the top right corner which are:</p><ul><li><strong>Scan</strong> - scanning QR code to setup OTP</li><li><strong>Attach</strong> - attaching pictures or documents to the record</li><li><strong>Cancel</strong> - cancelling the editing</li><li><strong>Save</strong> - Saving the record </li></ul><p>We will discuss on the “Scan” button shortly.</p><h2 id="Turn-on-2FA"><a href="#Turn-on-2FA" class="headerlink" title="Turn on 2FA"></a>Turn on 2FA</h2><p>To turn on 2FA for Facebook, you can use a browser from your PC or laptop. Once you login to Facebook from a browser, the setting for 2FA can be found in “Security and Login” section as shown below.</p><p><img src="/images/PxMFA2/facebook_2fa_01.png" alt="facebook_2fa_01"></p><p>As shown above, you can find an option “Use two-factor authentication”. By clicking the “Edit” button at its right hand side, you will see another page as shown below.</p><p><img src="/images/PxMFA2/facebook_2fa_03.png" alt="facebook_2fa_03"></p><p>As you can see from the above screenshot, the preferred method is “Authentication App” as shown at the top. Other backup methods are available as well, such as “Text Message”, “Security Key” or “Recovery Codes” etc.</p><p>After choosing “Authentication App”, a popup window will be show as below.</p><p><img src="/images/PxMFA2/facebook_2fa_04.png" alt="facebook_2fa_04"></p><p>Now you can see that there is a QR code at the left hand side which can be used to setup the OTP in a software OTP generator. You can scan it using the “Scan” button as mentioned above when we edit the account information for Facebook. Once you scan the QR code, you can start to use PassXYZ as a software OTP generator. </p><p>In the menu of PassXYZ, there is an option “OTP” which will show all the OTP tokens within one page. Please refer to the below screenshot of the OTP page in PassXYZ. </p><p><img src="/images/PxMFA2/otplistpage.png" alt="otplistpage"></p><p>In this page, you can see multiple OTP tokens which are shown in the same page. Each row is for one service account. You can find “Facebook” at the bottom of the screen. Most of the OTP settings generate a new code every half or one minute. The timeline below the code shows the remaining time for the current code.</p><h2 id="Recovery-Codes"><a href="#Recovery-Codes" class="headerlink" title="Recovery Codes"></a>Recovery Codes</h2><p>In the 2FA setup of Facebook, there are some additional backup methods available as we introduced above. One of them is “Recovery Codes”. This is a mechanism used by most of the service providers to prevent the issues during the login. For an example, assuming in an emergency case during the login, you could not get the OTP through SMS due to the network issue. At this time, you would be able to use “Recovery Codes” to login. “Recovery Codes” are one time password as well. They can usually be generated in a group of ten at a time. You may keep them in the “Notes” section of PassXYZ. But please make sure to remove any of the used codes from the “Notes” once you finished using, for, they are one time use only.</p><h2 id="Beta-testing-of-PassXYZ-and-PassXYZ-Cloud"><a href="#Beta-testing-of-PassXYZ-and-PassXYZ-Cloud" class="headerlink" title="Beta testing of PassXYZ and PassXYZ Cloud"></a>Beta testing of PassXYZ and PassXYZ Cloud</h2><p>In order to get feedback for the new functionalities as much as possible, the beta test versions for both PassXYZ and PassXYZ Cloud are available at the app stores. The beta versions can be installed from the app stores as below:</p><p><strong>iOS</strong>:</p><ul><li>PassXYZ Cloud:<br><a href="https://testflight.apple.com/join/UDDw3AJf" target="_blank" rel="noopener">https://testflight.apple.com/join/UDDw3AJf</a></li><li>PassXYZ:<br><a href="https://testflight.apple.com/join/hAiiGJRJ" target="_blank" rel="noopener">https://testflight.apple.com/join/hAiiGJRJ</a></li></ul><p><strong>Android</strong>:</p><ul><li>PassXYZ Cloud:<br><a href="https://play.google.com/apps/testing/com.passxyz.cloud" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.passxyz.cloud</a></li><li>PassXYZ:<br><a href="https://play.google.com/apps/testing/com.passxyz.PassXYZ" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.passxyz.PassXYZ</a></li></ul><p><strong>Windows 10</strong>:<br>The beta version for Windows 10 is available as well, but there is no test link as Android or iOS. To join the beta test group, you can send the email address of your Microsoft account to our email address <a href="mailto:passxyz@foxmail.com" target="_blank" rel="noopener">passxyz@foxmail.com</a>.</p><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>We have introduced what two factor authentication is and the most frequently used two factor authentication method One Time Password. Based on the introduction, we explained how to use PassXYZ as a tool to record account information and to generate OTP. PassXYZ uses the same open source implementation of rfc4226 and rfc6238 as Google Authenticator.  Thus, it can be used as the OTP generator for all the cases which Google Authenticator can be used. PassXYZ is a cross platform application which supports Android, iOS and Windows 10.</p><hr><p><strong>Further reading</strong>:</p><ul><li><a href="https://passxyz.github.io/en/PxMFA1-en/">What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?</a></li><li><a href="https://passxyz.github.io/en/PxMarkdown-en/">How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management</a></li><li><a href="https://passxyz.github.io/en/PxCloud-en/">A balance between security and convenience, PassXYZ and PassXYZ Cloud</a></li><li><a href="https://www.linkedin.com/pulse/story-password-management-software-from-keepass-passxyz-roger-ye/" target="_blank" rel="noopener">A story of password management software, from KeePass to PassXYZ</a></li><li><a href="https://www.linkedin.com/pulse/can-passwords-replaced-biometrics-like-fingerprint-face-roger-ye/" target="_blank" rel="noopener">Can the passwords be replaced by biometrics like fingerprint or face recognition?</a></li></ul><hr><p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p><p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/PxMFA2/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;With the respective releases of PassXYZ (1.5.4) and PassXYZ Cloud (1.6.4), you ca
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+      <category term="2FA" scheme="https://passxyz.github.io/tags/2FA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新版PassXYZ已上线，新增一次性密码（OTP）管理功能</title>
+    <link href="https://passxyz.github.io/zh-CN/PxMFA2-zh-CN/"/>
+    <id>https://passxyz.github.io/zh-CN/PxMFA2-zh-CN/</id>
+    <published>2018-10-20T03:02:49.000Z</published>
+    <updated>2021-03-07T09:18:48.630Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/PxMFA2/cover.png" alt="cover"></p><p>在最新版本的PassXYZ中，Google，Microsoft和 Facebook等所用的一次性密码都可以用PassXYZ来操作管理了。以前我一直使用Google Authenticator和Microsoft Authenticator来生成一次性密码分别用于登录相关账号。Google Authenticator用于登陆Google，Facebook和GitHub等账号，Microsoft Authenticator专门用于登录Microsoft账号。由于我之前使用的是苹果手机，后来换了一款Android手机，使用后发现中国的手机因为没有Google Services，所以无法安装Microsoft Authenticator，而Google Authenticator虽然可以安装，但工作却不正常。还有一个麻烦的问题是，即使手机可以安装这两个应用，我所有账号的OTP都必需要重新设置，因为无法将原设置从苹果手机导入到新的Android手机上。</p><p>因此，在开发PassXYZ时，我就考虑把OTP功能加入到PassXYZ中以方便使用。PassXYZ使用的是KeePass数据库，如果将所有的OTP设置都保存在KeePass数据库中，同时使用PassXYZ来产生一次性密码，我所遇到的问题就都可以迎刃而解了。因为在Android，iOS和Windows 10上都可以使用PassXYZ，跨平台使用不成问题，同时各种数据导入的问题均可以通过云存储同步和备份加以解决。</p><h2 id="双因素认证与一次性密码-OTP"><a href="#双因素认证与一次性密码-OTP" class="headerlink" title="双因素认证与一次性密码 (OTP)"></a>双因素认证与一次性密码 (OTP)</h2><p>为了让更多用户更好地了解如何正确使用PassXYZ来管理一次性密码，在介绍PassXYZ的一次性密码管理功能前，先介绍一下什么是双因素认证和一次性密码。</p><p>双因素认证(Two factors Authentication或简称2FA)是多因素验证中较为常用的一种验证方式，即除了用户名密码外，还需要提供另一个身份验证方式来识别用户。目前流行的双因素认证方法中，较为常用的是基于一次性密码(One Time Password 或者简称 OTP)的验证方式。</p><p>基于一次性密码(OTP)的验证方法主要有两种形式，一种是通过短信发送一次性密码，另一种是通过专门的应用来产生一次性密码（比如Google Authenticator或PassXYZ）。这两种形式，本质上是一样的，区别仅在于用户获取一次性密码的方式不同。它们各有优缺点，所以大多数互联网服务会同时提供这两种验证机制，以便用户根据自己的需要选择其一。</p><p>关于其他多因素验证方法的介绍，您可以参阅另一篇文章“什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？”。在这里，我们主要讨论的是基于rfc4226和rfc6238实现的一次性密码。</p><h2 id="实现OTP的标准"><a href="#实现OTP的标准" class="headerlink" title="实现OTP的标准"></a>实现OTP的标准</h2><p>由于OTP是最经济且易使用的双因素认证方式，基于rfc4226和rfc6238的一次性密码验证方法被广泛使用在大量的互联网服务中。比如Google，Facebook，GitHub，Dropbox，Aliyuan和Microsoft等，都在使用这种双因素认证方式来保护用户账户安全。</p><p>什么是rfc4226和rfc6238？RFC是英文Request For Comments的缩写，它的意思是等待评审的推荐标准。很多互联网标准都是由RFC衍生而来的。rfc4226和rfc6238就是如何产生一次性密码的推荐标准。</p><h2 id="为何要使用2FA"><a href="#为何要使用2FA" class="headerlink" title="为何要使用2FA"></a>为何要使用2FA</h2><p>为什么要使用双因素认证？因为单纯的用户名和密码的验证方式，是非常容易被黑客攻克的。比如最近发生的Facebook用户资料泄露事件，有大约5000万的用户资料因为系统缺陷而被黑客获取。如下图截屏所示，就是最近收到的Facebook官方的警告信息。</p><p><img src="/images/PxMFA2/facebook_2fa_02.png" alt="facebook_2fa_02"></p><p>由图中高亮部分可以看到，黑客的攻击是利用系统缺陷绕过了用户名和密码，直接劫持了用户的账号来获取用户资料的。这时如果启了用双因素认证，就可以大幅地提高黑客劫持账户的难度，从而保护自己的账户安全。</p><p>那么，如何启用双因素认证呢？我们下面还是以Facebook为例，来介绍如何开启双因素认证和如何使用PassXYZ来管理和产生一次性密码。</p><h2 id="使用PassXYZ存储账户信息"><a href="#使用PassXYZ存储账户信息" class="headerlink" title="使用PassXYZ存储账户信息"></a>使用PassXYZ存储账户信息</h2><p>在开启Facebook的双因素认证之前，需要先建立一个Facebook账号。当拥有了一个Facebook 账号后，应该先将相关资料用PassXYZ记录下来。如下图所示，可以在PassXYZ的模板中找到Facebook，然后建立一条关于Facebook的记录。</p><p><img src="/images/PxMFA2/facebook01.png" alt="facebook01"></p><p>点击上图所示的选项就可以编辑Facebook的账号信息，具体模板显示如下图。</p><p><img src="/images/PxMFA2/facebook02.png" alt="facebook02"></p><p>Facebook账户相关的信息有名称、邮箱、密码和移动电话号码等。任何额外的资料都可以记录在最下方的便签(Notes)中。填好信息后可以点击右上角的存储按钮来存储记录。右上角共有四个按钮，依次分别是：</p><ul><li>扫描–用于扫描设置当前账户OTP的二维码</li><li>附件–可以添加图片或相关文档</li><li>取消–取消编辑</li><li>存储–存储当前记录</li></ul><p>其中的扫描按钮，稍后，我们马上就会讲到。</p><h2 id="开启2FA"><a href="#开启2FA" class="headerlink" title="开启2FA"></a>开启2FA</h2><p>当我们存储好账户信息后，就可以继续去开启Facebook的2FA了。开启2FA需要在电脑的浏览器中找到Facebook的设置，页面如下：</p><p><img src="/images/PxMFA2/facebook_2fa_01.png" alt="facebook_2fa_01"></p><p>在上图中，我们可以看到一个”Use two-factor authentication”的选项。选择其右边的编辑键，得到以下页面。</p><p><img src="/images/PxMFA2/facebook_2fa_03.png" alt="facebook_2fa_03"></p><p>这时，您可以选择使用OTP应用(Authentication App)或短信(Text Message)来生成OTP。如果选择OTP应用的话，就会看到下面的弹出窗口。</p><p><img src="/images/PxMFA2/facebook_2fa_04.png" alt="facebook_2fa_04"></p><p>现在，您有两种方式来设置OTP应用：扫描左边的二维码，或输入右边的OTP编码。在PassXYZ中，我们可以选择前面所讲的，在Facebook条目编辑中的扫描按钮来导入OTP设置。当我们成功导入了OTP设置后，便可以在PassXYZ的菜单中选择OTP看到下面的页面了。</p><p><img src="/images/PxMFA2/otplistpage.png" alt="otplistpage"></p><p>上图中显示的Facebook一栏，就是我们导入的OTP设置产生的。在Facebook一栏中，显示的六位数字为可以用作二次验证的一次性密码。目前多数的OTP设置一般是每半分钟或一分钟更新一次编码，由各个服务提供商自行设定。数字编码下面显示的时间线表示的是当前编码的有效时间。</p><h2 id="Recovery-Codes"><a href="#Recovery-Codes" class="headerlink" title="Recovery Codes"></a>Recovery Codes</h2><p>紧急恢复码(Recovery Codes)是在紧急情况下用来替代OTP的。比如，手机临时无法正常工作时，或在使用短信OTP时遇到网络原因无法收到短信时，此时，就可以使用恢复码来应急。</p><p>在PassXYZ中设置好OTP后，可以在Facebook的2FA设置中选择最下面的选项Recovery Codes，来生成一组紧急恢复码。恢复码一般一次产生10个，它们与OTP类似，也是一次性使用的密码。产生的恢复码可以记录在PassXYZ中Facebook条目的便签里，以便查找。因为恢复码是一次性的，每次使用后，应将使用过的恢复码从便签中删除。</p><h2 id="PassXYZ和PassXYZ-Cloud的Beta测试"><a href="#PassXYZ和PassXYZ-Cloud的Beta测试" class="headerlink" title="PassXYZ和PassXYZ Cloud的Beta测试"></a>PassXYZ和PassXYZ Cloud的Beta测试</h2><p>为了得到更多用户对PassXYZ新功能的反馈，PassXYZ和PassXYZ Cloud的最新版本都开放了Beta测试，欢迎有兴趣的用户参加。</p><p>PassXYZ的Beta测试版本可以通过下面链接在苹果商店，Google Play和Windows商店中安装：</p><h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS:"></a>iOS:</h3><ul><li>PassXYZ Cloud: <a href="https://testflight.apple.com/join/UDDw3AJf" target="_blank" rel="noopener">https://testflight.apple.com/join/UDDw3AJf</a></li><li>PassXYZ: <a href="https://testflight.apple.com/join/hAiiGJRJ" target="_blank" rel="noopener">https://testflight.apple.com/join/hAiiGJRJ</a></li></ul><h3 id="Android"><a href="#Android" class="headerlink" title="Android:"></a>Android:</h3><ul><li>PassXYZ Cloud: <a href="https://play.google.com/apps/testing/com.passxyz.cloud" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.passxyz.cloud</a></li><li>PassXYZ: <a href="https://play.google.com/apps/testing/com.passxyz.PassXYZ" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.passxyz.PassXYZ</a></li></ul><h3 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h3><p>Windows商店也提供PassXYZ的Beta测试版，但没有公开的测试链接。有兴趣的朋友可以发邮件到下面的邮箱获取Beta测试版本：<a href="mailto:passxyz@foxmail.com" target="_blank" rel="noopener">passxyz@foxmail.com</a>。请在邮件中注明您的Microsoft账号邮件地址。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文介绍了什么是双因素认证以及最常使用的双因素认证验证方法一次性密码(OTP)，并在此基础上以Facebook为例，介绍了如何使用PassXYZ来同时管理账户信息和设置与之相关的OTP。用户在使用网络服务时，可以使用PassXYZ来查询账户信息，同时也可以直接用PassXYZ来产生二次验证所需的OTP。PassXYZ所支持的OTP产生机制与Google Authenticator相同，都是基于rfc4226和rfc6238实现的，支持Google，Facebook，GitHub，Dropbox，Aliyuan和Microsoft等常用互联网服务所需的二次验证方法。</p><hr><h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul><li><a href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？</a></li><li><a href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系</a></li><li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li><li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li></ul><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/PxMFA2/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在最新版本的PassXYZ中，Google，Microsoft和 Facebook等所用的一次性密码都可以用PassXYZ来操作管理了。以前我一直使用Google
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+      <category term="2FA" scheme="https://passxyz.github.io/tags/2FA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Import and Export of PassXYZ data files</title>
+    <link href="https://passxyz.github.io/en/PxImportExport-en/"/>
+    <id>https://passxyz.github.io/en/PxImportExport-en/</id>
+    <published>2018-10-16T07:30:11.000Z</published>
+    <updated>2021-03-07T09:18:48.570Z</updated>
+    
+    <content type="html"><![CDATA[<p>This article introduces how to export and import data files in PassXYZ. Although PassXYZ is developed on top of KeePass library, it is a cross platform application. KeePass can only run on Windows. To take care of various platforms, PassXYZ has to utilize the features provided by different platforms to implement the functionalities for import and export.</p><p>As KeePass is a Windows application, it operates files directly. This is a common behavior for Windows application, but not for Android or iOS. Modern mobile platforms like Android or iOS use application sandbox to protect the user data. Mobile applications have very limited access to the file system. Windows 10 introduces Universal Windows Platform (UWP) application which also uses application sandbox. This is very similar to Android and iOS from the point of view of file system.</p><p>As the data files of PassXYZ stored in the application data area can take the advantage of application sandbox, the security of user data can be protected by the system itself. For the user data in the application data area, the system also provides the following features:</p><ol><li><strong>Data backup</strong>, Android and iOS can backup user data to the cloud, such as Google Drive or iCloud.</li><li><strong>System utility</strong>, the users can use the utilities provided by the operating system to process user data. For an example, iOS users can use iTunes to import and export user data.</li><li><strong>Data security</strong>, operating system uses data sandbox to isolate user data for different applications to provide better user data security.</li></ol><p>Since all data files are stored in the application data area, PassXYZ uses the concept of users instead of using data files directly. To exchange data across devices, PassXYZ provides import and export functions to perform the relevant tasks.</p><h2 id="Naming-convention-of-PassXYZ-user-data-files"><a href="#Naming-convention-of-PassXYZ-user-data-files" class="headerlink" title="Naming convention of PassXYZ user data files"></a>Naming convention of PassXYZ user data files</h2><p>When PassXYZ user starts to use PassXYZ, PassXYZ will run through a registration process to create the username and password for the user. There will be a data file which matches each username. The naming convention of the data file for a user is shown below:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pass_d_&#123; encoded username &#125;.xyz</span><br></pre></td></tr></table></figure><p> or </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pass_e_&#123; encoded username &#125;.xyz</span><br></pre></td></tr></table></figure><p>The file name extension of PassXYZ data file is <strong>.xyz</strong>. The prefix of data file indicates the file type.</p><ul><li>The data file with the prefix “<strong>pass_d_</strong>“ indicates that this is a normal data file.</li><li>The data file with the prefix “<strong>pass_e_</strong>“ indicates that this is a data file with Device Lock enabled.</li></ul><p>The user name is a part of the data file name, but it is encoded. The reason why we want to encode the username is because the requirement for the file name is different in different operating systems. With the encoded username, we can bypass the operating system requirements for the file name so that the users can use any username as they like.</p><h2 id="Import-of-data-file"><a href="#Import-of-data-file" class="headerlink" title="Import of data file"></a>Import of data file</h2><p>PassXYZ users can import PassXYZ data file (.xyz) or KeePass data file (.kdbx) through “<strong>Sharing</strong>“ function on Android, iOS or Windows. As an example, we use Android system to explain the import process. The import process on iOS or Windows is similar to that of Android.</p><p><img src="/images/PxImportExport/sharing-en.png" alt="sharing"></p><p>From the above figure, when a file is selected, it can be shared to PassXYZ or PassXYZ Cloud through “<strong>Sharing</strong>“ menu.<br>After selecting PassXYZ in the “<strong>Sharing</strong>“ menu, we can see the below page in PassXYZ.</p><p><img src="/images/PxImportExport/importdata-en.png" alt="importdata"></p><p>If the selected file is a PassXYZ data file, the user name in the data file can be decoded and displayed on the page. If it is a KeePass data file, we need to give a new user name before import. By clicking the “<strong>Import</strong>“ button, the data file can be imported to the PassXYZ data area.</p><h2 id="Export-of-data-file"><a href="#Export-of-data-file" class="headerlink" title="Export of data file"></a>Export of data file</h2><p>To export a PassXYZ data file, the system “<strong>Sharing</strong>“ function can be used as well. From the below figure, we can see that there is an “<strong>Export database</strong>“ option in the <strong>Settings</strong> of PassXYZ. After clicking the “<strong>Export Database</strong>“, the system menu for <strong>Sharing</strong> will be displayed. The users can choose their preferred options, such as <em>Bluetooth</em>, <em>Email</em> or <em>Cloud Storage</em> etc. to transmit the data file to other devices.</p><p><img src="/images/PxImportExport/export.png" alt="export"></p><p>Export data files through <strong>Sharing</strong> can be used on Android, iOS and Windows. For different platforms, we can also use the platform specific functions to export or import data as well.<br>On Windows 10, the data file of PassXYZ or PassXYZ Cloud can be accessed directly from the below folders. As you can see, it is very easy to either import or export data files on Windows.</p><ol><li>PassXYZ data file<br>%USERPROFILE%\AppData\Local\Packages\13783RogerYe.PassXYZ_ffxtg61znt7pw\LocalState</li><li>PassXYZ Cloud data file<br>%USERPROFILE%\AppData\Local\Packages\13783RogerYe.PassXYZCloud_ffxtg61znt7pw\LocalState</li></ol><p>For iOS, the users can use iTunes to import or export data files as below.</p><p><img src="/images/PxImportExport/passxyz_itunes.png" alt="itunes"></p><p>After launching iTunes, we can choose <strong>File Sharing</strong> from the menu on the left hand side. A list of application which the data files can be accessed will be displayed. Select PassXYZ in the list, the PassXYZ data files will be shown in the <strong>PassXYZ Documents</strong> section. Now, the date files are ready for import or export.</p><p>Hope this article will be helpful when you import or export PassXYZ data files.</p><hr><p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p><p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This article introduces how to export and import data files in PassXYZ. Although PassXYZ is developed on top of KeePass library, it is a 
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PassXYZ数据文件的导入和导出</title>
+    <link href="https://passxyz.github.io/zh-CN/PxImportExport-zh-CN/"/>
+    <id>https://passxyz.github.io/zh-CN/PxImportExport-zh-CN/</id>
+    <published>2018-10-08T23:58:00.000Z</published>
+    <updated>2021-03-07T09:18:48.589Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要介绍PassXYZ数据文件的管理和导入导出功能。虽然PassXYZ是基于KeePass开发的，但为了让普通用户更容易使用，开发者在KeePass的基础上进行了一些改进，以适应多平台的需求。</p><p>首先，KeePass的用户是直接对文件进行操作的，这对普通的Windows应用来说没什么问题。但是，当我们想在Android，iOS和Windows上让用户都有类似的体验时，直接的文件操作会带来一些问题。Andriod和iOS为了用户数据的安全都使用了类似“沙箱”的概念，用户数据在应用之间是相互隔离的。特别是iOS，在加入文件管理器前，iOS用户是不会直接操作文件的。对Windows用户来说，PassXYZ提供的是UWP应用。UWP应用与普通Windows应用的主要区别就是，用户数据在应用之间是相互隔离的。这与Android和iOS应用非常相似。</p><p>PassXYZ的数据文件是存储在各平台所指定的应用数据存储区。这样做的好处是，PassXYZ可以跟本平台的应用一样具有一些系统本身提供的功能，而不需要另外开发。这些系统提供的功能包括：</p><ol><li><strong>数据备份</strong>，Android和iOS都提供用户数据的备份功能。如Google提供将用户数据备份到Google Drive上，iOS的用户可以用iCloud进行备份。</li><li><strong>系统工具</strong>，可以使用系统提供的工具来处理用户数据。如在iOS上可以使用iTunes来导入和导出数据。</li><li><strong>数据安全</strong>，由于应用数据是相互隔离的，数据安全由操作系统保障。</li></ol><p>因为所有数据文件都存储在应用数据存储区，所以PassXYZ使用的是用户的概念来管理数据文件，并使用导入和导出功能让用户可以在不同设备间传输和同步数据。</p><h2 id="PassXYZ用户数据文件的命名规则"><a href="#PassXYZ用户数据文件的命名规则" class="headerlink" title="PassXYZ用户数据文件的命名规则"></a>PassXYZ用户数据文件的命名规则</h2><p>当第一次使用PassXYZ时，PassXYZ会要求指定一个用户名和密码。每个用户名都有一个数据文件与之对应。数据文件的命名规则如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pass_d_&#123;用户名编码&#125;.xyz</span><br></pre></td></tr></table></figure><p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pass_e_&#123;用户名编码&#125;.xyz</span><br></pre></td></tr></table></figure></p><p>PassXYZ数据文件的扩展名是“<strong>.xyz</strong>”。文件名前缀表示数据文件的类型：前缀“<strong>pass_d_</strong>”代表的是普通数据文件；前缀“<strong>pass_e_</strong>”代表的是开启了数据锁的数据文件。可以注意到，用户名的部分是进行了编码处理的。之所以要对用户名部分进行编码，一是因为不同系统对文件名可以使用的字符集要求不同，二是为了消除命名用户名时对字符集的限制。</p><h2 id="数据文件的导入"><a href="#数据文件的导入" class="headerlink" title="数据文件的导入"></a>数据文件的导入</h2><p>用户可以导入PassXYZ的数据文件或以.kdbx结尾的KeePass数据文件。导入文件可以通过系统的分享功能来完成。下面以Android系统为例来说明，在iOS和Windows上的情况是类似的。</p><p><img src="/images/PxImportExport/sharing-en.png" alt="sharing"></p><p>如上图所示，当选择了一个文件后，再选择系统的分享功能，将会看到底部的分享菜单。在菜单中选择PassXYZ或PassXYZ云来导入数据文件。</p><p>如果选择了PassXYZ，将会看到下图所示的导入页面。</p><p><img src="/images/PxImportExport/importdata-cn.png" alt="importdata"></p><p>这时，需要给要导入的文件指定一个用户名。如果是PassXYZ数据文件，如上图，导入时会自动识别文件中的用户名编码，并解码将其显示为可识别的用户名，直接选择“导入”就可以导入当前的数据文件了。</p><h2 id="数据文件的导出"><a href="#数据文件的导出" class="headerlink" title="数据文件的导出"></a>数据文件的导出</h2><p>数据文件的导出也是通过系统的分享功能实现的。如下图所示，在设置中有“导出数据”选项。点击“导出数据”选项后，可以看到系统的分享菜单。可以选择蓝牙，微信或QQ等将数据文件传输至其他设备。</p><p><img src="/images/PxImportExport/export-cn.png" alt="export"></p><p>通过系统的分享功能将数据文件导出，适用于所有系统。</p><p>除了使用系统的分享功能外，在不同的系统中，还可以使用系统特有的方式导出或备份数据文件。在Windows 10上，所有UWP应用数据都存储在目录：%USERPROFILE%\AppData\Local\Packages。PassXYZ和PassXYZ云可以直接将数据文件同步到下面的目录：</p><ol><li>PassXYZ的数据文件：<br>%USERPROFILE%\AppData\Local\Packages\13783RogerYe.PassXYZ_ffxtg61znt7pw\LocalState</li><li>PassXYZ云的数据文件：<br>%USERPROFILE%\AppData\Local\Packages\13783RogerYe.PassXYZCloud_ffxtg61znt7pw\LocalState</li></ol><p>如果是使用苹果系统，可以使用iTunes导入或导出数据文件。</p><p><img src="/images/PxImportExport/passxyz_itunes.png" alt="itunes"></p><p>当运行了iTunes后，可以在左侧的列表中选择“<strong>File Sharing</strong>”。有数据文件的应用会列在右手边的窗口中。这时选择PassXYZ就可以在“<strong>PassXYZ Documents</strong>”中看到数据文件了。</p><p>希望以上功能介绍对您的使用有所帮助！</p><hr><p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p><p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文主要介绍PassXYZ数据文件的管理和导入导出功能。虽然PassXYZ是基于KeePass开发的，但为了让普通用户更容易使用，开发者在KeePass的基础上进行了一些改进，以适应多平台的需求。&lt;/p&gt;
+&lt;p&gt;首先，KeePass的用户是直接对文件进行操作的，这对普通的W
+      
+    
+    </summary>
+    
+      <category term="帮助" scheme="https://passxyz.github.io/categories/%E5%B8%AE%E5%8A%A9/"/>
+    
+    
+      <category term="zh-CN" scheme="https://passxyz.github.io/tags/zh-CN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?</title>
+    <link href="https://passxyz.github.io/en/PxMFA1-en/"/>
+    <id>https://passxyz.github.io/en/PxMFA1-en/</id>
+    <published>2018-09-21T07:38:53.000Z</published>
+    <updated>2021-03-07T09:18:48.599Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/PxMFA1/cover.png" alt="cover"></p><p>As the data breaches on internet become a serious problem of personal safety of internet users, the old way of authentication using only username and password is vulnerable to the attack. Major network service providers start to use multi-factor authentication to improve the safety of their users.</p><h2 id="Multi-factor-authentication"><a href="#Multi-factor-authentication" class="headerlink" title="Multi-factor authentication"></a>Multi-factor authentication</h2><p><strong>Multi-factor authentication</strong> or <strong>MFA</strong> is a method of confirming a user’s claimed identity in which a computer user is granted access only after successfully presenting two or more pieces of evidence (or factors) to an authentication mechanism. The evidences could be knowledge (something the user and only the user knows, such as password), possession (something the user and only the user has, such as smartcard), or inherence (something the user and only the user is, such as fingerprint).</p><p>The popular multi-factor authentication methods used by the banks are:</p><ul><li>Username/password together with a smartcard/USB token</li><li>Username/password together with a hardware OTP token</li></ul><p>As mainly two factors for the authentication are used, it is also called two-factor authentication or 2FA. With the prevalence of OTP based authentication, the authentication methods such as software OTP generator, SMS based OTP or app pushing notification are also used by many service providers.</p><h2 id="Multi-factor-authentication-in-KeePass"><a href="#Multi-factor-authentication-in-KeePass" class="headerlink" title="Multi-factor authentication in KeePass"></a>Multi-factor authentication in KeePass</h2><p><a href="https://keepass.info/" target="_blank" rel="noopener">KeePass</a> is a famous open source password management tool. It is especially popular in the community of programmers. The built-in MFA support in KeePass looks simple, but KeePass actually provides the richest support of MFA. Many MFA features of KeePass are provided through KeePass plugins which are developed by various open source developers. The MFA support in KeePass can be divided into the following two categories:</p><ol><li>Multi-factor authentication to access KeePass database, and</li><li>Using KeePass to store multi-factor authentication data</li></ol><p>In this article, let’s focus on the first category of MFA support. The second category will be discussed separately in another article shortly.</p><p>The framework in KeePass to support MFA is through <strong>Composite Keys</strong> and <strong>Key Providers</strong>. This is a very flexible framework which allows open source developers to contribute to the KeePass MFA development easily. As such, <a href="https://passxyz.github.io/">PassXYZ</a> implements its own <strong>Key Provider</strong> which can be used together with master password to form <strong>Composite Keys</strong> to encrypt the database.</p><p>Besides the new Key Provider developed for PassXYZ, PassXYZ also provides an easy-to-use user interface so that all users can use this feature without any difficulties.</p><h2 id="How-to-use-MFA-to-improve-the-safety-of-PassXYZ-database"><a href="#How-to-use-MFA-to-improve-the-safety-of-PassXYZ-database" class="headerlink" title="How to use MFA to improve the safety of PassXYZ database"></a>How to use MFA to improve the safety of PassXYZ database</h2><p>The <strong>Key Provider</strong> in PassXYZ is implemented as Device Lock. What is Device Lock? If you used mobile banking app before, you might know that you have to bind the app with your device before you can start to use it. The Device Lock in PassXYZ uses a similar concept to improve the safety of PassXYZ database. When a user wants to create a new database, there is an option to enable Device Lock. If the user enables the Device Lock, the database is bound to the current device. Therefore, even if the hacker obtains the database and tries to break it through brute force, they would find that they won’t be able to do it due to the Device Lock. The possibility to break an encrypted data through brute force depends on the level of encryption. Device Lock is a very strong encryption method comparing to master password. When PassXYZ users use Composite Keys with both Device Lock and master password, there is no chance for a hacker to break the database through brute force. This feature is especially important for the users who choose to store their database on the cloud.</p><h2 id="How-to-enable-Device-Lock"><a href="#How-to-enable-Device-Lock" class="headerlink" title="How to enable Device Lock"></a>How to enable Device Lock</h2><p>When the users create a new database, they can enable Device Lock through a switch as shown below at the bottom of SignUp page.</p><p><img src="/images/PxMFA1/signup-en.png" alt="signup-en"></p><p>After turn on this switch, the new database is created with Device Lock enabled.</p><h2 id="How-to-use-Device-Lock-enabled-database-on-another-device"><a href="#How-to-use-Device-Lock-enabled-database-on-another-device" class="headerlink" title="How to use Device Lock enabled database on another device"></a>How to use Device Lock enabled database on another device</h2><p>If the users create a database with Device Lock enabled and want to transfer it to another device thereafter, they won’t be able to access this database in the new device due to the Device Lock. If the users do want to use Device Lock enabled database on multiple devices, they can actually follow the steps below:</p><ol><li>Transfer the database to another device first</li><li>Find the Device Lock Key on the current device</li><li>Scan the QR code of Device Lock Key through the new device</li></ol><p>In step 1, there are multiple ways to transfer the database to another device. With PassXYZ Cloud, the transfer is very easy. Users just need to turn on the synchronization of the database on the new device. Other than synchronization through the cloud, users can also export the database through the <strong>Sharing</strong> function of the system. In the <strong>Settings</strong> menu, there is an option <strong>Export database</strong>. By clicking this option, a sharing dialog will be displayed by the system. The users can choose Bluetooth, email or other methods provided by the system to transfer the database to another device. After importing the database, the users will be able to see the login screen as below:</p><p><img src="/images/PxMFA1/login-en.png" alt="login-en"></p><p>As you can see, the password field is disabled temporarily in the above login screen. The users therefore cannot just login using master password. A hint is displayed at the bottom of the page which tells the users that a Device Lock Key is needed to access this database. Now the users can click the scanning button beside the password field to scan the Device Lock Key QR code on the original device.</p><p>The QR code of Device Lock Key can be found in the <strong>Settings</strong> of the original device. In the <strong>Settings</strong> page, there is a <strong>Security Settings</strong> option as shown in the below screenshot.</p><p><img src="/images/PxMFA1/settings1-en.png" alt="settings1-en"></p><p>After selecting the <strong>Security Settings</strong> option, a popup window with two options will be displayed as below.</p><ol><li>Device Lock Key QR code</li><li>Export Device Lock Key to a file</li></ol><p><img src="/images/PxMFA1/options-en.png" alt="options-en"></p><p>The users can choose either of the ways to transfer the Device Lock Key to the new device. After the Device Lock Key is imported on the new device, the users can login as usual.</p><h2 id="How-to-enable-Device-Lock-for-the-existing-database"><a href="#How-to-enable-Device-Lock-for-the-existing-database" class="headerlink" title="How to enable Device Lock for the existing database"></a>How to enable Device Lock for the existing database</h2><p>For the safety reason, the users may want to enable Device Lock for their existing database. This can be done through the following steps:</p><ol><li>Go to <strong>Settings</strong> and select <strong>Security Settings</strong></li><li>In the popup windows, provide a new username for creating the new database, and click <strong>Import</strong></li></ol><p>If the Device Lock is disabled, the users can find the <strong>Security Settings</strong> as shown in the screenshot below.</p><p><img src="/images/PxMFA1/settings2-en.png" alt="settings2-en"></p><p>To convert the current database to a new one with the Device Lock enabled, the users can click the <strong>Security Settings</strong>. The following page for the data converting will be then displayed.</p><p><img src="/images/PxMFA1/import-en.png" alt="import-en"></p><p>In this page, the users need to give the new database a name and click the <strong>Import</strong> button thereafter to create the new database with Device Lock enabled. After confirming that everything is ok in the new database, the users may choose to delete the old one.</p><h2 id="Security-Analysis-of-PassXYZ-Device-Lock"><a href="#Security-Analysis-of-PassXYZ-Device-Lock" class="headerlink" title="Security Analysis of PassXYZ Device Lock"></a>Security Analysis of PassXYZ Device Lock</h2><p>As above, we have explained what the Device Lock is and how we can use it. Now, let’s do some analysis about the security of Device Lock. It will be hard for most of the readers to understand if we are to analyze the security of an encryption function directly. To make it simple, we can compare Device Lock with the similar implementation in 1Password. Secret Key in 1Password is a very similar feature comparing to Device Lock in PassXYZ. There is an article which introduces what Secret Key is and how it works. Below is a diagram from that article which tells us about Password Entropy and the quality of password.</p><p><img src="/images/PxMFA1/secret-key-entropy.png" alt="secret-key-entropy"></p><p>From the above diagram, we can see that with the combination of master password and Device Lock (or Secret Key), we can achieve more than 128bits of entropy. The Master Password that people can memorize, on average, will only be strong as about 40 bits of entropy. Device Lock or Secret Key doesn’t need to be memorized, so it can be much stronger. With 128 bits of entropy, it is infeasible to guess no matter how much money or computing power an attacker has.</p><p>Usually, an attacker tries to guess the password through enumerating all the possible combination of available characters. How long time will each guess take is a key factor to the success of an attack. In the design of encryption, we usually use a Key Derivation algorithm to achieve this. In 1Password, the algorithm PBKDF2 is used. In KeePass, there are many algorithms can be used, such as AES-KDF or Argon2 etc. Since Argon2 is the winner of Password Hashing Competition, it is the default Key Derivation algorithm used by KeePass. Based on the introduction of Key Derivation algorithm, let’s look at another diagram from 1Password concerning Key Derivation algorithm and password entropy.</p><p><img src="/images/PxMFA1/pbkdf2-crack-times.png" alt="pbkdf2-crack-times"></p><p>As we can see from the above diagram, given the complexity of Key Derivation algorithm and password entropy, we can estimate the amount of time to discover the master password under a particular hardware configuration. For the average password strength with about 40 bits entropy, it takes about 2 weeks to 2 months to discover the master password. But, when the password entropy goes above 65 bits, the amount of time needed to discover the master password will be a very large number which is almost impossible for an attacker to complete.</p><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>For the safety of PassXYZ database, it is suggested to enable Device Lock for all new databases. To backup the Device Lock Key, the users may wish to print a hard copy of the QR code and keep it in a safe place. For the users who want to store their database on the cloud so as to take the advantage of synchronization and backup, Device Lock can keep their database much safer. Without Device Lock enabled, the database may be vulnerable under the brute force attack.</p><hr><p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p><p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/PxMFA1/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;As the data breaches on internet become a serious problem of personal safety of i
+      
+    
+    </summary>
+    
+      <category term="Help" scheme="https://passxyz.github.io/categories/Help/"/>
+    
+    
+      <category term="en" scheme="https://passxyz.github.io/tags/en/"/>
+    
+      <category term="2FA" scheme="https://passxyz.github.io/tags/2FA/"/>
+    
+  </entry>
+  
+</feed>

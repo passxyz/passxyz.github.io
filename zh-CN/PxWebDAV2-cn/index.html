@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en,zh-Hans,zh-tw,zh-hk,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。 PassXYZ根据用户的需要发行了两个定制的版本：  PassXYZ本身是一款离线应用，不具有任何网络功能。 PassXYZ云版，">
+<meta name="keywords" content="zh-CN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="备份与同步（二） 如何使用云存储来实现多设备的备份与同步">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。 PassXYZ根据用户的需要发行了两个定制的版本：  PassXYZ本身是一款离线应用，不具有任何网络功能。 PassXYZ云版，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/jianguoyun01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/px_settingscloud01-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/px_settingscloud02-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/create-entry-cn.gif">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/login-cn.gif">
+<meta property="og:image" content="https://passxyz.github.io/images/PxWebDAV/px_personalcloud01.png">
+<meta property="og:updated_time" content="2021-03-07T09:18:48.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="备份与同步（二） 如何使用云存储来实现多设备的备份与同步">
+<meta name="twitter:description" content="PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。 PassXYZ根据用户的需要发行了两个定制的版本：  PassXYZ本身是一款离线应用，不具有任何网络功能。 PassXYZ云版，">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="PassXYZ" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>备份与同步（二） 如何使用云存储来实现多设备的备份与同步 | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PassXYZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxWebDAV2-cn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roger Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">备份与同步（二） 如何使用云存储来实现多设备的备份与同步
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-26 22:32:33" itemprop="dateCreated datePublished" datetime="2018-11-26T22:32:33+08:00">2018-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-03-07 17:18:48" itemprop="dateModified" datetime="2021-03-07T17:18:48+08:00">2021-03-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/帮助/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://passxyz.github.io/images/PxWebDAV/px-webdav01-cn.png" alt="cover"></p>
+<p>PassXYZ是一款基于KeePass开发的支持Android，iOS和Windows 10的跨平台密码管理软件。KeePass本身是一款流行的开源的密码管理软件，但官方版本只支持Windows。PassXYZ除了支持多个平台外，对移动端的用户体验进行了较大的提升。</p>
+<p>PassXYZ根据用户的需要发行了两个定制的版本：</p>
+<ul>
+<li><strong>PassXYZ</strong>本身是一款离线应用，不具有任何网络功能。</li>
+<li><strong>PassXYZ云版</strong>，在PassXYZ的基础上增加了通过网络存储实现备份和同步的功能。</li>
+</ul>
+<p>本文和另一篇文章“备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案”，主要介绍如何使用云版的功能。用户可以根据自己的需要选择适合自己的备份与同步方案，并了解如何使用PassXYZ云版来进行备份与同步。</p>
+<p>在PassXYZ云版1.8.1之后的版本，通过对WebDAV，FTP和SFTP的支持，我们可以使用多种网络协议支持云存储。WebDAV，FTP和SFTP都是标准的网络存储协议，所以即可以在公有云中使用，也可以在个人网络存储设备中使用。一般的个人云产品如Seagate的Personal Cloud或Western Digital的My Cloud等，对上面三种协议都支持。公有云有部分使用通用协议，但多数都使用非标准协议。虽然常用的公有云 ，如OneDrive，Google Drive，iCloud或百度云等，使用的是非标准的网络协议，但也有很多公有云服务支持标准网络存储协议，如Box，DriveHQ和坚果云等支持WebDAV。</p>
+<h2 id="使用坚果云实现多设备间同步"><a href="#使用坚果云实现多设备间同步" class="headerlink" title="使用坚果云实现多设备间同步"></a>使用坚果云实现多设备间同步</h2><p>下面以坚果云为例，来说明如何在PassXYZ 云版中使用标准网络存储协议WebDAV。若使用支持FTP和SFTP的网络服务，其相关设置的步骤是跟WebDAV类似的。</p>
+<h2 id="在坚果云设置中添加应用密码"><a href="#在坚果云设置中添加应用密码" class="headerlink" title="在坚果云设置中添加应用密码"></a>在坚果云设置中添加应用密码</h2><p>首先，要使用坚果云的WebDAV服务，需要在坚果云的设置中添加应用密码如下图：</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/jianguoyun01.png" alt="jianguoyun01"></p>
+<p>为了增加第三方访问坚果云的安全性，任何第三方应用访问坚果云都需要一个单独的应用密码。如果有任何问题，可以在设置中随时撤销授权。在PassXYZ云版里使用坚果云，可以添加一个PassXYZ的应用密码。图中显示的“服务器地址”，“邮箱地址”和“应用密码”会在接下来的步骤中使用。</p>
+<h2 id="PassXYZ中云存储的设置"><a href="#PassXYZ中云存储的设置" class="headerlink" title="PassXYZ中云存储的设置"></a>PassXYZ中云存储的设置</h2><p>有了应用密码后，就可以在PassXYZ云的设置中将云存储类型设为WebDAV。</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/px_settingscloud01-cn.png" alt="px_settingscloud01-cn"></p>
+<p>在上图中选择了 “云存储”后，就可以看到下图中所列的选项。请选择其中“WebDAV”。</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/px_settingscloud02-cn.png" alt="px_settingscloud02-cn"></p>
+<h2 id="添加坚果云记录"><a href="#添加坚果云记录" class="headerlink" title="添加坚果云记录"></a>添加坚果云记录</h2><p>接下来就可以设置坚果云的访问信息了。因为坚果云的访问信息就是一条可以记录在PassXYZ中的密码资料，所以我们可以先建立一条相关的记录，再用这个记录来登录坚果云。为了精简贴图数量，也为了更直观地了解使用方法，下面用了一张gif格式的动画贴图加以说明。</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/create-entry-cn.gif" alt="create-entry-cn"></p>
+<p>上图中的步骤说明如下：</p>
+<ol>
+<li>在模板中搜索并选择<strong>WebDAV服务</strong></li>
+<li>添加之前设置好的用户名、应用密码和服务器地址等，并保存</li>
+</ol>
+<p>在完成上述步骤后，我们就得到了一条存有坚果云账户信息的记录。</p>
+<h2 id="使用坚果云记录登陆"><a href="#使用坚果云记录登陆" class="headerlink" title="使用坚果云记录登陆"></a>使用坚果云记录登陆</h2><p>使用上面建立的记录，就可以在菜单中选择“云存储”来登录坚果云了。同样地，为了方便了解，我们还是用一张动画贴图来说明：</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/login-cn.gif" alt="login-cn"></p>
+<p>登录步骤说明如下：</p>
+<ol>
+<li>在菜单中选择“<strong>云存储</strong>” ；</li>
+<li>在“<strong>云存储</strong>”页面中点击“<strong>登录</strong>”按钮；</li>
+<li>点击登录按钮后会显示一个登录信息的选择页面，在此页面中选择之前建立的记录。如果我们建立了多个云服务的记录，它们都会显示在列表中。所以如果使用多个云服务，可以很方便地在各个服务之间切换；</li>
+<li>登录后会显示所有当前的本地和云端的数据库；</li>
+<li>可以使用上下文菜单将本地数据库同步到云端。</li>
+</ol>
+<p>在PassXYZ云版中，我们可以通过以上几个步骤来使用一个云服务。这些步骤对WebDAV，FTP和SFTP来说都是类似的。</p>
+<h2 id="使用个人网络存储设备进行同步与备份"><a href="#使用个人网络存储设备进行同步与备份" class="headerlink" title="使用个人网络存储设备进行同步与备份"></a>使用个人网络存储设备进行同步与备份</h2><p>在家用的网络存储设备中，WebDAV，FTP和SFTP等协议也会经常用到。通过这些服务可以使用个人云来进行同步和备份。下图是一个Seagate的Personal Cloud设置，从中可以看到，Personal Cloud对WebDAV，FTP和SFTP都支持。</p>
+<p><img src="https://passxyz.github.io/images/PxWebDAV/px_personalcloud01.png" alt="px_personalcloud01"></p>
+<p>WebDAV，FTP和SFTP都是标准存储协议，所以使用方式类似。若您想使用OneDrive，请参阅另外一篇文章“谈安全性与易用性的权衡，PassXYZ与PassXYZ云”。OneDrive的使用和标准存储协议略有不同。</p>
+<hr>
+<h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3><ul>
+<li><a href="https://passxyz.github.io/zh-CN/PxWebDAV1-cn/">备份与同步（一） 使用密码管理软件时，如何选择适合自己的备份与同步方案</a></li>
+<li><a href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？</a></li>
+<li><a href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？</a></li>
+<li><a href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系</a></li>
+<li><a href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">谈安全性与易用性的权衡，PassXYZ与PassXYZ云</a></li>
+<li><a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a></li>
+</ul>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">苹果应用商店</a>，<a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">微软应用商店</a>，<a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>和<a href="http://app.hicloud.com/app/C100313505" target="_blank" rel="noopener">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-CN/PxWebDAV1-cn/" rel="next" title="备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案">
+                <i class="fa fa-chevron-left"></i> 备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/en/PxWebDAV1-en/" rel="prev" title="Backup and Synchronization 1, Finding the best solution for backup and synchronization">
+                Backup and Synchronization 1, Finding the best solution for backup and synchronization <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Roger Ye</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用坚果云实现多设备间同步"><span class="nav-number">1.</span> <span class="nav-text">使用坚果云实现多设备间同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在坚果云设置中添加应用密码"><span class="nav-number">2.</span> <span class="nav-text">在坚果云设置中添加应用密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PassXYZ中云存储的设置"><span class="nav-number">3.</span> <span class="nav-text">PassXYZ中云存储的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加坚果云记录"><span class="nav-number">4.</span> <span class="nav-text">添加坚果云记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用坚果云记录登陆"><span class="nav-number">5.</span> <span class="nav-text">使用坚果云记录登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用个人网络存储设备进行同步与备份"><span class="nav-number">6.</span> <span class="nav-text">使用个人网络存储设备进行同步与备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展阅读："><span class="nav-number">6.1.</span> <span class="nav-text">扩展阅读：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

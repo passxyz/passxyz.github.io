@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en,zh-Hans,zh-tw,zh-hk,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这篇文章是写给PassXYZ初始用户的简短使用说明。如果您是KeePass的资深用户，可以跳过这篇文章去PassXYZ网站阅读另外一篇叫深入理解PassXYZ的文章（PassXYZ的网站链接请点击帮助页面的了解更多）。 PassXYZ与其他密码管理软件一样，使用其实相当简单，没有太多复杂的使用操作。当安装好PassXYZ后，打开的第一个页面是建立一个用户名和设置一个主密码。这里需要提醒一下的是，这">
+<meta name="keywords" content="zh-CN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用PassXYZ">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/How-to-use-PassXYZ-zh-Hans/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="这篇文章是写给PassXYZ初始用户的简短使用说明。如果您是KeePass的资深用户，可以跳过这篇文章去PassXYZ网站阅读另外一篇叫深入理解PassXYZ的文章（PassXYZ的网站链接请点击帮助页面的了解更多）。 PassXYZ与其他密码管理软件一样，使用其实相当简单，没有太多复杂的使用操作。当安装好PassXYZ后，打开的第一个页面是建立一个用户名和设置一个主密码。这里需要提醒一下的是，这">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-07T09:18:48.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用PassXYZ">
+<meta name="twitter:description" content="这篇文章是写给PassXYZ初始用户的简短使用说明。如果您是KeePass的资深用户，可以跳过这篇文章去PassXYZ网站阅读另外一篇叫深入理解PassXYZ的文章（PassXYZ的网站链接请点击帮助页面的了解更多）。 PassXYZ与其他密码管理软件一样，使用其实相当简单，没有太多复杂的使用操作。当安装好PassXYZ后，打开的第一个页面是建立一个用户名和设置一个主密码。这里需要提醒一下的是，这">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="PassXYZ" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://passxyz.github.io/zh-CN/How-to-use-PassXYZ-zh-Hans/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>如何使用PassXYZ | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PassXYZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/How-to-use-PassXYZ-zh-Hans/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roger Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何使用PassXYZ
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-03 00:16:23" itemprop="dateCreated datePublished" datetime="2018-06-03T00:16:23+08:00">2018-06-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-03-07 17:18:48" itemprop="dateModified" datetime="2021-03-07T17:18:48+08:00">2021-03-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/zh-Hans/" itemprop="url" rel="index"><span itemprop="name">zh-Hans</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章是写给<a href="https://passxyz.github.io/">PassXYZ</a>初始用户的简短使用说明。如果您是<a href="https://keepass.info/" target="_blank" rel="noopener">KeePass</a>的资深用户，可以跳过这篇文章去PassXYZ网站阅读另外一篇叫<strong>深入理解PassXYZ</strong>的文章（<a href="https://passxyz.github.io/">PassXYZ</a>的网站链接请点击<strong>帮助</strong>页面的<strong>了解更多</strong>）。</p>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>与其他密码管理软件一样，使用其实相当简单，没有太多复杂的使用操作。当安装好<a href="https://passxyz.github.io/">PassXYZ</a>后，打开的第一个页面是建立一个用户名和设置一个主密码。这里需要提醒一下的是，这个主密码非常重要，一旦忘记，就没有人能打开这个数据库了。</p>
+<p>设置好用户名和主密码后，进入的将是一个可以记录您所有个人信息的管理系统。那么如何开始使用呢？屏幕右上角有三个图标，根据图标标识，您一定能认出来它们是<strong>搜索</strong>，<strong>添加</strong>和<strong>退出</strong>吧？</p>
+<p>现在，您就可以开始添加您想让<a href="https://passxyz.github.io/">PassXYZ</a>帮您记住的任何个人信息了，比如说银行卡、身份证、护照、社保卡、各类证书、常用网站账号等等。以<strong>身份证</strong>为例吧：点击加号图标+，您可以看到屏幕会显示<strong>目录</strong>，<strong>条目</strong>，<strong>便签</strong>和<strong>从模板中选择</strong>共四个选项。没发现<strong>身份证</strong>选项啊？没关系，您可以先去<strong>从模板中选择</strong>里找找。很多常用的添加项目<a href="https://passxyz.github.io/">PassXYZ</a>都有特制的固定模板，即便模板里没有您需要的添加项目，您也有三个输入办法：第一，懒人的办法，所有找不到的添加项目都可以使用通用选项<strong>条目</strong>，然后自行逐项输入您所需要记录的信息，最后保存即可。这个是原来KeePass自带的。第二，到<a href="https://passxyz.github.io/">PassXYZ</a>网站上找找，那儿有更多模板。第三，如果都不满意，您还可以自己在模板中创建一个新的。当您开始创建模板时，您已经是<a href="https://passxyz.github.io/">PassXYZ</a>达人了！</p>
+<p>上面介绍了<strong>条目</strong>和<strong>从模板中选择</strong>。您这会儿可能会问，那<strong>目录</strong>和<strong>便签</strong>又是什么？<strong>目录</strong>其实就是文件夹，例如您可以首先建立一个叫<strong>银行</strong>的目录，然后进入此目录，再选用<strong>条目</strong>形式分别输入您各个银行账户的信息，这样，您所有的银行信息都可以整齐地存放在<strong>银行</strong>目录下，方便您日后翻阅查找。再说<strong>便签</strong>吧，它就是一个您可以用来记录任何东西的地方，比如说这篇文章，也就是一个<strong>便签</strong>。<a href="https://passxyz.github.io/">PassXYZ</a>中的<strong>便签</strong>是支持Markdown格式的，所以您可以用Markdown语法来美化<strong>便签</strong>。</p>
+<p>话说回来，身份证这项，在<a href="https://passxyz.github.io/">PassXYZ</a>自带模板里是可以找到的。在模板里选择<strong>身份证</strong>，然后填上相关信息并保存就好了。除了证件上的信息，您还可以把证件的照片或扫描件作为附件加上。这样，当您下次在外办事遇到紧急情况需要证件复印件时，直接打开<a href="https://passxyz.github.io/">PassXYZ</a>用微信分享一下就可以了。<br><a href="https://passxyz.github.io/">PassXYZ</a>的基本使用其实就是这么简单，想了解更多，欢迎您关注<a href="https://passxyz.github.io/">PassXYZ</a>网站。</p>
+<h3 id="可能碰到的问题："><a href="#可能碰到的问题：" class="headerlink" title="可能碰到的问题："></a>可能碰到的问题：</h3><p><strong>支持指纹登录吗？</strong><br>支持，去<strong>设置</strong>中打开就可以了。</p>
+<p><strong>可以导出数据吗？</strong><br>可以，去<strong>设置</strong>中导出。</p>
+<p><strong>可以同步吗？</strong><br>没问题，上一步导出后，在其他设备上导入，然后在<strong>设置</strong>中同步即可。</p>
+<p><strong>PassXYZ自带的模板可以在这里下载：</strong></p>
+<ol>
+<li><a href="/passxyz_template/passxyz_en-us.t4xyz">英文模板</a></li>
+<li><a href="/passxyz_template/passxyz_zh-hans.t4xyz">中文简体模板</a></li>
+<li><a href="/passxyz_template/passxyz_zh-hant.t4xyz">中文繁体模板</a></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/en/How-to-use-PassXYZ/" rel="next" title="How to use PassXYZ">
+                <i class="fa fa-chevron-left"></i> How to use PassXYZ
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-HK/How-to-use-PassXYZ-zh-hk/" rel="prev" title="如何使用PassXYZ">
+                如何使用PassXYZ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Roger Ye</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#可能碰到的问题："><span class="nav-number">1.</span> <span class="nav-text">可能碰到的问题：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

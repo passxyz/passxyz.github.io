@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en,zh-Hans,zh-tw,zh-hk,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Markdown has been used by programmers for many years. However, many people may still not know what Markdown is. As a programmer, you may know what Markdown is, but does it have anything to do with Pa">
+<meta name="keywords" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management">
+<meta property="og:url" content="https://passxyz.github.io/en/PxMarkdown-en/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="Markdown has been used by programmers for many years. However, many people may still not know what Markdown is. As a programmer, you may know what Markdown is, but does it have anything to do with Pa">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown01-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown04-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown02-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown03-en.png">
+<meta property="og:updated_time" content="2021-03-07T09:18:48.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management">
+<meta name="twitter:description" content="Markdown has been used by programmers for many years. However, many people may still not know what Markdown is. As a programmer, you may know what Markdown is, but does it have anything to do with Pa">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxMarkdown/cover.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="PassXYZ" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://passxyz.github.io/en/PxMarkdown-en/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PassXYZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/en/PxMarkdown-en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roger Ye">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-16 14:52:59" itemprop="dateCreated datePublished" datetime="2018-08-16T14:52:59+08:00">2018-08-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-03-07 17:18:48" itemprop="dateModified" datetime="2021-03-07T17:18:48+08:00">2021-03-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Help/" itemprop="url" rel="index"><span itemprop="name">Help</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/PxMarkdown/cover.png" alt="cover"></p>
+<p>Markdown has been used by programmers for many years. However, many people may still not know what Markdown is. As a programmer, you may know what Markdown is, but does it have anything to do with Password Management apps? In the latest version of PassXYZ, Markdown is supported as part of the Secure Notes function. In this article, we will find out what Markdown is and how to use it to make your secure notes looking similar to Microsoft Word.</p>
+<h3 id="What-is-Markdown"><a href="#What-is-Markdown" class="headerlink" title="What is Markdown?"></a>What is Markdown?</h3><p>In Wikipedia, the definition of Markdown is as follows:</p>
+<blockquote>
+<p> <strong>Markdown</strong> is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a <strong>plain text editor</strong>.</p>
+</blockquote>
+<p>Please pay attention to the highlighted key words <strong>plain text editor</strong>. With Markdown, you can edit rich text using a plain text editor. That means you can edit contents with Markdown using any editors. This is a very useful feature in many situations. You may be wondering why we want to use Markdown with a plain text editor instead of using software like Microsoft Word to create rich text documents. There are many reasons to use Markdown. Some of them are listed below:</p>
+<ol>
+<li>You can edit plain text with Markdown using almost any editors. You can only use MS Word to edit Word documents. To edit rich text like Word documents, you may have to use a PC with a mouse. You don’t have this constraint to edit plain text with Markdown.</li>
+<li>It is very easy to convert Markdown to other rich text format such as HTML or MS Word etc.</li>
+<li>Markdown is super easy to use. There is not any difficulty to use it and this may be the most import reason why Markdown is so popular to be used to create online contents.</li>
+</ol>
+<p>How easy to use Markdown? Please refer to the below figure. This is a comparison of the resulting look and feel of this article in the editing mode and the reading mode respectively. On the left hand side, it shows that this article was edited using Markdown in editing mode, while on the right hand side, shows the article in the reading mode.</p>
+<p>As we can see from the picture on the left, editing text with Markdown is very similar to what we usually do when editing a document or a message. Once the edited document or message is displayed in the reading mode, the result looks fabulous indeed as shown on the right.</p>
+<p><img src="/images/PxMarkdown/markdown01-en.png" alt="markdown01"></p>
+<h3 id="Markdown-Cheat-Sheet"><a href="#Markdown-Cheat-Sheet" class="headerlink" title="Markdown Cheat Sheet"></a>Markdown Cheat Sheet</h3><p>Below is a brief summary of frequently used Markdown markup. You can find more on internet by searching keyword Markdown.</p>
+<p><img src="/images/PxMarkdown/markdown04-en.png" alt="markdown04"></p>
+<h3 id="The-Usage-of-Markdown"><a href="#The-Usage-of-Markdown" class="headerlink" title="The Usage of Markdown"></a>The Usage of Markdown</h3><p>Initially, Markdown is a slightly formatted plain text used by programmers to add comments in the source code or to create a readme for the source code. For an example, Markdown is used extensively in GitHub for various purposes. Later on, people started to use this kind of markup to write online contents, such as blog or web page etc. Nowadays, many popular sites, such as GitHub, Bitbucket, Reddit, Stack Exchange and SourceForge use variants of Markdown to facilitate discussions between users.</p>
+<h3 id="Markdown-and-Password-Management-Software"><a href="#Markdown-and-Password-Management-Software" class="headerlink" title="Markdown and Password Management Software"></a>Markdown and Password Management Software</h3><p>PassXYZ is the first Password Management Software which provides the use of Markdown. Secure Notes is a function in almost all the Password Management software. It is a function to allow the users to take down the notes of sensitive information securely. Using plain text, it is not easy to read if the content of the note goes long without any format.  With Markdown added, the readability of the Secure Notes enhanced significantly. Below is a figure of a built-in note in PassXYZ. The title <strong>“How to use PassXYZ”</strong> is a brief explanation of the usage of PassXYZ. As we can see, it is very similar to a document edited using MS Word or HTML. With Markdown support, the editing is done in the editing mode and the view of document is in the reading mode. This is the difference comparing to plain text, as in the plain text, there is no difference between editing and reading. In the below figure, there is a Pen icon on the top right of the screen. By clicking it, the note will be switched to its editing mode.</p>
+<p><img src="/images/PxMarkdown/markdown02-en.png" alt="markdown02"></p>
+<h3 id="Embedded-HTML-inside-Markdown"><a href="#Embedded-HTML-inside-Markdown" class="headerlink" title="Embedded HTML inside Markdown"></a>Embedded HTML inside Markdown</h3><p>From the above example, we can see that there is no learning curve to use Markdown for most of the users. With Markdown support, we can create a document on mobile device with similar result of MS Word or HTML. If you have experiences in writing blog or creating your own website, you may have learnt or known HTML. Usually, Markdown allows mixing together with HTML language to present content. With embedded HTML, you can get Secure Notes to do more things comparing to the pure Markdown documents. The following example explains more. A typical Sample Entry that you can find once you install KeePass on Windows is recreated as shown in the below figure.</p>
+<p><img src="/images/PxMarkdown/markdown03-en.png" alt="markdown03"></p>
+<p>As you can see, we used an HTML table to recreate a KeePass sample entry. Inside the table, we can use a password control to present the password field in KeePass. We can click the small checkbox next to the password field to show or hide the password. With embedded HTML, we can recreate almost all different entries supported by either KeePass or PassXYZ. The expense is that you have to know HTML, and the editing effort is much more than that of the normal entry. This is just a simple example to show the power of the mixed usage of HTML and Markdown. You can explore more on your own with this function in PassXYZ.</p>
+<p>In this article, we have introduced what Markdown is and how Markdown helps us in the Secure Notes of PassXYZ. For the professional editing software, such as MS Word and lightweight notes in mobile devices, they have their own advantages or limitations. It will be difficult to use MS Word without a PC and a mouse. However, there is not any difficulty to use the Secure Notes of PassXYZ in mobile devices. In the Secure Notes, you can add simple Markdown markups to enjoy a similar effect just as you add a “:)” to show a smiley face when you send a message.</p>
+<p>We hope that PassXYZ users can use Markdown to create their own personalized secure notes without any difficulties after reading this article.</p>
+<hr>
+<p>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a href="https://github.com/passxyz/KPCLib" target="_blank" rel="noopener">https://github.com/passxyz/KPCLib</a>.</p>
+<p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ" target="_blank" rel="noopener">Google Play</a>, <a href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&amp;mt=8" target="_blank" rel="noopener">Apple Store</a> and <a href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB" target="_blank" rel="noopener">Microsoft Store</a>.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/en/" rel="tag"># en</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/en/PxCloud-en/" rel="next" title="A balance between security and convenience, PassXYZ and PassXYZ Cloud">
+                <i class="fa fa-chevron-left"></i> A balance between security and convenience, PassXYZ and PassXYZ Cloud
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-CN/PxMarkdown-zh-CN/" rel="prev" title="如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系">
+                如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Roger Ye</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Markdown"><span class="nav-number">1.</span> <span class="nav-text">What is Markdown?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Cheat-Sheet"><span class="nav-number">2.</span> <span class="nav-text">Markdown Cheat Sheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Usage-of-Markdown"><span class="nav-number">3.</span> <span class="nav-text">The Usage of Markdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-and-Password-Management-Software"><span class="nav-number">4.</span> <span class="nav-text">Markdown and Password Management Software</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedded-HTML-inside-Markdown"><span class="nav-number">5.</span> <span class="nav-text">Embedded HTML inside Markdown</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
