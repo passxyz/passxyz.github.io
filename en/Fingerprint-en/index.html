@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Many people are using biometrics authentication method in our daily life, since they are convenient and easy to use. Slowly, you may have a perception that fingerprint or face recognition may replace">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Can we replace passwords using biometrics, such as fingerprint or face recognition ?">
+<meta property="og:url" content="https://passxyz.github.io/en/Fingerprint-en/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="Many people are using biometrics authentication method in our daily life, since they are convenient and easy to use. Slowly, you may have a perception that fingerprint or face recognition may replace">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://passxyz.github.io/images/fingerprint.jpg">
+<meta property="og:image" content="https://passxyz.github.io/images/bank_counters.jpg">
+<meta property="article:published_time" content="2018-07-19T01:00:05.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.441Z">
+<meta property="article:author" content="Roger Ye">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/fingerprint.jpg">
+
+
+<link rel="canonical" href="https://passxyz.github.io/en/Fingerprint-en/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://passxyz.github.io/en/Fingerprint-en/","path":"en/Fingerprint-en/","title":"Can we replace passwords using biometrics, such as fingerprint or face recognition ?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Can we replace passwords using biometrics, such as fingerprint or face recognition ? | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unique-and-immutable"><span class="nav-number">1.</span> <span class="nav-text">Unique and immutable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reliability"><span class="nav-number">2.</span> <span class="nav-text">Reliability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison-method"><span class="nav-number">3.</span> <span class="nav-text">Comparison method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Device-dependency-and-complex-data-structure"><span class="nav-number">4.</span> <span class="nav-text">Device dependency and complex data structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Authentication-information-can-be-anything-about-you"><span class="nav-number">5.</span> <span class="nav-text">Authentication information can be anything about you</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/en/Fingerprint-en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Can we replace passwords using biometrics, such as fingerprint or face recognition ? | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Can we replace passwords using biometrics, such as fingerprint or face recognition ?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-07-19 09:00:05" itemprop="dateCreated datePublished" datetime="2018-07-19T09:00:05+08:00">2018-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linkedin/" itemprop="url" rel="index"><span itemprop="name">linkedin</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/fingerprint.jpg" alt="Fingerprint"></p>
+<p>Many people are using biometrics authentication method in our daily life, since they are convenient and easy to use. Slowly, you may have a perception that fingerprint or face recognition may replace your passwords one day. But you may be wondering, why this hasn�t happen yet? Every time, you reboot your mobile phone, the system will ask you for password to unlock your phone first, and then, you can use your fingerprint. If you want to turn on fingerprint or face recognition on your phone, you have to setup a PIN for the screen lock fist. Why the systems want to tie biometrics authentication together with passwords? The reason is biometrics authentication cannot replace passwords. Let�s have a look at the characteristics of biometrics authentication first.</p>
+<h2 id="Unique-and-immutable"><a href="#Unique-and-immutable" class="headerlink" title="Unique and immutable"></a>Unique and immutable</h2><p>Biometrics is unique and immutable information of ourselves, thus, they cannot be faked. As they cannot be faked or changed, we will be stuck in a dilemma if they are stolen by someone. From this point of view, biometrics is not safer than password. Biometrics and password have their own advantages and disadvantages, and cannot be replaced by each other.</p>
+<h2 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h2><p>There are many factors that can affect the result of biometrics authentication. For example, humidity can affect the accuracy of fingerprint detection. I often heard the complaints from my friends that they always have problems to use fingerprint in autumn or winter. That is because the humidity in autumn and winter is low, so their fingers are too dry for the fingerprint sensors. Face recognition and iris recognition are also facing the similar issues, i.e., they can only be done with enough light. Therefore, biometrics authentication cannot be used alone as the reliability can be affected by many factors.</p>
+<h2 id="Comparison-method"><a href="#Comparison-method" class="headerlink" title="Comparison method"></a>Comparison method</h2><p>We can easily understand that biometrics authentication and password based authentication use different comparison methods. The comparison of password is very simple and accurate. The result can be either success or failure. The techniques used by biometrics are similar to image recognition. There is not a straightforward result of success or failure. Image recognition can only judge whether the level of similarity is within certain range or not. According to the degree of similarity, it tells you roughly on success or failure. This is another reason why biometrics authentication is not reliable enough.</p>
+<h2 id="Device-dependency-and-complex-data-structure"><a href="#Device-dependency-and-complex-data-structure" class="headerlink" title="Device dependency and complex data structure"></a>Device dependency and complex data structure</h2><p>Biometrics uses a much more complex data structure comparing to password. The data generated by the fingerprint sensor is defined by the vendor which cannot be used on other devices unless they are from the same vendor. This makes the fingerprint data device-dependent. Actually, other biometrics, such as iris recognition, also has the same problem. Therefore, the biometrics data cannot be used for authentication directly due to the compatibility issue. For example, the same fingerprint may generate different data on Android and iOS systems.  </p>
+<p>Well, how can we resolve the compatibility issue? Let�s say a banking application, if you want to turn on fingerprint, you have to login to the app using username and password first. When you turn on fingerprint from the setting of the app, the app will store authentication information in the secure storage of the device. This authentication information could be your username and password or something that the app can use to communicate with the application backend. The secure storage is device-unique which could be Keychain on iPhone or Keystore on Android. The data in the secure storage are isolated at the application level. One application cannot access the data stored by another application. The next time when you login to the banking app using the fingerprint, the system will unlock the secure data and the app will use the stored information to communicate to the application backend. That is, you actually provide your authentication information through fingerprint, but you are not using the fingerprint data to authenticate with the app directly.</p>
+<h2 id="Authentication-information-can-be-anything-about-you"><a href="#Authentication-information-can-be-anything-about-you" class="headerlink" title="Authentication information can be anything about you"></a>Authentication information can be anything about you</h2><p>Authentication information can actually be anything about you besides passwords or biometrics data. For example, you may need to provide your name, card number and date of birth so as to report the loss of your credit card. You may need to provide your username, ID card number and the remaining balance in your account in order to restore a locked PayPal account. </p>
+<p><img src="/images/bank_counters.jpg" alt="Bank counters"></p>
+<p>Right now, many banks have replaced the traditional counters with intelligent counters. When we use these intelligent counts, do we have all the data needed to perform the transaction? Facing the future, we have to organize our personal information nicely in order to deal with the challenges in our digital life.</p>
+<hr>
+<p>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword PassXYZ or link it using Wechat name passxyz_kpclib. You can also find more information about <a href="https://passxyz.github.io/categories/en/">PassXYZ</a> on its website and install it from <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>, <a href="(https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8)">Apple Store</a> or <a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">Microsoft Store</a>.</p>
+<p>For <strong>Windows 10</strong> users, you can now get a free version of PassXYZ following the steps below:<br>1.	Added PassXYZ Wechat public account<br>2.	Send key word <strong>UWP</strong> to get a registration code<br>3.	Install PassXYZ from Microsoft store using the registration code (200 users can use this code)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/Introduction/" rel="prev" title="Using it from 10 years ago, still use it today, talking about KeePass family password management apps">
+                  <i class="fa fa-chevron-left"></i> Using it from 10 years ago, still use it today, talking about KeePass family password management apps
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/en/Support-en/" rel="next" title="How to get help ?">
+                  How to get help ? <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

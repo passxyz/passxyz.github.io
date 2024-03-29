@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基于.NET的跨平台应用程序框架介绍随着.NET 8的发布，我也将我的书.NET MAUI Cross-Platform Application Development更新到了第二版，已经在3月25日开始正式发行。第一版是基于.NET 6编写的，第二版更新到了 .NET 8。这是一本介绍.NET MAUI的书籍。可以通过下面的链接购买。 https:&#x2F;&#x2F;epa.ms&#x2F;maui  在第二版的评审过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maui-cn">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/maui-cn/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="基于.NET的跨平台应用程序框架介绍随着.NET 8的发布，我也将我的书.NET MAUI Cross-Platform Application Development更新到了第二版，已经在3月25日开始正式发行。第一版是基于.NET 6编写的，第二版更新到了 .NET 8。这是一本介绍.NET MAUI的书籍。可以通过下面的链接购买。 https:&#x2F;&#x2F;epa.ms&#x2F;maui  在第二版的评审过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/b21554cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure03.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure04.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure05.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure06.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/table01cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure07.png">
+<meta property="article:published_time" content="2024-03-06T08:17:12.000Z">
+<meta property="article:modified_time" content="2024-03-29T05:25:53.304Z">
+<meta property="article:author" content="Roger Ye">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/maui/b21554cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/maui-cn/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/maui-cn/","path":"zh-CN/maui-cn/","title":"maui-cn"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>maui-cn | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-NET%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">基于.NET的跨平台应用程序框架介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/maui-cn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="maui-cn | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          maui-cn
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-06 16:17:12" itemprop="dateCreated datePublished" datetime="2024-03-06T16:17:12+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-29 13:25:53" itemprop="dateModified" datetime="2024-03-29T13:25:53+08:00">2024-03-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="基于-NET的跨平台应用程序框架介绍"><a href="#基于-NET的跨平台应用程序框架介绍" class="headerlink" title="基于.NET的跨平台应用程序框架介绍"></a>基于.NET的跨平台应用程序框架介绍</h1><p>随着.NET 8的发布，我也将我的书.NET MAUI Cross-Platform Application Development更新到了第二版，已经在3月25日开始正式发行。第一版是基于.NET 6编写的，第二版更新到了 .NET 8。这是一本介绍.NET MAUI的书籍。可以通过下面的链接购买。</p>
+<p><a target="_blank" rel="noopener" href="https://epa.ms/maui">https://epa.ms/maui</a></p>
+<p><img src="/images/maui/b21554cover.png" alt="figure00"></p>
+<p>在第二版的评审过程中，通过与同行的交流，我总觉得并不应该只用.NET MAUI来代表基于.NET的跨平台解决方案。</p>
+<p>.NET MAUI是一种跨平台应用框架，在这里我强调的是应用框架。它与其它的主流跨平台应用框架如Flutter，React Native或者Ionic等一样，都属于应用框架。应用框架通常是建立在通用框架和相应的编程语言之上的。我们有很多通用框架和语言可选择，如Java&#x2F;JVM，JavaScript&#x2F;Node.js以及C#&#x2F;.NET Core等。跨平台应用开发的挑战主要来自于对用户界面的处理，所以根据不同的用户界面处理方案，我们大致可以将跨平台应用框架分为以下三类。</p>
+<ul>
+<li><strong>原生用户界面抽象化</strong>：通过抽象化用户界面元素，将其映射到系统的原生控件。目前.NET MAUI和React Native使用这种方案。这种方案的好处是，应用的用户界面与原生是一致的。原生控件的更新变化，会自动在应用中生效。缺点是比较难将控件精确的映射到每个所支持的平台。</li>
+<li><strong>使用2D图形库</strong>：使用2D图形库来绘制用户界面控件。Flutter和Avalonia UI使用的是这种方案。好处是摆脱了对原生控件的依赖。对所有支持的平台，应用界面高度一致。缺点是与原生控件的行为可能不一致，特别是原生控件更新了以后，跨平台应用的行为会与原生控件有差异。</li>
+<li><strong>使用WebView</strong>：这一方案是通过使用浏览器的界面来构建用户界面。Ionic和.NET MAUI Blazor都使用这种方案。这种方案可以重用前端应用的代码，因为都是以HMTL&#x2F;CSS&#x2F;JavaScript来构建的。但这个方案会受到基于浏览器的局限，用户界面更类似网页应用而非原生应用。</li>
+</ul>
+<p>从上面的分类可以看出，基于.NET的应用框架，涵盖了所有可能的实现方式，而非只是基于.NET MAUI的跨平台方案。本文将对基于.NET的应用框架做一个介绍和初步的比较。</p>
+<p>基于.NET的跨平台应用框架主要有下面几种：</p>
+<ul>
+<li>.NET MAUI</li>
+<li>.NET MAUI Blazor Hybrid</li>
+<li>Avalonia UI</li>
+<li>Uno Platform</li>
+<li>Xamarin (.NET for Android, .NET for iOS and .NET for Mac)</li>
+</ul>
+<p>这些应用框架都是建立在.NET之上的，或者说是建立在.NET 6之后的.NET之上的。因为原始的.NET Framework本身并不是一个跨平台框架。通过与开源项目Mono的整合，才逐渐演变成了今天的类似Java&#x2F;JVM的跨平台通用框架。开源项目Mono提供了对Android, iOS, macOS和Linux等的.NET支持。Mono项目的另一重要贡献就是开发了Xamarin这一层中间件。我之所以使用中间件而非框架来描述Xamarin，是因为它本身并不是一个全新的东西，它只是为其下的平台提供.NET接口。通过使用Xamarin，.NET应用可以直接使用C#访问几乎所有平台提供的功能。如，Xamarin.Android提供了所有原生的Android API。同样的Xamarin.iOS也提供了所有iOS的API。</p>
+<p>在Xamarin的基础上，开源团队推出了Xamarin.Forms这一跨平台用户界面解决方案。Xamarin提供了使用.NET&#x2F;C#进行原生开发的能力。非用户界面代码封装成.NET Standard库来实现代码复用。<br>如下图所示的Xamarin.Forms架构图。</p>
+<p> <img src="/images/maui/figure01.png" alt="figure01"></p>
+<p>Figure 1: Xamarin.Forms 架构</p>
+<p>在上图中，我用上标标出了相应开源代码的链接。你可以参考本文底部的参考链接。基于Xamarin的方案有多种实施方式。</p>
+<p>Xamarin.Forms和.NET MAUI的跨平台方案都是通过抽象原生控件来实现的。抽象化的控件通过Xamarin.Forms renderer或者.NET MAUI handlers映射到原生控件上，如下图所示。</p>
+<p><img src="/images/maui/figure02.png" alt="figure02"></p>
+<p>Figure 2: Xamarin.Forms Renderers and .NET MAUI Handlers</p>
+<p>在上图中，可以看到抽象控件Button在Xamarin.Forms和.NET MAUI中的实现。在Xamarin.Forms中，跨平台控件Button，通过ButtonRenderer映射到不同平台的原生控件，如在iOS上的UIButton，Android上的AppCompatButton和Windows上的 Button。<br>在.NET MAUI中，跨平台控件Button，通过IButton接口和ButtonHandler映射到不同平台的原生控件。</p>
+<p>如果想最大限度地复用代码，你可以使用Xamarin.Forms和.NET Standard库，这样代码的复用率可以达到90%以上。</p>
+<p>如果你对性能和用户体验有较高的要求，可以直接基于Xamarin构建应用，这种开发非常类似于原生开发。所有的平台都使用.NET和C#，在一定程度上也可以复用代码。</p>
+<p><img src="/images/maui/figure03.png" alt="figure03"> </p>
+<p>Figure 3: Native Application Development using Xamarin</p>
+<p>微软在.NET 6之后发布了.NET MAUI。可以说，.NET MAUI比起Xamarin.Forms更像是一种演进，而不是革命性的变化。如下图所示，.NET MAUI取代了Xamarin.Forms。而.NET for Android，.NET for iOS和.NET for Mac也无疑都是Xamarin.Android，Xamarin.iOS和Xamarin.Mac的更新。为了方便起见，在本文中，我仍然将使用Xamarin表示此层。几个基于Xamarin项目的GitHub仓库仍然是一样的。.NET本身自.NET 5以来，也出现了很大的变化，也就是在所有平台上都有了统一的.NET BCL。</p>
+<p><img src="/images/maui/figure04.png" alt="figure04"> </p>
+<p>Figure 4: .NET MAUI 架构</p>
+<p>在发布.NET MAUI之后，我们仍然可以使用Xamarin进行原生开发，并不一定非得使用.NET MAUI。例如，我们可以单独使用.NET for Android来使用.NET&#x2F;C#来开发原生Android应用。</p>
+<p>.NET MAUI还有一种使用方式，即使用Blazor开发.NET MAUI Blazor Hybrid应用。Blazor是一种基于.NET的网络应用开发方案。在.NET MAUI中，增加了一个特殊的控件BlazorWebView。这是一个支持Blazor的WebView控件。我们可以使用BlazorWebView来开发用户界面，这样我们就可以使用同一套代码来开发网络、移动以及桌面应用。</p>
+<p> </p>
+<p>使用.NET MAUI开发跨平台应用，目前并不支持Linux。虽然有开源项目在开发Linux的支持，但进展并不顺利。.NET MAUI借助将抽象控件映射到原生控件的方案，在Linux上比较困难。Linux与Android，iOS，macOS，Windows等不同，没有统一的用户界面库，而是具有多个用户界面库如GTK或QT等。</p>
+<p>在基于.NET的方案中，Avalonia UI和Uno Platform都支持Linux。下面我们将分别介绍这两者。</p>
+<p>Avalonia UI使用2D图形库自行实现控件。如下图所示，除了2D图形库Skia，Avalonia UI只依赖于.NET。在.NET之上，Avalonia UI使用Skia库实现了自己的所有控件。因此，Avalonia UI在所有平台上的表现非常一致。</p>
+<p><img src="/images/maui/figure05.png" alt="figure05"> </p>
+<p>Figure 5: Avalonia UI 架构</p>
+<p>Avalonia UI这个开源项目起源于将WPF框架扩展到macOS和Linux的想法，它起初是一个桌面应用框架。而在.NET 6之后，该项目也把移动应用和WebAssembly加入了框架之中。基于Avalonia UI的应用编程与WPF应用的开发过程高度类似。对于熟悉WPF应用开发的开发者来说，这是非常容易上手的。</p>
+<p>除了.NET MAUI和Avalonia UI外，我们还要比较的另一个跨平台框架是Uno Platform。.NET MAUI和Avalonia UI都非常具有代表性，分别代表了使用原生控件和使用2D图形库的跨平台实现。而Uno Platform则是一个兼具两种特性的解决方案，如下图所示。</p>
+<p><img src="/images/maui/figure06.png" alt="figure06"> </p>
+<p>Figure 6: Uno Platform 架构</p>
+<p>Uno Platform针对不同的系统采用了不同的解决方案。</p>
+<ul>
+<li>Android、iOS和macOS：Uno Platform使用了Xamarin来实现在Android，iOS和macOS上的控件。这点与.NET MAUI类似，但由于Uno Platform也是从WPF演变来的，因此Uno应用的编写方式也与WPF类似。在最新的版本中，直接使用了WinUI 3。</li>
+<li>Windows：如果是Windows应用，在Uno Platform上，与WinUI 3的应用没有任何区别。</li>
+<li>Linux：对Linux的支持方面，Uno Platform使用了与Avalonia UI相同的方式，即通过Skia自行实现控件。</li>
+<li>WebAssembly：对WebAssembly的支持则是将C#&#x2F;XAML转换成HTML&#x2F;CSS。</li>
+</ul>
+<p>从这里我们可以看出，Uno Platform采用的是一种混合的实现方式。</p>
+<p>下面的表格对这几种跨平台方案进行了总结和比较。</p>
+<p><img src="/images/maui/table01cn.png" alt="table01"></p>
+<p>当我们将所有框架组合在一起时，我们可以看到下面的图7。尽管看上去有点复杂，但这个图清楚地展示了.NET MAUI、Uno平台和Avalonia UI如何融入.NET架构。</p>
+<p><img src="/images/maui/figure07.png" alt="figure07"></p>
+<p>Figure 7: .NET cross-platform solutions</p>
+<p>通过本文的介绍，我们可以看到，基于.NET的跨平台方案有多种实现方式，每种实现方式都有其优缺点。选择哪种方案需要根据实际的使用场景来决定。</p>
+<p>References:</p>
+<ol>
+<li>.NET MAUI source code<br><a target="_blank" rel="noopener" href="https://github.com/dotnet/maui">https://github.com/dotnet/maui</a></li>
+<li>.NET for Android source code – Both .NET for Android and Xamarin.Android are built from this repository with different build configurations.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-android">https://github.com/xamarin/xamarin-android</a></li>
+<li>.NET for iOS source code – Both .NET for iOS and Xamarin.iOS are built from this repository with different build configurations.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-macios">https://github.com/xamarin/xamarin-macios</a></li>
+<li>.NET for Mac source code - .NET for iOS and .NET for Mac are shared the same code base with different build configuration.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-macios">https://github.com/xamarin/xamarin-macios</a></li>
+<li>WinUI<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/microsoft-ui-xaml">https://github.com/microsoft/microsoft-ui-xaml</a></li>
+<li>Avalonia UI<br><a target="_blank" rel="noopener" href="https://github.com/AvaloniaUI/Avalonia">https://github.com/AvaloniaUI/Avalonia</a></li>
+<li>Skia<br><a target="_blank" rel="noopener" href="https://github.com/google/skia">https://github.com/google/skia</a></li>
+<li>Uno Platform<br><a target="_blank" rel="noopener" href="https://github.com/unoplatform/uno">https://github.com/unoplatform/uno</a></li>
+<li>Avalonia UI and MAUI - Something for everyone<br><a target="_blank" rel="noopener" href="https://www.avaloniaui.net/Blog/avalonia-ui-and-maui-something-for-everyone">https://www.avaloniaui.net/Blog/avalonia-ui-and-maui-something-for-everyone</a></li>
+<li>Xamarin.Forms<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/Xamarin.Forms">https://github.com/xamarin/Xamarin.Forms</a></li>
+<li>Mono<br><a target="_blank" rel="noopener" href="https://github.com/mono/mono">https://github.com/mono/mono</a></li>
+<li>.NET MAUI Cross-Platform Application Development<br><a target="_blank" rel="noopener" href="https://www.packtpub.com/product/net-maui-cross-platform-application-development-second-edition/9781835080597">https://www.packtpub.com/product/net-maui-cross-platform-application-development-second-edition/9781835080597</a></li>
+</ol>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>该文章对.NET跨平台应用程序框架进行了深入的评述。它介绍了.NET跨平台应用程序框架，并将其与其他应用程序框架（如Flutter、React Native或Ionic）进行了比较。文章还介绍了基于.NET的各种可用的跨平台应用程序框架，包括.NET MAUI、.NET MAUI Blazor混合、Avalonia UI、Uno平台和Xamarin。 此外，它解释了这些框架的使用和好处以及它们的比较，包括它们的架构。它得出的结论是，框架的选择在很大程度上取决于实际使用场景，因为所有框架都有其独特的优点和缺点。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/maui-en/" rel="prev" title="Introduction of .NET cross-platform application frameworks">
+                  <i class="fa fa-chevron-left"></i> Introduction of .NET cross-platform application frameworks
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

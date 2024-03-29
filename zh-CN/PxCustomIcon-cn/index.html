@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="自定义图标是PassXYZ用户反馈中要求最多的一项功能。虽然KeePassLib本身是支持自定义图标的，但只适用于Windows环境。而PassXYZ需要在Windows，iOS和Android这三个平台上同时支持这一功能。为了达到这一目的，先要在KPCLib中实现这一功能。在最新的KPCLib 1.1.9版本中，通过利用SkiaSharp图形库，将自定义图标功能同时实现在了三个平台上。有兴趣的朋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用自定义图标（PassXYZ 2.1.1&#x2F;PassXYZ Cloud 2.4.1）">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxCustomIcon-cn/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="自定义图标是PassXYZ用户反馈中要求最多的一项功能。虽然KeePassLib本身是支持自定义图标的，但只适用于Windows环境。而PassXYZ需要在Windows，iOS和Android这三个平台上同时支持这一功能。为了达到这一目的，先要在KPCLib中实现这一功能。在最新的KPCLib 1.1.9版本中，通过利用SkiaSharp图形库，将自定义图标功能同时实现在了三个平台上。有兴趣的朋">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/r241/change_icon.gif">
+<meta property="og:image" content="https://passxyz.github.io/images/r241/delete_icon.gif">
+<meta property="article:published_time" content="2019-02-10T03:12:06.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.450Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/r241/change_icon.gif">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/PxCustomIcon-cn/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/PxCustomIcon-cn/","path":"zh-CN/PxCustomIcon-cn/","title":"如何使用自定义图标（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何使用自定义图标（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1） | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87%E7%9A%84%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">自定义图标的要求：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87"><span class="nav-number"></span> <span class="nav-text">如何删除自定义图标</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxCustomIcon-cn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何使用自定义图标（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1） | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何使用自定义图标（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-10 11:12:06" itemprop="dateCreated datePublished" datetime="2019-02-10T11:12:06+08:00">2019-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>自定义图标是PassXYZ用户反馈中要求最多的一项功能。虽然KeePassLib本身是支持自定义图标的，但只适用于Windows环境。而PassXYZ需要在Windows，iOS和Android这三个平台上同时支持这一功能。为了达到这一目的，先要在KPCLib中实现这一功能。在最新的KPCLib 1.1.9版本中，通过利用SkiaSharp图形库，将自定义图标功能同时实现在了三个平台上。有兴趣的朋友可以在GitHub上找到相关的代码。</p>
+<p>在PassXYZ 2.1.1&#x2F;PassXYZ Cloud 2.4.1版本中，KPCLib已被更新到1.1.9，所以用户就可以使用自定义图标功能了。关于如何使用自定义图标，请参考以下的动画图片：</p>
+<p><img src="https://passxyz.github.io/images/r241/change_icon.gif" alt="更改图标"></p>
+<p>如上图所示，可以使用更换图标的上下文菜单来添加自定义图标。关于如何使用更换图标的上下文菜单，请参考另一篇文章“<a href="https://passxyz.github.io/zh-CN/PxChangeIcon-cn/">如何更改图标</a>”。当用户选择了更换图标后，在更换图标的页面，可以看到一个新增加的”+”按钮，选择这个按钮便可以通过相册或文件浏览来选择想要的图标。</p>
+<h3 id="自定义图标的要求："><a href="#自定义图标的要求：" class="headerlink" title="自定义图标的要求："></a>自定义图标的要求：</h3><p>用户自定义的图标需符合如下要求：</p>
+<ol>
+<li>图标必须是正方形的，并且像素需要大于96x96。</li>
+<li>建议使用JPEG或PNG格式。</li>
+</ol>
+<h2 id="如何删除自定义图标"><a href="#如何删除自定义图标" class="headerlink" title="如何删除自定义图标"></a>如何删除自定义图标</h2><p>添加了自定义图标后，如果有需要，用户也可以删除自定义图标。如何删除自定义图标，请参考下面的动画图片：</p>
+<p><img src="https://passxyz.github.io/images/r241/delete_icon.gif" alt="删除图标"></p>
+<p>在更换图标的页面，用户可以使用上下文菜单来删除图标。如在Android系统中，可以长按自定义图标来显示上下文菜单。关于在不同系统中的上下文菜单使用，可以参考文章<a href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxRelease2-0-1-cn/" rel="prev" title="PassXYZ 1.7.1和PassXYZ Cloud 2.0.1版本更新">
+                  <i class="fa fa-chevron-left"></i> PassXYZ 1.7.1和PassXYZ Cloud 2.0.1版本更新
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxImport-cn/" rel="next" title="如何导入KeePass数据文件（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1）">
+                  如何导入KeePass数据文件（PassXYZ 2.1.1/PassXYZ Cloud 2.4.1） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

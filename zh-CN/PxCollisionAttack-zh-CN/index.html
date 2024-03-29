@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我们经常会在新闻里看到或听到关于用户数据泄露的事件，这些用户数据的泄露会对网站或服务的使用者产生非常严重的安全威胁。作为一个网络用户，您对用户数据泄露的严重程度和这些用户数据泄露事件背后的具体细节，又了解多少呢？ 谈到数据泄露，就不得不介绍一下与之相关的几个常用的黑客术语。在与数据泄露事件相关的报道中，经常可以听到拖库，洗库和撞库这几个词。拖库指的是黑客入侵有价值的网站，把注册用户的资料数据库全部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="我们经常会在新闻里看到或听到关于用户数据泄露的事件，这些用户数据的泄露会对网站或服务的使用者产生非常严重的安全威胁。作为一个网络用户，您对用户数据泄露的严重程度和这些用户数据泄露事件背后的具体细节，又了解多少呢？ 谈到数据泄露，就不得不介绍一下与之相关的几个常用的黑客术语。在与数据泄露事件相关的报道中，经常可以听到拖库，洗库和撞库这几个词。拖库指的是黑客入侵有价值的网站，把注册用户的资料数据库全部">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCollisionAttack/flowchart01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCollisionAttack/hibp01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCollisionAttack/github01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCollisionAttack/hibp02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCollisionAttack/mfa01.png">
+<meta property="article:published_time" content="2018-09-11T08:25:46.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.449Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxCollisionAttack/flowchart01.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/","path":"zh-CN/PxCollisionAttack-zh-CN/","title":"面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？ | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E5%AE%A2%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%89%8B%E6%AE%B5%EF%BC%88%E6%8B%96%E5%BA%93-x2F-data-breaches%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">黑客获取用户数据的手段（拖库&#x2F;data breaches）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%A9%E7%94%A8%EF%BC%88%E6%B4%97%E5%BA%93%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">用户数据的利用（洗库）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%86%8D%E6%AC%A1%E5%88%A9%E7%94%A8%EF%BC%88%E6%92%9E%E5%BA%93%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">用户数据的再次利用（撞库）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8"><span class="nav-number">4.</span> <span class="nav-text">如何保护自己的网络信息安全</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxCollisionAttack-zh-CN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？ | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-11 16:25:46" itemprop="dateCreated datePublished" datetime="2018-09-11T16:25:46+08:00">2018-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>我们经常会在新闻里看到或听到关于用户数据泄露的事件，这些用户数据的泄露会对网站或服务的使用者产生非常严重的安全威胁。作为一个网络用户，您对用户数据泄露的严重程度和这些用户数据泄露事件背后的具体细节，又了解多少呢？</p>
+<p>谈到数据泄露，就不得不介绍一下与之相关的几个常用的黑客术语。在与数据泄露事件相关的报道中，经常可以听到<strong>拖库</strong>，<strong>洗库</strong>和<strong>撞库</strong>这几个词。<strong>拖库</strong>指的是黑客入侵有价值的网站，把注册用户的资料数据库全部盗走的行为。<strong>洗库</strong>是指在取得大量的用户数据之后，黑客会通过一系列的技术手段和黑色产业链将有价值的用户数据变现。<strong>撞库</strong>是黑客通过收集互联网已泄露的用户和密码信息，生成对应的字典表，尝试批量登陆其他网站后，得到一系列可以登录的用户信息列表。由于很多用户习惯在不同网站使用相同的帐号密码，因此黑客可以通过获取用户在A网站的账户信息去尝试登录B网址，这就可以理解为撞库攻击。</p>
+<h2 id="黑客获取用户数据的手段（拖库-x2F-data-breaches）"><a href="#黑客获取用户数据的手段（拖库-x2F-data-breaches）" class="headerlink" title="黑客获取用户数据的手段（拖库&#x2F;data breaches）"></a>黑客获取用户数据的手段（拖库&#x2F;data breaches）</h2><p>黑客获取用户数据的手段主要分为社工手段和技术手段。社工手段主要是利用人的心理学特点，通过欺骗或冒充等手段获取信息，比如利用邮件、钓鱼网站等手段获取用户信息。技术手段则是指利用系统本身的漏洞直接侵入目标系统获取用户信息。在实际攻击过程中，黑客往往会混合使用这两种方法。<br>为了说明拖库，洗库和撞库这三者之间的关系，以下选用了启明星辰安星web 安全运维团队在总结2011大规模数据泄露研究报告中的一张图。这张图非常清楚地说明了这三个环节之间的相互关系。</p>
+<p><img src="https://passxyz.github.io/images/PxCollisionAttack/flowchart01.png" alt="flowchart01"></p>
+<p>那么，到底目前网络用户信息泄露问题有多严重呢？</p>
+<p>在国内，2016年以前有一个专门曝光用户数据泄露事件的网站叫乌云网。如果留意看新闻的人应该还记得，在2016年之前经常有关于在乌云网上报出的用户数据泄露事件。乌云网曾经曝光的携程支付漏洞和12306网站用户数据泄露事件，目前在百度百科上还可以搜到。但这个由“白帽子们”发起的可以用来衡量网络安全程度的安全问题曝光网站，在2016年被强制关闭了。对于这一事件的评价有着非常极端的两面性，赞同关闭的人认为数据泄露事件曝光后，会有更多的黑客利用被曝光的漏洞进行攻击。反对的人则认为，没有这样的网站，服务提供商不会那么重视网络服务的安全，在提供更多服务的同时，会产生更多的系统漏洞，从而会给网络用户带来更多的危险。但不管怎样，乌云网被关闭的事件说明，黑客使用技术手段大量获取用户资料不是偶发事件，而几乎是网络安全的常态。</p>
+<p>当失去乌云网后，网络用户是否真的无法知道当前的用户数据泄露问题有多严重了呢？</p>
+<p>其实不然，在这方面比乌云网更出名的类似网站还有”Have I been Pwned?”（HIBP）。2013年底，网络安全专家Troy Hunt意识到当时的用户数据泄露已经达到了无法控制的地步，所以他决定与其让黑客独享这些数据，不如把所能获取到的数据制作成可以搜索的数据库，让普通用户也可以很容易地知道自己的资料是否已经泄露了。如果您还没有听说过这个网站，建议您可以去这个网站上检查一下自己账号的安全性。HIBP网站的网址是：<a target="_blank" rel="noopener" href="https://haveibeenpwned.com/">https://haveibeenpwned.com</a>。如下图HIBP网首页站所显示，到目前为止HIBP所记录的被泄露的用户数已高达50多亿。</p>
+<p><img src="https://passxyz.github.io/images/PxCollisionAttack/hibp01.png" alt="hibp01"></p>
+<p>除了可以自行去HIBP网站查找自己的用户名和密码是否被泄露以外，目前很多网络服务其实也在使用HIBP的数据来帮助用户提高账号的安全程度。比如，作者本人就曾在登陆GitHub时收到过下图所示的警告信息。</p>
+<p><img src="https://passxyz.github.io/images/PxCollisionAttack/github01.png" alt="github01"></p>
+<p>这个警告信息是说，您的账号目前已经可以在HIBP的数据库中找到了，建议更改和使用更高强度的密码。<br>当您去HIBP中查找后，若发现资料已被泄露，HIBP还能很贴心地告诉您，您的资料是在哪次数据泄露事件中被搜集的，您的什么资料可以在HIBP数据库中找到，如下图所示。</p>
+<p><img src="https://passxyz.github.io/images/PxCollisionAttack/hibp02.png" alt="hibp02"> </p>
+<h2 id="用户数据的利用（洗库）"><a href="#用户数据的利用（洗库）" class="headerlink" title="用户数据的利用（洗库）"></a>用户数据的利用（洗库）</h2><p>前面我们谈到的是用户数据是如何被泄露的，以及目前用户数据的泄露问题有多严重。那么，当黑客获取到某个网站的用户数据后，这些数据是如何被利用的呢？基本上，被盗取的数据分成两部分：第一部分是以明文形式存储的用户信息，比如，姓名、电话号码、邮件地址等，更严重的可能还包括身份证号码、信用卡、银行账号等敏感信息。黑客可以把这些信息打包出售给不同的非法使用者。第二部分就是加密过的用户密码。为了最大程度地保护用户信息安全，大多数网站一般都是采用加密方式来存储用户密码，而不是明文存储。前面提到的HIBP网站上已泄露的用户密码就是存储的密码Hash值而不是明文。如果您想了解更多关于Hash算法的介绍，可以参考另一篇文章<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29953771/article/details/81293142">网络信息安全领域中常见的几个概念</a>。黑客需要破解经Hash算法加密后的密码才能使用这一部分数据。用于破解密码Hash值的主要方法是碰撞攻击（Collision attack），维基百科上对Collision attack有非常详细的介绍。当黑客利用Collision attack将破解了的用户密码和用户名配对制成一张表格后，黑客就可以利用这张表来进行第二轮攻击了。</p>
+<h2 id="用户数据的再次利用（撞库）"><a href="#用户数据的再次利用（撞库）" class="headerlink" title="用户数据的再次利用（撞库）"></a>用户数据的再次利用（撞库）</h2><p>如果不考虑社工手段，黑客使用技术手段获取的用户数据，主要是利用系统漏洞攻击那些防护措施薄弱的网站所得到的。当黑客把用户数据整理成一张可以再次使用的表格时，非常多的网站都可能被攻陷了。这主要是由于用户往往会使用同样的用户名和密码来注册不同的网络服务，这样黑客就可以利用已知的用户信息来获取其他网站同一用户的资料。这也就是为什么很多的用户数据泄露是通过撞库攻击所得到的。</p>
+<h2 id="如何保护自己的网络信息安全"><a href="#如何保护自己的网络信息安全" class="headerlink" title="如何保护自己的网络信息安全"></a>如何保护自己的网络信息安全</h2><p>所谓道高一尺，魔高一丈。网络上的攻防战争是永远没有结束那一天的。信息安全是服务提供方和用户本身双方的责任。做为网络用户，我们应该怎么办？其实，有很多方法是可以提高网络信息安全水平的，但讲多了，大多数人无法做到。这里只提最重要的三点供参考：<br>1.	不要使用同一用户名和密码来注册所有的网络服务。这无疑是最不安全的做法；<br>2.	提高密码的复杂程度。建议使用8位以上，数字、字母和符号的组合密码；<br>3.	对于重要的账号开启多重验证方法，如密码加短信，密码加OTP验证等。</p>
+<p>以上第一、第二点，相信大家已经听过无数遍了。如果做到这两点，就会极大程度地增加黑客的工作量。要知道，黑客的时间也是很宝贵的，当您的防范措施比其他人复杂得多时，黑客可能就会选择放弃，而去尝试下一条数据了。</p>
+<p>对于第三点多重验证，这本来是用于对安全性要求很高的网络服务所提供的安全措施，但随着用户数据泄露问题越来越严重，多重验证也逐渐被主流的网络服务所采用了。</p>
+<p>什么是<strong>多重验证</strong>？多重验证是指，当用户在使用网络服务时，需要通过两种以上的认证机制之后才可以使用网络服务。这里讲的认证机制是指相互独立的验证手段。比如，当用户输入了用户名和密码后，系统提示还需要输入短信验证码。通常，当用户在陌生或新设备上登陆账户时，系统就会要求两种以上的认证机制。多重验证能更有效地保护用户账号安全。</p>
+<p>多重验证根据复杂程度可以分成很多种，比如安全性最高的基于不对称加密算法的U盾，被广泛应用在银行业中。在一般的多重验证手段中，更常用的是邮件、短信、密码器、软件密码器或基于常用设备的应用推送等。这些常用的验证手段多数是基于一次性密码（OTP）的验证方法。随着国内互联网行业的飞速发展，一些具有创新性的多重验证方法也逐渐在国内流行开来。比如基于常用设备的二维码识别，这本来是微信和支付宝率先使用的验证和支付手段，目前很多国内银行的网银登陆也开始支持二维码扫描登陆了。除了二维码外，比较特别的验证方法还有，微信支持声纹验证，支付宝和百度支持面部识别等。由于多重验证方法种类繁多，无法逐一介绍，下表例举了一些常用网络服务所支持的多重验证方法供参考。</p>
+<p><img src="https://passxyz.github.io/images/PxCollisionAttack/mfa01.png" alt="mfa01"> </p>
+<p>随着多重验证的使用和用户账号管理的复杂程度越来越高，国内的领先互联网服务提供商开始使用一站式的安全应用来专门用作账户管理。其中具有代表性的有QQ安全中心、百度账号管家和网易账号管家等。这些应用通常要求用户将应用与常用设备绑定，然后通过绑定后的应用来管理用户的账户设置。这样的一站式应用可以提供更多元的账户管理功能，比如账户功能的开启和关闭，被盗账号的找回等等。<br>现在，您一定对互联网账户的安全有了进一步的了解。是否很想去HIBP网站上查一下自己的资料有没有被泄露？如果在HIBP的数据库里能查找到您的账号，以上提及的三点就是您必须要立即采取的防范措施，否则理论上说，所有人都可能通过HIBP找到您的用户名和密码，登录您的账号了。</p>
+<hr>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">苹果应用商店</a>，<a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">微软应用商店</a>，<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>和<a target="_blank" rel="noopener" href="http://app.hicloud.com/app/C100313505">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxMarkdown-zh-CN/" rel="prev" title="如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系">
+                  <i class="fa fa-chevron-left"></i> 如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxMFA1-zh-CN/" rel="next" title="什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？">
+                  什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

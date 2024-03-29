@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="随着网络用户数据的泄露问题日益严重，单纯使用用户名和密码来保护用户资料已不够安全。主要的网络服务都开始使用多因素验证来进一步保护用户数据安全。多因素验证的英文是Multi-factor authentication，常缩写为MFA。 多因素验证MFA是通过结合两个或多个独立的凭证来识别用户，如：用户知道什么（比如，PIN），用户有什么（比如，U盾或密码器），或用户是什么（生物识别，如指纹，虹膜等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="随着网络用户数据的泄露问题日益严重，单纯使用用户名和密码来保护用户资料已不够安全。主要的网络服务都开始使用多因素验证来进一步保护用户数据安全。多因素验证的英文是Multi-factor authentication，常缩写为MFA。 多因素验证MFA是通过结合两个或多个独立的凭证来识别用户，如：用户知道什么（比如，PIN），用户有什么（比如，U盾或密码器），或用户是什么（生物识别，如指纹，虹膜等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/signup-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/login-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/settings1-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/options-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/settings2-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/import-cn.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/secret-key-entropy.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/pbkdf2-crack-times.png">
+<meta property="article:published_time" content="2018-09-20T01:12:03.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.455Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta property="article:tag" content="2FA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxMFA1/cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/","path":"zh-CN/PxMFA1-zh-CN/","title":"什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？ | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%9B%A0%E7%B4%A0%E9%AA%8C%E8%AF%81"><span class="nav-number">1.</span> <span class="nav-text">多因素验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KeePass%E5%AF%B9%E5%A4%9A%E5%9B%A0%E7%B4%A0%E9%AA%8C%E8%AF%81%E7%9A%84%E6%94%AF%E6%8C%81"><span class="nav-number">2.</span> <span class="nav-text">KeePass对多因素验证的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8MFA%E6%9D%A5%E5%A2%9E%E5%BC%BAPass-XYZ%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8"><span class="nav-number">3.</span> <span class="nav-text">通过使用MFA来增强Pass XYZ的数据安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF%E8%AE%BE%E5%A4%87%E9%94%81"><span class="nav-number">3.1.</span> <span class="nav-text">如何开启设备锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%B0%86%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%A0%E8%BE%93%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E8%AE%BE%E5%A4%87"><span class="nav-number">3.2.</span> <span class="nav-text">如何将数据库传输到另一台设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E5%B7%B2%E6%9C%89%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%B8%8A%E5%8A%A0%E8%AE%BE%E5%A4%87%E9%94%81"><span class="nav-number">3.3.</span> <span class="nav-text">如何在已有数据文件上加设备锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PassXYZ%E8%AE%BE%E5%A4%87%E9%94%81%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">PassXYZ设备锁的安全性分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxMFA1-zh-CN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？ | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-09-20 09:12:03" itemprop="dateCreated datePublished" datetime="2018-09-20T09:12:03+08:00">2018-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/PxMFA1/cover.png" alt="cover"></p>
+<p>随着网络用户数据的泄露问题日益严重，单纯使用用户名和密码来保护用户资料已不够安全。主要的网络服务都开始使用多因素验证来进一步保护用户数据安全。多因素验证的英文是Multi-factor authentication，常缩写为<strong>MFA</strong>。</p>
+<h2 id="多因素验证"><a href="#多因素验证" class="headerlink" title="多因素验证"></a>多因素验证</h2><p>MFA是通过结合两个或多个独立的凭证来识别用户，如：用户知道什么（比如，PIN），用户有什么（比如，U盾或密码器），或用户是什么（生物识别，如指纹，虹膜等）。传统的多因素验证通常是通过：</p>
+<ul>
+<li>用户名密码和智能卡（U盾）</li>
+<li>用户名密码和密码器</li>
+</ul>
+<p>来识别用户。</p>
+<p>因为主要使用了两个独立的因素进行认证，也叫双因子认证。英文是Two-factor authentication或简称2FA。随着网络科技的发展，其他形式的验证方式也逐渐地被采用，如通过应用推送的一次性密码，通过短信发送的一次性密码等。</p>
+<h2 id="KeePass对多因素验证的支持"><a href="#KeePass对多因素验证的支持" class="headerlink" title="KeePass对多因素验证的支持"></a>KeePass对多因素验证的支持</h2><p><a href="https://passxyz.github.io/">PassXYZ</a>是基于<a target="_blank" rel="noopener" href="https://keepass.info/">KeePass</a>开发的密码管理软件。为了提高数据库的安全性，PassXYZ也提供了多因素验证的支持。KeePass是一个开源的密码管理软件，同时也是一个很好的开源密码管理软件开发框架。KeePass的MFA支持分成两部分：</p>
+<ol>
+<li>KeePass数据库的多因素验证支持，需要通过多因素验证才能打开数据库；</li>
+<li>KeePass本身也可以用来存储多因素验证信息，或当作多因素验证工具使用</li>
+</ol>
+<p>本文主要讨论第一种多因素验证的支持。对于第二种，将另行撰文讨论。</p>
+<p>虽然KeePass提供丰富的MFA特性，但很多MFA的支持是通过KeePass插件的方式实现的，对专业人士来说这不是个问题，但对普通用户来说使用难度比较大。目前，KeePass插件的安装并没有做成简单的安装程序，而是需要一定的编程基础才能做到的。由于KeePass插件是由不同的开源开发者所提供的，不同的插件完整性和稳定性也大不相同。</p>
+<p>KeePass对MFA的支持是通过组合密钥（Composite Keys）和密钥服务（Key Providers）组成的框架来实现的。PassXYZ对MFA的支持正是延用了这个框架，同时充分考虑了普通用户的使用习惯，设计了非常简洁易用的用户界面，使用户开启和使用PassXYZ的多因素验证不会遇到任何困难。</p>
+<h2 id="通过使用MFA来增强Pass-XYZ的数据安全"><a href="#通过使用MFA来增强Pass-XYZ的数据安全" class="headerlink" title="通过使用MFA来增强Pass XYZ的数据安全"></a>通过使用MFA来增强Pass XYZ的数据安全</h2><p>在PassXYZ中对MFA的支持主要使用了设备锁的方式，这是对KeePass本身所支持的文件锁的一种扩展。什么是设备锁呢？如果使用过网络银行客户端，你可能知道怎么将应用与手机绑定。一般银行为了用户的安全，需要用户将应用与手机进行绑定后才能使用。PassXYZ设备锁使用了类似的概念。当用户建立新数据库时，可以选择开启设备锁。当开启了设备锁以后，这个数据库就跟当前设备绑定了，即使黑客设法拿到了数据库和密码，也无法打开数据库，因为数据库已与设备锁定。由于在绑定过程中会使用与文件锁类似的超强密钥，设备锁可以非常有效地应对暴力破解。这个特性对需要将数据库放去云存储的用户来说，可极大地提高安全性。</p>
+<h3 id="如何开启设备锁"><a href="#如何开启设备锁" class="headerlink" title="如何开启设备锁"></a>如何开启设备锁</h3><p>在创建一个新的数据库时，可以如下图所示打开设备锁选项（注册页面的下方有一个开启设备锁的选项）。打开这个选项后，建立的数据库就开启了设备锁。</p>
+<p><img src="/images/PxMFA1/signup-cn.png" alt="signup-cn"></p>
+<h3 id="如何将数据库传输到另一台设备"><a href="#如何将数据库传输到另一台设备" class="headerlink" title="如何将数据库传输到另一台设备"></a>如何将数据库传输到另一台设备</h3><p>当用户想在自己的另一台设备上使用开启了设备锁的数据库时，由于设定了设备锁，用户是无法直接打开数据库的。如果想在多台设备上使用开启了设备锁的数据库，需要遵循下面的步骤进行操作：<br>1.	将数据库导出到另一台设备<br>2.	在当前设备上找到设备锁的二维码<br>3.	在导入设备上扫描设备锁的二维码</p>
+<p>如果想将数据库传输到另一台设备上，PassXYZ云版的用户在OneDrive上直接选择同步就可以了。除了云同步，PassXYZ或PassXYZ云版的用户都可以在设置中找到“导出”选项。点击“导出”后，可以选择系统所提供的数据传输方法，比如蓝牙或邮件等。由于PassXYZ支持安卓，苹果和Windows 10三个平台，每个平台所提供的选择会略有不同。当成功导入数据库后，在新设备登陆页就会看到如下图所示的界面。</p>
+<p><img src="/images/PxMFA1/login-cn.png" alt="login-cn"></p>
+<p>这时登陆页面中的密码域是暂时禁用的，下方的提示是告诉用户PassXYZ_KPCLib开启了设备锁，需要同时使用设备锁匙和密码来登陆。点击密码域右侧的扫描按钮，可以扫描原设备锁匙二维码来开启设备锁。</p>
+<p>原设备锁匙二维码可以在原设备的设置中找到。在“设置”中可以看到“安全设置”选项如下图：</p>
+<p><img src="/images/PxMFA1/settings1-cn.png" alt="settings1-cn"></p>
+<p>选择“安全设置”后，可以看到有两个选项：显示设备锁匙二维码，或将之导出成一个文件，见下图：</p>
+<p><img src="/images/PxMFA1/options-cn.png" alt="options-cn"></p>
+<p>通过这两种方法都可以将设备锁匙传输到另一台设备上。当成功将设备锁打开后，新设备就可以正常登陆了。</p>
+<h3 id="如何在已有数据文件上加设备锁"><a href="#如何在已有数据文件上加设备锁" class="headerlink" title="如何在已有数据文件上加设备锁"></a>如何在已有数据文件上加设备锁</h3><p>对于尚未开启设备锁的数据库，在设置中的“安全设置”选项下会显示如下图所示信息：</p>
+<p><img src="/images/PxMFA1/settings2-cn.png" alt="settings2-cn"></p>
+<p>如果想将未开启设备锁的数据库转换成开启设备锁的数据库，可以点击“安全设置”项，点击后屏幕会显示一个数据转换的页面，如下图所示：</p>
+<p><img src="/images/PxMFA1/import-cn.png" alt="import-cn"></p>
+<p>此时，需要给新数据库起一个用户名，然后点击“导入”按钮。当新数据库生成后，旧数据库仍然存在。在确认新数据库成功导入后，即可删除未开启设备锁的旧数据库了。</p>
+<h2 id="PassXYZ设备锁的安全性分析"><a href="#PassXYZ设备锁的安全性分析" class="headerlink" title="PassXYZ设备锁的安全性分析"></a>PassXYZ设备锁的安全性分析</h2><p>前面解释了什么是设备锁以及如何在PassXYZ中使用设备锁。那么如何来定量的分析设备锁的安全性呢？对于一般用户来说，详细的基于密码学的分析太过专业，很难让普通用户看懂。这里我们可以用比较的方法来说明这个问题。密码软件1Password也有与PassXYZ设备锁类似的功能叫Secret Key。在1Password介绍Secret Key的文章中使用了下面的图表来表示密码强度与数据安全之间的关系。</p>
+<p><img src="/images/PxMFA1/secret-key-entropy.png" alt="secret-key-entropy"></p>
+<p>从上图中可以看到，当使用主密码和设备锁(或Security Key)的组合时，密码强度可以大于128bits。由于密码强度跟记忆的容易性成反比，所以一般不会使用密码强度超过60bits的密码。我们通常使用的密码复杂强度(Amount of Entropy)大致在40bits左右。使用1Password的Secret Key或PassXYZ的设备锁时，密码强度都超过128bits。</p>
+<p>一般暴力破解是通过尝试所有可能的密码组合来找到真正的密码，所以每次尝试所需的时间是防止暴力破解的另一个关键因素。增加每次尝试所需的时间是目前数据加密软件通用的防暴力破解方法，这种增时算法叫做密钥推导(Key Derivation)算法。在1Password中使用的是PBKDF2算法，而KeePass则支持多种算法，如AES-KDF和Argon2等。由于Argon2是密码哈希竞赛(Password Hashing Competition)中的冠军算法，KeePass采用的缺省算法就是Argon2。基于以上介绍，我们再来看看下面一张1Password的统计图。</p>
+<p><img src="/images/PxMFA1/pbkdf2-crack-times.png" alt="pbkdf2-crack-times"></p>
+<p>从上图中可以看到，通过控制密钥推导(Key Derivation)算法的复杂度和密码强度，我们就可以估算出使用某种计算设备时，破解密码所需的时间。普通密码的强度在40bits左右，破解所需的时间在两周至两个月左右。当密码强度超过65bits时，破解所需的时间已经几乎是天文数字了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于PassXYZ的用户，为了保障数据安全，建议使用设备锁，同时可以打印一份设备锁匙的二维码，保留在安全的地方。对要将数据库同步到云端的用户来说，使用设备锁尤为重要。如果不使用，则必需使用强密码以防止暴力破解。</p>
+<hr>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款跨平台的密码管理软件，可以运行在安卓和苹果手机以及Windows 10上。<br>PassXYZ基于著名的开源软件KeePass开发，所以兼容KeePass数据格式。PassXYZ的核心代码可以在开源社区GitHub上获取。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">苹果应用商店</a>，<a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">微软应用商店</a>，<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>和<a target="_blank" rel="noopener" href="http://app.hicloud.com/app/C100313505">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+              <a href="/tags/2FA/" rel="tag"># 2FA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxCollisionAttack-zh-CN/" rel="prev" title="面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？">
+                  <i class="fa fa-chevron-left"></i> 面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/en/PxMFA1-en/" rel="next" title="What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?">
+                  What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database? <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

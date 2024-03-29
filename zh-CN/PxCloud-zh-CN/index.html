@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="现代生活中，密码管理软件其实是每个人都需要用到的，只是很多人不知道该如何使用。目前在各大应用市场上可以找到很多密码管理软件，如果按存储的方式分类，基本上可以分成本地存储和云存储两类。本地存储的优点是安全性高，自己对数据文件有绝对的控制权。因为是本地存储，资料的备份就显得十分重要。为了省掉备份和同步所带来的麻烦，有些人就会选择支持云存储的密码管理软件。基于云存储的密码管理软件的优点是使用方便，基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈安全性与易用性的权衡，PassXYZ与PassXYZ云">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="现代生活中，密码管理软件其实是每个人都需要用到的，只是很多人不知道该如何使用。目前在各大应用市场上可以找到很多密码管理软件，如果按存储的方式分类，基本上可以分成本地存储和云存储两类。本地存储的优点是安全性高，自己对数据文件有绝对的控制权。因为是本地存储，资料的备份就显得十分重要。为了省掉备份和同步所带来的麻烦，有些人就会选择支持云存储的密码管理软件。基于云存储的密码管理软件的优点是使用方便，基本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/PxCloud.png">
+<meta property="og:image" content="https://passxyz.github.io/images/onedrive_file_status.jpg">
+<meta property="og:image" content="https://passxyz.github.io/images/pxcloud_table.PNG">
+<meta property="og:image" content="https://passxyz.github.io/images/android_MainPageMaster-zh-Hans.png">
+<meta property="og:image" content="https://passxyz.github.io/images/enable_sync-zh-Hans.png">
+<meta property="og:image" content="https://passxyz.github.io/images/syncing-zh-Hans.png">
+<meta property="og:image" content="https://passxyz.github.io/images/merge_methods-zh-Hans.png">
+<meta property="article:published_time" content="2018-08-08T01:09:41.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.448Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxCloud.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/PxCloud-zh-CN/","path":"zh-CN/PxCloud-zh-CN/","title":"谈安全性与易用性的权衡，PassXYZ与PassXYZ云"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>谈安全性与易用性的权衡，PassXYZ与PassXYZ云 | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PassXYZ%E5%92%8CPassXYZ%E4%BA%91"><span class="nav-number">1.</span> <span class="nav-text">PassXYZ和PassXYZ云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%88%96%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E4%BA%91%E5%90%8C%E6%AD%A5%E7%8A%B6%E6%80%81"><span class="nav-number">2.</span> <span class="nav-text">文件或文件夹的云同步状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PassXYZ%E4%BA%91%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">PassXYZ云的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%88%E5%B9%B6%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">文件的合并方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxCloud-zh-CN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="谈安全性与易用性的权衡，PassXYZ与PassXYZ云 | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          谈安全性与易用性的权衡，PassXYZ与PassXYZ云
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-08 09:09:41" itemprop="dateCreated datePublished" datetime="2018-08-08T09:09:41+08:00">2018-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/PxCloud.png" alt="OneDrive File"></p>
+<p>现代生活中，密码管理软件其实是每个人都需要用到的，只是很多人不知道该如何使用。目前在各大应用市场上可以找到很多密码管理软件，如果按存储的方式分类，基本上可以分成本地存储和云存储两类。本地存储的优点是安全性高，自己对数据文件有绝对的控制权。因为是本地存储，资料的备份就显得十分重要。为了省掉备份和同步所带来的麻烦，有些人就会选择支持云存储的密码管理软件。基于云存储的密码管理软件的优点是使用方便，基本不用手动备份和同步，但是安全性较低，云端资料有泄漏的可能性。如果要使用云端存储，建议使用复杂的主密码以保障数据的安全性。</p>
+<p>目前主要流行的密码管理软件有1Password，LastPass和KeePass等。PassXYZ和PassXYZ云就是KeePass兼容的密码管理软件。KeePass本身只支持Windows，而PassXYZ是可以在Android，iOS和Windows 10上运行的KeePass兼容软件。</p>
+<h2 id="PassXYZ和PassXYZ云"><a href="#PassXYZ和PassXYZ云" class="headerlink" title="PassXYZ和PassXYZ云"></a>PassXYZ和PassXYZ云</h2><p>之所以在推出<strong>PassXYZ</strong>普通版之后又开发了<strong>PassXYZ</strong>云版，是为了照顾不同使用者对安全性和方便性的各自需求。</p>
+<p><strong>PassXYZ</strong>是本地版本，不会用到任何网络功能。使用者需要自己管理备份和不同设备间的同步。由于是本地存储，只要注意数据的存储安全，基本上没有资料泄漏的风险。本地资料的同步和备份有很多办法，比如，可以通过Bluetooth在各设备间传送，也可以把数据存储在自己的移动存储设备上，在各设备间共享。</p>
+<p><strong>PassXYZ云</strong>是一个集成了云存储的版本。对云存储的支持有很多层面，在同一平台上支持云存储比较容易，但跨平台就相对比较复杂。比如，在Windows上OneDrive是集成在Windows 10之中的，只要将数据存储在OneDrive目录下，用户就可以在所有设备上使用。同样的，在Android上有Google Drive，在苹果上有iCloud。如果想在不同系统的设备，如，Android、iOS和Windows 10之间共享云存储，就需要开发者做额外的开发了。<strong>PassXYZ云</strong>就是一个支持多个平台的版本，不同设备之间都可以共享同个云存储。比如说您更换了不同款手机，这时就会发现<strong>PassXYZ</strong>云版的便利。</p>
+<h2 id="文件或文件夹的云同步状态"><a href="#文件或文件夹的云同步状态" class="headerlink" title="文件或文件夹的云同步状态"></a>文件或文件夹的云同步状态</h2><p>虽然各个系统将云存储的用户界面做得跟本地存储的类似，但在使用上还是需要了解它们之间的区别。下面就以OneDrive为例，介绍一下云存储的文件状态。</p>
+<p><img src="/images/onedrive_file_status.jpg" alt="OneDrive File"></p>
+<p>如上图所示，在文件浏览器中，云存储的界面与普通文件非常类似，只是多了一栏显示当前同步状态的图标。这些状态图标在<strong>PassXYZ云</strong>中也会用到。下面列表分别说明一下：</p>
+<p><img src="/images/pxcloud_table.PNG" alt="OneDrive File"></p>
+<p>这些同步状态，在其他的云平台，如Google Drive和iCloud中都有类似的状态。熟悉一种后，其他的云平台使用是非常类似的。</p>
+<h2 id="PassXYZ云的使用"><a href="#PassXYZ云的使用" class="headerlink" title="PassXYZ云的使用"></a>PassXYZ云的使用</h2><p><strong>PassXYZ云</strong>对云存储的支持是建立在OneDrive之上的。之所以选择OneDrive，是因为OneDrive的跨平台支持最完善。Microsoft Graph API提供了非常完善的编程接口，Xamarin应用可以非常方便地使用Microsoft Graph API来实现云存储支持。</p>
+<p><strong>PassXYZ云</strong>支持Android、iOS和Windows 10。这里，我们用Android的用户界面来举例讲解，其他平台是类似的。首先，在<strong>PassXYZ</strong>云版菜单中选择OneDrive来控制文件的同步设置，如下图所示。</p>
+<p><img src="/images/android_MainPageMaster-zh-Hans.png" alt="PageMaster"></p>
+<p>在选择了菜单选项OneDrive之后，可以看到如下图所示的页面。该页面的顶部是OneDrive的登录选项和同步通知设置。登录后，在下面的列表中会显示当前本地和云端的文件状态，您可以通过上下文菜单来对文件的状态进行操作。如果您对在不同系统中上下文菜单的使用有不明之处，可以点击查阅文章<a href="https://passxyz.github.io/2018/08/01/ContextActions-zh-CN/">PassXYZ的上下文菜单在不同系统中的比较</a>。</p>
+<p><img src="/images/enable_sync-zh-Hans.png" alt="Enable_Sync"></p>
+<p>对于当前的本地文件和所有的云端文件，可以通过上下文菜单启用云同步。当启用云同步后，文件的状态会变成如下图所示的正在同步的状态。</p>
+<p><img src="/images/syncing-zh-Hans.png" alt="Enable_Sync"></p>
+<p>一旦开启了云同步，在数据被更改后，<strong>PassXYZ云</strong>会自动与云端进行同步。如果想监控同步的状态，可以开启同步通知。开启同步通知后，同步时您会在系统通知栏收到同步开始和结束的提示。如果不想收到提示，可以选择关闭同步通知。如果想取消云同步，也可以使用上下文菜单对当前的文件禁用云同步。</p>
+<h2 id="文件的合并方法"><a href="#文件的合并方法" class="headerlink" title="文件的合并方法"></a>文件的合并方法</h2><p>基于云存储的数据管理其实有两种。第一种是把整个数据库都放在云端，这样所有设备都直接从云端读取数据。第二种是我们常见的云端存储，这种云存储直接操作的是本地映像文件。当本地映像文件被更改后，系统会将它与云端同步。OneDrive，Google Drive和iCloud都是属于后者。</p>
+<p>第一种方法有一个优点就是没有文件合并时的冲突问题。因为只有云端存储，不管在哪个设备上更改，都会直接更改云端的数据。但这种方法也有其缺点，它无法离线操作，一旦没有网络，就无法使用。另外，数据泄漏和数据丢失的后果较第二种方法更为严重。</p>
+<p>说到第二种方法，由于是基于OneDrive的实现，我们直接操作的是本地的映像文件。如果在另一个设备上更改了同一个记录，那么在同步时就会产生冲突。要解决这个冲突，我们需要设置当前的合并方法。如下图所示，菜单中显示了发生冲突时可以选择的合并方法。</p>
+<p><img src="/images/merge_methods-zh-Hans.png" alt="MergeMethods"></p>
+<p>上图中的设置选项显示的是KeePass所支持的所有合并方法。为了简单起见，建议使用其中两种KeepExisting和Synchronize。这两种合并方法的使用是将所有设备分成两类：主要设备和从属设备。将主要设备的合并方法设为KeepExisting。将所有从属设备的合并方法设为Synchronize。在所有设备上都可以添加新记录，因为同步时新记录是不会产生冲突的。尽量只在主要设备上更改现有记录。或者说当要更改现有记录时应该将合并方法改为KeepExisting。这个设置会使当前的更改覆盖云端的记录。而Synchronize设置的作用是会用云端的记录覆盖本地的数据。</p>
+<p>通过这篇文章，相信您对本地存储和云端存储有了更进一步的了解。在此基础上，您可以根据自己的需求选用适合自己的密码管理软件。如果选择使用支持云的密码管理软件，您需要对同步方法有所了解，并知道如何处理同步时的合并冲突问题。</p>
+<p>希望以上的介绍能让大家更好地使用适合自己的密码管理软件，体验它在生活中给您带来的便利。</p>
+<hr>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款可以运行在安卓和苹果手机以及Windows10上的KeePass兼容应用。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">苹果应用商店</a>，<a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">微软应用商店</a>，<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>和<a target="_blank" rel="noopener" href="http://app.hicloud.com/app/C100313505">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/ContextActions-zh-CN/" rel="prev" title="PassXYZ的上下文菜单在不同系统中的比较">
+                  <i class="fa fa-chevron-left"></i> PassXYZ的上下文菜单在不同系统中的比较
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/en/PxCloud-en/" rel="next" title="A balance between security and convenience, PassXYZ and PassXYZ Cloud">
+                  A balance between security and convenience, PassXYZ and PassXYZ Cloud <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

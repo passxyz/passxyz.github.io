@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction of .NET cross-platform application frameworksWith the launch of .NET 8, I also updated my book .NET MAUI Cross-Platform Application Development to the second edition, which will be releas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction of .NET cross-platform application frameworks">
+<meta property="og:url" content="https://passxyz.github.io/en/maui-en/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="Introduction of .NET cross-platform application frameworksWith the launch of .NET 8, I also updated my book .NET MAUI Cross-Platform Application Development to the second edition, which will be releas">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/b21554cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure03.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure04.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure05.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure06.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/table01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/maui/figure07.png">
+<meta property="article:published_time" content="2024-03-06T08:16:54.000Z">
+<meta property="article:modified_time" content="2024-03-29T05:25:33.048Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="maui">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/maui/b21554cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/en/maui-en/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://passxyz.github.io/en/maui-en/","path":"en/maui-en/","title":"Introduction of .NET cross-platform application frameworks"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Introduction of .NET cross-platform application frameworks | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-NET-cross-platform-application-frameworks"><span class="nav-number">1.</span> <span class="nav-text">Introduction of .NET cross-platform application frameworks</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/en/maui-en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Introduction of .NET cross-platform application frameworks | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction of .NET cross-platform application frameworks
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-06 16:16:54" itemprop="dateCreated datePublished" datetime="2024-03-06T16:16:54+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-29 13:25:33" itemprop="dateModified" datetime="2024-03-29T13:25:33+08:00">2024-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NET/" itemprop="url" rel="index"><span itemprop="name">.NET</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction-of-NET-cross-platform-application-frameworks"><a href="#Introduction-of-NET-cross-platform-application-frameworks" class="headerlink" title="Introduction of .NET cross-platform application frameworks"></a>Introduction of .NET cross-platform application frameworks</h1><p>With the launch of .NET 8, I also updated my book <strong>.NET MAUI Cross-Platform Application Development</strong> to the second edition, which will be released in the first quarter of this year. The first edition was written based on .NET 6, and the second edition was updated to .NET 8. This is a book introducing .NET MAUI and you can find the book at <a target="_blank" rel="noopener" href="https://epa.ms/maui">https://epa.ms/maui</a>. </p>
+<p><img src="/images/maui/b21554cover.png" alt="figure00"></p>
+<p>During the review process of the second edition, through exchanges with peers, I always felt that .NET MAUI should not be the only representative of cross-platform solutions based on .NET.</p>
+<p>.NET MAUI is a cross-platform application framework, and here I emphasize “application framework”. It is the same as other mainstream cross-platform application frameworks like Flutter, React Native or Ionic etc., which all belong to application frameworks. Application frameworks are usually built on general frameworks and corresponding programming languages. We have many choices of general frameworks and languages, such as Java&#x2F;JVM, JavaScript&#x2F;Node.js, and C#&#x2F;.NET Core, etc. The challenge of cross-platform application development mainly comes from the processing of the user interface, so according to different user interface solutions, we can roughly divide cross-platform application frameworks into the following three categories.</p>
+<ul>
+<li><strong>Native UI Abstraction</strong>: This kind of framework abstracts user interface elements and maps them to native controls on the system. Currently, .NET MAUI and React Native use this scheme. The advantage of this method is that the application interface is consistent with the native ones. As native controls update or change, they will automatically take effect in the application. The drawback is that it is challenging to accurately map controls to each supported platform.</li>
+<li><strong>Using 2D Graphics Library</strong>: This method uses a 2D graphics library to draw user interface controls. Flutter and Avalonia UI employ this method. It is not dependent on native controls and so, the application interface is incredibly consistent across all supported platforms. A potential limitation might be inconsistency with native control behavior, especially if native controls have been updated recently, causing discrepancies between cross-platform application behavior and native controls.</li>
+<li><strong>Using WebView</strong>: This method involves using a browser interface to build the application user interface. Both Ionic and .NET MAUI Blazor use this scheme. It allows the reusing of front-end application code, having been constructed via HTML&#x2F;CSS&#x2F;JavaScript. However, it is limited to a browser-based application, making it more like a web app than a native app.</li>
+</ul>
+<p>From the above classification, it can be seen that the application framework based on .NET covers all possible implementation methods, not just the cross-platform solution based on .NET MAUI. This article will introduce and compare the application frameworks based on .NET preliminarily.</p>
+<p>The main cross-platform application frameworks based on .NET include:</p>
+<ul>
+<li>.NET MAUI</li>
+<li>.NET MAUI Blazor Hybrid</li>
+<li>Avalonia UI</li>
+<li>Uno Platform</li>
+<li>Xamarin (.NET for Android, .NET for iOS, and .NET for Mac)</li>
+</ul>
+<p>All these frameworks are built on .NET, or it could be said that they are built on .NET 6 and beyond. The original .NET Framework is not a cross-platform framework. It gradually evolved into a general cross-platform framework similar to Java&#x2F;JVM as a result of integrating with the open-source project Mono. The Mono project provided .NET support for Android, iOS, macOS, Linux, etc. Another significant contribution of the Mono project was the development of the Xamarin middleware. The reason I use middleware to describe Xamarin instead of a framework is because it is not something entirely new; it merely provides .NET interface for the platforms beneath it. By using Xamarin, .NET applications can directly access almost all features provided by the platform using C#. For example, Xamarin.Android offers all native Android APIs. Similarly, Xamarin.iOS provides all iOS APIs.</p>
+<p>Based on Xamarin, the open-source team launched Xamarin.Forms, a cross-platform user interface solution. Xamarin provides the ability to develop natively with .NET&#x2F;C#. Non-user interface code is encapsulated in a .NET Standard library to enable code reuse. The architecture diagram of Xamarin.Forms as shown below.</p>
+<p><img src="/images/maui/figure01.png" alt="figure01"></p>
+<p>Figure 1: Xamarin.Forms architecture</p>
+<p>In the above diagram, I have marked the corresponding open-source code links in superscript, which you can find in the reference links at the end of the article. </p>
+<p>The cross-platform solution Xamarin.Forms or .NET MAUI is realized by abstracting native controls. Xamarin.Forms maps abstract controls to native controls using renderers and .NET MAUI uses handlers, as we can see in the following diagram.</p>
+<p><img src="/images/maui/figure02.png" alt="figure02"></p>
+<p>Figure 2: Xamarin.Forms Renderers and .NET MAUI Handlers</p>
+<p>In the above figure, you can see the implementation of the abstract widget <code>Button</code> in Xamarin.Forms and .NET MAUI. In Xamarin.Forms, the cross-platform widget <code>Button</code> is mapped to native widgets on different platforms through <code>ButtonRenderer</code>, such as <code>UIButton</code> on iOS, <code>AppCompatButton</code> on Android, and Button on Windows.<br>In .NET MAUI, the cross-platform widget Button is mapped to native widgets on different platforms through the IButton interface and ButtonHandler.</p>
+<p>There are multiple ways to implement the Xamarin-based scheme. If you want to reuse code to the greatest extent<br>possible, you can use Xamarin.Forms and .NET Standard library, which can achieve a code reuse rate of over 90%. </p>
+<p>If you have higher requirements for performance and user experience, you can build applications directly based on Xamarin, which is very similar to native development. As shown in the following diagram, native apps can be built on top of Xamarin and all platforms use .NET and C#, which allows code reuse to a certain extent.</p>
+<p><img src="/images/maui/figure03.png" alt="figure03"></p>
+<p>Figure 3: Native Application Development using Xamarin</p>
+<p>Microsoft released .NET MAUI after .NET 6. It could be said that .NET MAUI is more of an evolution from Xamarin.Forms than a revolutionary change. As shown in the diagram below, <strong>.NET MAUI</strong> has replaced <strong>Xamarin.Forms</strong>. <strong>.NET for Android</strong>, <strong>.NET for iOS</strong>, and <strong>.NET for Mac</strong> are undoubtedly updates to <strong>Xamarin.Android</strong>, <strong>Xamarin.iOS</strong>, and <strong>Xamarin.Mac</strong>. For simplicity, I will still use Xamarin to represent this layer in this article. The GitHub repositories for these projects based on Xamarin still remain the same. There have been significant changes in .NET itself since .NET 5, namely the unified .NET BCL across all platforms.</p>
+<p><img src="/images/maui/figure04.png" alt="figure04"></p>
+<p>Figure 4: .NET MAUI architecture</p>
+<p>After releasing .NET MAUI, we can still use Xamarin for native development and don’t necessarily have to use .NET MAUI. For example, we can use .NET for Android individually to develop native Android applications using .NET&#x2F;C#.</p>
+<p>Another way to use .NET MAUI is to develop .NET MAUI Blazor Hybrid applications using Blazor. Blazor is a .NET-based web application development solution. In .NET MAUI, a special control called <code>BlazorWebView</code> has been added. This WebView control supports Blazor. We can use BlazorWebView to develop the user interface, allowing us to use the same set of codes to develop web, mobile, and desktop applications.</p>
+<p>When developing cross-platform applications using .NET MAUI, Linux is currently not supported. Although an open-source project is working on Linux support, the progress is not going well. .NET MAUI’s scheme of mapping abstract controls to native controls is challenging on Linux. Unlike Android, iOS, macOS, and Windows, Linux does not have a unified user interface library but has multiple user interface libraries such as GTK or QT.</p>
+<p>Among the solutions based on .NET, both Avalonia UI and Uno Platform support Linux. Next, we will introduce these two respectively.</p>
+<p>Avalonia UI uses a 2D graphics library to implement controls independently. As shown in the diagram below, apart from the 2D graphics library Skia, Avalonia UI depends only on .NET. Built on .NET, Avalonia UI uses the Skia library to implement all its controls. Therefore, Avalonia UI performs very consistently on all platforms.</p>
+<p><img src="/images/maui/figure05.png" alt="figure05"></p>
+<p>Figure 5: Avalonia UI architecture</p>
+<p>The Avalonia UI open-source project originated from the idea of extending the WPF framework to macOS and Linux. It started as a desktop application framework. After .NET 6, the project also added mobile applications and WebAssembly into the framework. The application development based on Avalonia UI is highly similar to the development process of WPF applications. For developers familiar with WPF application development, this is very easy to get started with.</p>
+<p>In addition to .NET MAUI and Avalonia UI, another cross-platform framework we need to compare is the Uno Platform. Both .NET MAUI and Avalonia UI are very representative, representing cross-platform implementations using native controls and the 2D graphics library respectively. The Uno Platform is a solution that combines both features, as shown in the figure below.</p>
+<p><img src="/images/maui/figure06.png" alt="figure06"></p>
+<p>Figure 6: Uno Platform architecture</p>
+<p>Uno Platform uses different solutions for different systems.</p>
+<ul>
+<li><strong>Android, iOS, and macOS</strong>: Uno Platform uses Xamarin to implement controls on Android, iOS, and macOS. This is similar to .NET MAUI, but since Uno Platform also evolved from WPF, Uno application writing is similar to WPF. In the latest version, WinUI 3 is used directly.</li>
+<li><strong>Windows</strong>: If it’s a Windows application, there is no difference between apps on the Uno Platform and WinUI 3.</li>
+<li><strong>Linux</strong>: Regarding Linux support, Uno Platform adopts the same method as Avalonia UI, implementing controls independently through Skia.</li>
+<li><strong>WebAssembly</strong>: Support for WebAssembly involves converting C#&#x2F;XAML into HTML&#x2F;CSS.</li>
+</ul>
+<p>We can see that Uno Platform adopts a mixed implementation method.</p>
+<p>The following table summarizes and compares these cross-platform solutions.</p>
+<p><img src="/images/maui/table01.png" alt="table01"></p>
+<p>When we assemble all the components, we can observe Figure 7 below. Despite its apparent complexity, it is a comprehensive illustration of all .NET cross-platform solutions in one place. This diagram clearly demonstrates how .NET MAUI, Uno Platform, and Avalonia UI integrate into the .NET architecture.</p>
+<p><img src="/images/maui/figure07.png" alt="figure07"></p>
+<p>Figure 7: .NET cross-platform solutions</p>
+<p>Through the introduction in this article, we can see that there are various implementation methods for cross-platform solutions based on .NET, each with its own advantages and disadvantages. The choice of which scheme to use depends on the actual usage scenario.</p>
+<p><strong>References</strong>:</p>
+<ol>
+<li>.NET MAUI source code<br><a target="_blank" rel="noopener" href="https://github.com/dotnet/maui">https://github.com/dotnet/maui</a></li>
+<li>.NET for Android source code – Both .NET for Android and Xamarin.Android are built from this repository with different build configurations.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-android">https://github.com/xamarin/xamarin-android</a></li>
+<li>.NET for iOS source code – Both .NET for iOS and Xamarin.iOS are built from this repository with different build configurations.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-macios">https://github.com/xamarin/xamarin-macios</a></li>
+<li>.NET for Mac source code - .NET for iOS and .NET for Mac are shared the same code base with different build configuration.<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/xamarin-macios">https://github.com/xamarin/xamarin-macios</a></li>
+<li>WinUI<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/microsoft-ui-xaml">https://github.com/microsoft/microsoft-ui-xaml</a></li>
+<li>Avalonia UI<br><a target="_blank" rel="noopener" href="https://github.com/AvaloniaUI/Avalonia">https://github.com/AvaloniaUI/Avalonia</a></li>
+<li>Skia<br><a target="_blank" rel="noopener" href="https://github.com/google/skia">https://github.com/google/skia</a></li>
+<li>Uno Platform<br><a target="_blank" rel="noopener" href="https://github.com/unoplatform/uno">https://github.com/unoplatform/uno</a></li>
+<li>Avalonia UI and MAUI - Something for everyone<br><a target="_blank" rel="noopener" href="https://www.avaloniaui.net/Blog/avalonia-ui-and-maui-something-for-everyone">https://www.avaloniaui.net/Blog/avalonia-ui-and-maui-something-for-everyone</a></li>
+<li>Xamarin.Forms<br><a target="_blank" rel="noopener" href="https://github.com/xamarin/Xamarin.Forms">https://github.com/xamarin/Xamarin.Forms</a></li>
+<li>Mono<br><a target="_blank" rel="noopener" href="https://github.com/mono/mono">https://github.com/mono/mono</a></li>
+<li>.NET MAUI Cross-Platform Application Development<br><a target="_blank" rel="noopener" href="https://www.packtpub.com/product/net-maui-cross-platform-application-development-second-edition/9781835080597">https://www.packtpub.com/product/net-maui-cross-platform-application-development-second-edition/9781835080597</a></li>
+</ol>
+<p><strong>Summary</strong></p>
+<p>The article provides an in-depth review of .NET Cross-platform Application Frameworks. It introduces .NET cross-platform application frameworks and explains the comparison to other application frameworks such as Flutter, React Native or Ionic. The article also introduces the different cross-platform application frameworks available based on .NET including .NET MAUI, .NET MAUI Blazor Hybrid, Avalonia UI, Uno Platform &amp; Xamarin. Further, it explains the use and benefits of these frameworks and their comparison, including their architecture. It concludes that the choice of the framework greatly depends on the actual usage scenario, as all the frameworks have their unique advantages and disadvantages.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/maui/" rel="tag"># maui</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/MAUI-template/" rel="prev" title=".NET MAUI MVVM Project Template">
+                  <i class="fa fa-chevron-left"></i> .NET MAUI MVVM Project Template
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/maui-cn/" rel="next" title="maui-cn">
+                  maui-cn <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

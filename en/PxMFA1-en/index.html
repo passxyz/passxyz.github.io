@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="As the data breaches on internet become a serious problem of personal safety of internet users, the old way of authentication using only username and password is vulnerable to the attack. Major netwo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is multi-factor authentication&#x2F;MFA? Why MFA can improve the safety of password management database?">
+<meta property="og:url" content="https://passxyz.github.io/en/PxMFA1-en/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="As the data breaches on internet become a serious problem of personal safety of internet users, the old way of authentication using only username and password is vulnerable to the attack. Major netwo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/signup-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/login-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/settings1-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/options-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/settings2-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/import-en.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/secret-key-entropy.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA1/pbkdf2-crack-times.png">
+<meta property="article:published_time" content="2018-09-21T07:38:53.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.454Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="en">
+<meta property="article:tag" content="2FA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxMFA1/cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/en/PxMFA1-en/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://passxyz.github.io/en/PxMFA1-en/","path":"en/PxMFA1-en/","title":"What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database? | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-factor-authentication"><span class="nav-number">1.</span> <span class="nav-text">Multi-factor authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-factor-authentication-in-KeePass"><span class="nav-number">2.</span> <span class="nav-text">Multi-factor authentication in KeePass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use-MFA-to-improve-the-safety-of-PassXYZ-database"><span class="nav-number">3.</span> <span class="nav-text">How to use MFA to improve the safety of PassXYZ database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-enable-Device-Lock"><span class="nav-number">4.</span> <span class="nav-text">How to enable Device Lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-use-Device-Lock-enabled-database-on-another-device"><span class="nav-number">5.</span> <span class="nav-text">How to use Device Lock enabled database on another device</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-enable-Device-Lock-for-the-existing-database"><span class="nav-number">6.</span> <span class="nav-text">How to enable Device Lock for the existing database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Analysis-of-PassXYZ-Device-Lock"><span class="nav-number">7.</span> <span class="nav-text">Security Analysis of PassXYZ Device Lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">8.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/en/PxMFA1-en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database? | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          What is multi-factor authentication/MFA? Why MFA can improve the safety of password management database?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-21 15:38:53" itemprop="dateCreated datePublished" datetime="2018-09-21T15:38:53+08:00">2018-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Help/" itemprop="url" rel="index"><span itemprop="name">Help</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/PxMFA1/cover.png" alt="cover"></p>
+<p>As the data breaches on internet become a serious problem of personal safety of internet users, the old way of authentication using only username and password is vulnerable to the attack. Major network service providers start to use multi-factor authentication to improve the safety of their users.</p>
+<h2 id="Multi-factor-authentication"><a href="#Multi-factor-authentication" class="headerlink" title="Multi-factor authentication"></a>Multi-factor authentication</h2><p><strong>Multi-factor authentication</strong> or <strong>MFA</strong> is a method of confirming a user’s claimed identity in which a computer user is granted access only after successfully presenting two or more pieces of evidence (or factors) to an authentication mechanism. The evidences could be knowledge (something the user and only the user knows, such as password), possession (something the user and only the user has, such as smartcard), or inherence (something the user and only the user is, such as fingerprint).</p>
+<p>The popular multi-factor authentication methods used by the banks are:</p>
+<ul>
+<li>Username&#x2F;password together with a smartcard&#x2F;USB token</li>
+<li>Username&#x2F;password together with a hardware OTP token</li>
+</ul>
+<p>As mainly two factors for the authentication are used, it is also called two-factor authentication or 2FA. With the prevalence of OTP based authentication, the authentication methods such as software OTP generator, SMS based OTP or app pushing notification are also used by many service providers.</p>
+<h2 id="Multi-factor-authentication-in-KeePass"><a href="#Multi-factor-authentication-in-KeePass" class="headerlink" title="Multi-factor authentication in KeePass"></a>Multi-factor authentication in KeePass</h2><p><a target="_blank" rel="noopener" href="https://keepass.info/">KeePass</a> is a famous open source password management tool. It is especially popular in the community of programmers. The built-in MFA support in KeePass looks simple, but KeePass actually provides the richest support of MFA. Many MFA features of KeePass are provided through KeePass plugins which are developed by various open source developers. The MFA support in KeePass can be divided into the following two categories:<br>1.	Multi-factor authentication to access KeePass database, and<br>2.	Using KeePass to store multi-factor authentication data</p>
+<p>In this article, let’s focus on the first category of MFA support. The second category will be discussed separately in another article shortly.</p>
+<p>The framework in KeePass to support MFA is through <strong>Composite Keys</strong> and <strong>Key Providers</strong>. This is a very flexible framework which allows open source developers to contribute to the KeePass MFA development easily. As such, <a href="https://passxyz.github.io/">PassXYZ</a> implements its own <strong>Key Provider</strong> which can be used together with master password to form <strong>Composite Keys</strong> to encrypt the database.</p>
+<p>Besides the new Key Provider developed for PassXYZ, PassXYZ also provides an easy-to-use user interface so that all users can use this feature without any difficulties.</p>
+<h2 id="How-to-use-MFA-to-improve-the-safety-of-PassXYZ-database"><a href="#How-to-use-MFA-to-improve-the-safety-of-PassXYZ-database" class="headerlink" title="How to use MFA to improve the safety of PassXYZ database"></a>How to use MFA to improve the safety of PassXYZ database</h2><p>The <strong>Key Provider</strong> in PassXYZ is implemented as Device Lock. What is Device Lock? If you used mobile banking app before, you might know that you have to bind the app with your device before you can start to use it. The Device Lock in PassXYZ uses a similar concept to improve the safety of PassXYZ database. When a user wants to create a new database, there is an option to enable Device Lock. If the user enables the Device Lock, the database is bound to the current device. Therefore, even if the hacker obtains the database and tries to break it through brute force, they would find that they won’t be able to do it due to the Device Lock. The possibility to break an encrypted data through brute force depends on the level of encryption. Device Lock is a very strong encryption method comparing to master password. When PassXYZ users use Composite Keys with both Device Lock and master password, there is no chance for a hacker to break the database through brute force. This feature is especially important for the users who choose to store their database on the cloud.</p>
+<h2 id="How-to-enable-Device-Lock"><a href="#How-to-enable-Device-Lock" class="headerlink" title="How to enable Device Lock"></a>How to enable Device Lock</h2><p>When the users create a new database, they can enable Device Lock through a switch as shown below at the bottom of SignUp page.</p>
+<p><img src="/images/PxMFA1/signup-en.png" alt="signup-en"></p>
+<p>After turn on this switch, the new database is created with Device Lock enabled.</p>
+<h2 id="How-to-use-Device-Lock-enabled-database-on-another-device"><a href="#How-to-use-Device-Lock-enabled-database-on-another-device" class="headerlink" title="How to use Device Lock enabled database on another device"></a>How to use Device Lock enabled database on another device</h2><p>If the users create a database with Device Lock enabled and want to transfer it to another device thereafter, they won’t be able to access this database in the new device due to the Device Lock. If the users do want to use Device Lock enabled database on multiple devices, they can actually follow the steps below:<br>1.	Transfer the database to another device first<br>2.	Find the Device Lock Key on the current device<br>3.	Scan the QR code of Device Lock Key through the new device</p>
+<p>In step 1, there are multiple ways to transfer the database to another device. With PassXYZ Cloud, the transfer is very easy. Users just need to turn on the synchronization of the database on the new device. Other than synchronization through the cloud, users can also export the database through the <strong>Sharing</strong> function of the system. In the <strong>Settings</strong> menu, there is an option <strong>Export database</strong>. By clicking this option, a sharing dialog will be displayed by the system. The users can choose Bluetooth, email or other methods provided by the system to transfer the database to another device. After importing the database, the users will be able to see the login screen as below:</p>
+<p><img src="/images/PxMFA1/login-en.png" alt="login-en"></p>
+<p>As you can see, the password field is disabled temporarily in the above login screen. The users therefore cannot just login using master password. A hint is displayed at the bottom of the page which tells the users that a Device Lock Key is needed to access this database. Now the users can click the scanning button beside the password field to scan the Device Lock Key QR code on the original device.</p>
+<p>The QR code of Device Lock Key can be found in the <strong>Settings</strong> of the original device. In the <strong>Settings</strong> page, there is a <strong>Security Settings</strong> option as shown in the below screenshot.</p>
+<p><img src="/images/PxMFA1/settings1-en.png" alt="settings1-en"></p>
+<p>After selecting the <strong>Security Settings</strong> option, a popup window with two options will be displayed as below.</p>
+<ol>
+<li>   Device Lock Key QR code</li>
+<li>   Export Device Lock Key to a file</li>
+</ol>
+<p><img src="/images/PxMFA1/options-en.png" alt="options-en"></p>
+<p>The users can choose either of the ways to transfer the Device Lock Key to the new device. After the Device Lock Key is imported on the new device, the users can login as usual.</p>
+<h2 id="How-to-enable-Device-Lock-for-the-existing-database"><a href="#How-to-enable-Device-Lock-for-the-existing-database" class="headerlink" title="How to enable Device Lock for the existing database"></a>How to enable Device Lock for the existing database</h2><p>For the safety reason, the users may want to enable Device Lock for their existing database. This can be done through the following steps:<br>1.	Go to <strong>Settings</strong> and select <strong>Security Settings</strong><br>2.	In the popup windows, provide a new username for creating the new database, and click <strong>Import</strong></p>
+<p>If the Device Lock is disabled, the users can find the <strong>Security Settings</strong> as shown in the screenshot below.</p>
+<p><img src="/images/PxMFA1/settings2-en.png" alt="settings2-en"></p>
+<p>To convert the current database to a new one with the Device Lock enabled, the users can click the <strong>Security Settings</strong>. The following page for the data converting will be then displayed.</p>
+<p><img src="/images/PxMFA1/import-en.png" alt="import-en"></p>
+<p>In this page, the users need to give the new database a name and click the <strong>Import</strong> button thereafter to create the new database with Device Lock enabled. After confirming that everything is ok in the new database, the users may choose to delete the old one.</p>
+<h2 id="Security-Analysis-of-PassXYZ-Device-Lock"><a href="#Security-Analysis-of-PassXYZ-Device-Lock" class="headerlink" title="Security Analysis of PassXYZ Device Lock"></a>Security Analysis of PassXYZ Device Lock</h2><p>As above, we have explained what the Device Lock is and how we can use it. Now, let’s do some analysis about the security of Device Lock. It will be hard for most of the readers to understand if we are to analyze the security of an encryption function directly. To make it simple, we can compare Device Lock with the similar implementation in 1Password. Secret Key in 1Password is a very similar feature comparing to Device Lock in PassXYZ. There is an article which introduces what Secret Key is and how it works. Below is a diagram from that article which tells us about Password Entropy and the quality of password.</p>
+<p><img src="/images/PxMFA1/secret-key-entropy.png" alt="secret-key-entropy"></p>
+<p>From the above diagram, we can see that with the combination of master password and Device Lock (or Secret Key), we can achieve more than 128bits of entropy. The Master Password that people can memorize, on average, will only be strong as about 40 bits of entropy. Device Lock or Secret Key doesn’t need to be memorized, so it can be much stronger. With 128 bits of entropy, it is infeasible to guess no matter how much money or computing power an attacker has.</p>
+<p>Usually, an attacker tries to guess the password through enumerating all the possible combination of available characters. How long time will each guess take is a key factor to the success of an attack. In the design of encryption, we usually use a Key Derivation algorithm to achieve this. In 1Password, the algorithm PBKDF2 is used. In KeePass, there are many algorithms can be used, such as AES-KDF or Argon2 etc. Since Argon2 is the winner of Password Hashing Competition, it is the default Key Derivation algorithm used by KeePass. Based on the introduction of Key Derivation algorithm, let’s look at another diagram from 1Password concerning Key Derivation algorithm and password entropy.</p>
+<p><img src="/images/PxMFA1/pbkdf2-crack-times.png" alt="pbkdf2-crack-times"></p>
+<p>As we can see from the above diagram, given the complexity of Key Derivation algorithm and password entropy, we can estimate the amount of time to discover the master password under a particular hardware configuration. For the average password strength with about 40 bits entropy, it takes about 2 weeks to 2 months to discover the master password. But, when the password entropy goes above 65 bits, the amount of time needed to discover the master password will be a very large number which is almost impossible for an attacker to complete.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>For the safety of PassXYZ database, it is suggested to enable Device Lock for all new databases. To backup the Device Lock Key, the users may wish to print a hard copy of the QR code and keep it in a safe place. For the users who want to store their database on the cloud so as to take the advantage of synchronization and backup, Device Lock can keep their database much safer. Without Device Lock enabled, the database may be vulnerable under the brute force attack.</p>
+<hr>
+<p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a target="_blank" rel="noopener" href="https://github.com/passxyz/KPCLib">https://github.com/passxyz/KPCLib</a>.</p>
+<p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>, <a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">Apple Store</a> and <a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">Microsoft Store</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/en/" rel="tag"># en</a>
+              <a href="/tags/2FA/" rel="tag"># 2FA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxMFA1-zh-CN/" rel="prev" title="什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？">
+                  <i class="fa fa-chevron-left"></i> 什么是多因素验证？为何要使用多因素验证来保障密码管理的安全？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxImportExport-zh-CN/" rel="next" title="PassXYZ数据文件的导入和导出">
+                  PassXYZ数据文件的导入和导出 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

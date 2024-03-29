@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在使用移动应用时我们经常会用到上下文菜单。什么是上下文菜单？举个例子，当我们使用微信时，如果要删除、置顶或标记一条信息时，我们会怎么做？是的，这时我们就需要用到上下文菜单了。上下文菜单是指应用提供的，用于处理与当前信息有关的操作选项。 这个用于与用户交互的界面被广泛地使用于大多数流行的移动应用中。但不同的操作系统上下文菜单的使用方式是不一样的。一般情况下，这个主题是不会拿来讨论的，因为每个系统有自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PassXYZ的上下文菜单在不同系统中的比较">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="在使用移动应用时我们经常会用到上下文菜单。什么是上下文菜单？举个例子，当我们使用微信时，如果要删除、置顶或标记一条信息时，我们会怎么做？是的，这时我们就需要用到上下文菜单了。上下文菜单是指应用提供的，用于处理与当前信息有关的操作选项。 这个用于与用户交互的界面被广泛地使用于大多数流行的移动应用中。但不同的操作系统上下文菜单的使用方式是不一样的。一般情况下，这个主题是不会拿来讨论的，因为每个系统有自">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/list_context_actions.png">
+<meta property="og:image" content="https://passxyz.github.io/images/detail_context_actions.png">
+<meta property="article:published_time" content="2018-08-01T03:37:45.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.435Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/list_context_actions.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/ContextActions-zh-CN/","path":"zh-CN/ContextActions-zh-CN/","title":"PassXYZ的上下文菜单在不同系统中的比较"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PassXYZ的上下文菜单在不同系统中的比较 | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95-Group-%E5%92%8C%E6%9D%A1%E7%9B%AE-Entry-%E7%9A%84%E5%88%97%E8%A1%A8%E9%A1%B5"><span class="nav-number">1.</span> <span class="nav-text">目录(Group)和条目(Entry)的列表页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E7%9B%AE-Entry-%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E9%A1%B5"><span class="nav-number">2.</span> <span class="nav-text">条目(Entry)详细信息页</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/ContextActions-zh-CN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PassXYZ的上下文菜单在不同系统中的比较 | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PassXYZ的上下文菜单在不同系统中的比较
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-01 11:37:45" itemprop="dateCreated datePublished" datetime="2018-08-01T11:37:45+08:00">2018-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在使用移动应用时我们经常会用到上下文菜单。什么是上下文菜单？举个例子，当我们使用微信时，如果要删除、置顶或标记一条信息时，我们会怎么做？是的，这时我们就需要用到上下文菜单了。上下文菜单是指应用提供的，用于处理与当前信息有关的操作选项。</p>
+<p>这个用于与用户交互的界面被广泛地使用于大多数流行的移动应用中。但不同的操作系统上下文菜单的使用方式是不一样的。一般情况下，这个主题是不会拿来讨论的，因为每个系统有自己的用户群，不需要讨论跟自己系统无关的用户体验。但跨平台的用户体验主要发生在为开发者提供跨平台的应用框架中，微软的Xamarin框架正是这样的体系。</p>
+<p>PassXYZ是基于Xamarin的，所以PassXYZ的用户通常会在主流的系统中使用PassXYZ。虽然Xamarin尽量把在不同平台上的用户体验做得一致，但出于性能的考虑，最终实现都是使用各个系统本身的功能来完成的。这样，某些细节在不同平台间就会有少许差异。上下文菜单就是其中对PassXYZ影响最大的一项，所以在这里单独提出来说明一下。</p>
+<p>PassXYZ的主要用户界面有两个：第一个用户界面是**目录(Group)<strong>和</strong>条目(Entry)<strong>组成的列表页；第二个用户界面是</strong>条目(Entry)**详细信息的显示页。</p>
+<h2 id="目录-Group-和条目-Entry-的列表页"><a href="#目录-Group-和条目-Entry-的列表页" class="headerlink" title="目录(Group)和条目(Entry)的列表页"></a>目录(Group)和条目(Entry)的列表页</h2><p><img src="/images/list_context_actions.png" alt="Fingerprint"></p>
+<p>在上面这个图中，从左到右依次显示的是同一个数据库在iOS，Android和Windows 10中打开的状态。在最左边的图中，我们可以看到，用户在iOS系统中可以通过向左滑动来显示一个条目的上下文菜单。通过上下文菜单，可以对该条目进行删除、编辑和拷贝的操作。同样的，在Android系统中，用户可以通过常按一个条目来显示上下文菜单。虽然上下文菜单的内容与其他系统是一样的，但它是显示在屏幕顶部的，如中图所示。再看最右侧的UWP应用，在Windows 10的UWP (Universal Windows Platform) 应用中，我们可以点击鼠标右键来显示上下文菜单。这一行为与普通Windows应用是一致的。</p>
+<p>在PassXYZ中，<strong>目录</strong>和<strong>条目</strong>的列表页通常支持对一个条目的<strong>拷贝</strong>、<strong>删除</strong>和<strong>编辑</strong>的操作。这些操作可以通过上下文菜单来执行。</p>
+<h2 id="条目-Entry-详细信息页"><a href="#条目-Entry-详细信息页" class="headerlink" title="条目(Entry)详细信息页"></a>条目(Entry)详细信息页</h2><p>下面，我们再来看看<strong>条目</strong>详细信息页中的上下文菜单。</p>
+<p><img src="/images/detail_context_actions.png" alt="Fingerprint"></p>
+<p>在<strong>条目</strong>详细信息页中，每一行显示的是该条目中的一个域。每一行，都有相应的上下文菜单。上下文菜单的内容是与这一行的类型相对应的。比如，上图中显示的是一个密码域所对应的上下文菜单，在阅览状态下密码域是被隐藏的，我们可以通过上下文菜单把密码拷贝到剪切版，也可以选择显示密码的内容。在不同平台中打开上下文菜单的方式是与上述**目录(Group)<strong>和</strong>条目(Entry)**的列表页中一样的。</p>
+<p>通过以上的简短说明，相信您已经掌握了如何在不同平台中使用PassXYZ的上下文菜单了。</p>
+<hr>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款可以运行在安卓和苹果手机以及Windows10上的KeePass兼容应用。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">苹果应用商店</a>，<a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">微软应用商店</a>，<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>和<a target="_blank" rel="noopener" href="http://app.hicloud.com/app/C100313505">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/ContextActions-en/" rel="prev" title="Comparison of Context Action Menu of PassXYZ on Different Systems">
+                  <i class="fa fa-chevron-left"></i> Comparison of Context Action Menu of PassXYZ on Different Systems
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxCloud-zh-CN/" rel="next" title="谈安全性与易用性的权衡，PassXYZ与PassXYZ云">
+                  谈安全性与易用性的权衡，PassXYZ与PassXYZ云 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

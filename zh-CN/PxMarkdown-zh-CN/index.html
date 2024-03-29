@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Markdown编辑格式在程序员中已经流行很久了，但很多人可能还不知道Markdown到底是什么。即使知道Markdown的人，可能也很难想到Markdown和密码管理软件能扯上什么关系吧。PassXYZ的最新版本加入了Markdown的支持，本文就来介绍一下什么是Markdown以及如何在密码管理软件中使用Markdown来用做安全笔记。 什么是Markdown关于Markdown百度百科上是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系">
+<meta property="og:url" content="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="Markdown编辑格式在程序员中已经流行很久了，但很多人可能还不知道Markdown到底是什么。即使知道Markdown的人，可能也很难想到Markdown和密码管理软件能扯上什么关系吧。PassXYZ的最新版本加入了Markdown的支持，本文就来介绍一下什么是Markdown以及如何在密码管理软件中使用Markdown来用做安全笔记。 什么是Markdown关于Markdown百度百科上是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown04.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMarkdown/markdown03.png">
+<meta property="article:published_time" content="2018-08-17T07:59:56.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.458Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxMarkdown/cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/","path":"zh-CN/PxMarkdown-zh-CN/","title":"如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系 | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFMarkdown"><span class="nav-number">1.</span> <span class="nav-text">什么是Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E5%B8%B8%E7%94%A8%E6%A0%87%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">Markdown常用标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Markdown的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E4%B8%8E%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.</span> <span class="nav-text">Markdown与密码管理软件的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E4%B8%8EHTML%E7%9A%84%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">Markdown与HTML的混合使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/zh-CN/PxMarkdown-zh-CN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系 | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何使用Markdown来做安全笔记，谈Markdown和密码管理软件的关系
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-17 15:59:56" itemprop="dateCreated datePublished" datetime="2018-08-17T15:59:56+08:00">2018-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%AE%E5%8A%A9/" itemprop="url" rel="index"><span itemprop="name">帮助</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/PxMarkdown/cover.png" alt="cover"></p>
+<p>Markdown编辑格式在程序员中已经流行很久了，但很多人可能还不知道Markdown到底是什么。即使知道Markdown的人，可能也很难想到Markdown和密码管理软件能扯上什么关系吧。<a href="https://passxyz.github.io/">PassXYZ</a>的最新版本加入了Markdown的支持，本文就来介绍一下什么是Markdown以及如何在密码管理软件中使用Markdown来用做安全笔记。</p>
+<h2 id="什么是Markdown"><a href="#什么是Markdown" class="headerlink" title="什么是Markdown"></a>什么是Markdown</h2><p>关于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/markdown">Markdown</a>百度百科上是这么定义的：</p>
+<blockquote>
+<p>Markdown是一种可以使用<strong>普通文本编辑器</strong>编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+</blockquote>
+<p>注意了，这里的重点是<strong>普通文本编辑器</strong>。普通文本格式是所有文字格式里的基础，所以普通文本是可以使用任何编辑器编辑的。普通文本的缺点是没有格式，没有格式的文本是不便于阅读的。Markdown就是在普通文本文件中添加一些约定的标记使之显示时易于阅读，而Markdown本身还是文本文件。<br>大家可能有这样的疑问：既然要编辑有格式的文件，为什么不直接用MS Word呢？其实，有非常多的原因要使用Markdown格式，举几个例子：<br>1.	Markdown文件用任何编辑工具都可以编辑，而MS Word只能用几种软件编辑。<br>2.	可以很容易地把Markdown转换成其他基于文本格式的标记语言，如HTML等。<br>3.	Markdown很容易掌握，或者说基本不用学。这点可能是Markdown流行的最重要的原因吧。</p>
+<p>Markdown的标记有多简单呢？我们可以参考下图，这是本文使用Markdown编辑的效果。为了对比，图中编辑使用的是有道笔记里的Markdown编辑器。我们可以对比一下在左侧的Markdown文字跟右侧的显示效果。可以看到左侧的Markdown编辑格式跟我们平时的使用习惯是高度一致的。除了少数如网页链接有些不同以外，基本就是普通的文本编辑。虽然文字编辑差别不大，但显示效果和可读性的差别是巨大的。</p>
+<p><img src="/images/PxMarkdown/markdown01.png" alt="markdown01"></p>
+<h2 id="Markdown常用标记"><a href="#Markdown常用标记" class="headerlink" title="Markdown常用标记"></a>Markdown常用标记</h2><p>下面例举几个Markdown的常用标记，如果需要了解更多，可以上网搜索关键字Markdown。<br><img src="/images/PxMarkdown/markdown04.png" alt="markdown04"></p>
+<h2 id="Markdown的使用"><a href="#Markdown的使用" class="headerlink" title="Markdown的使用"></a>Markdown的使用</h2><p>Markdown最初是程序员用来注解程序说明用的，但后来被很多人采用并被标准化了。目前的主要用途是用来写在网上发表的文章。很多博客、在线媒体都在使用Markdown格式。这些内容本来是用HTML格式的，但因为Markdown的易用性，越来越多HTML编辑都逐渐被Markdown所替代。</p>
+<h2 id="Markdown与密码管理软件的关系"><a href="#Markdown与密码管理软件的关系" class="headerlink" title="Markdown与密码管理软件的关系"></a>Markdown与密码管理软件的关系</h2><p>在PassXYZ支持Markdown之前，没有任何密码管理软件是直接支持Markdown格式的。但是，几乎所有密码管理软件都包括一项功能，那就是安全笔记(Secure Notes) 。这个功能是让使用者可以记录一些安全性要求很高的事项。由于不支持任何格式，安全笔记的可读性不高。当记录的内容稍长时就不容易阅读了。安全笔记是经常会被使用到的一项功能，同样是文本编辑，加入了Markdown支持后，安全笔记的可读性显著的增强了。下图就是使用安全笔记的<strong>PassXYZ使用说明</strong>的显示效果。可以看到，当使用Markdown后，安全笔记的显示效果基本上跟大多数网络文章的显示效果一样。由于编辑和显示是不一样的，所以加入Markdown支持的安全笔记就有显示和编辑两个模式。之前的安全笔记只是一个简单的文本编辑器，编辑和显示是没有区别的。加入了Markdown支持后，在显示模式的右上角有一个笔状的图标，点击后就切换到文本编辑模式了。</p>
+<p><img src="/images/PxMarkdown/markdown02.png" alt="markdown02"></p>
+<h2 id="Markdown与HTML的混合使用"><a href="#Markdown与HTML的混合使用" class="headerlink" title="Markdown与HTML的混合使用"></a>Markdown与HTML的混合使用</h2><p>从上面的例子我们可以看到，Markdown对普通用户来说基本没有使用难度，但所带来的阅读体验的提升却是非常显著的。稍微添加一些Markdown标记可以使您的笔记具有类似MS Word的效果。<br>如果您是经常在网上写文章或发博客的资深用户，您可能也会使用HTML语言。一般的应用如果支持Markdown的话，通常也可以让Markdown和HTML混合使用。Markdown和HTML混合使用可以让您的安全笔记做更多的事情。比如，如果您觉得密码软件使用的条目（Entry）记录格式不符合自己的要求，那么您完全可以选用安全笔记（Notes）来制作成任何您想要的记录格式。也就是说，在理想的情况下，您可以用安全笔记来记录所有的东西。但是，完全用安全笔记（Notes）代替条目（Entry）会导致编辑相对较为复杂，所以非资深用户，不建议完全替代使用。</p>
+<p><img src="/images/PxMarkdown/markdown03.png" alt="markdown03"></p>
+<p>上图就是一个Markdown和HTML混合使用的效果。这是一个标准的KeePass条目。由于HTML支持很多控件，密码域可以做成类似我们在网页上看到的密码域的效果。当点击密码域边上的检查框时，可以控制密码域的隐藏或显示。</p>
+<p>这只是一个简单的例子，如果您熟悉HTML的使用，Markdown和HTML的混合使用能给安全笔记这项功能带来很多的扩展空间。</p>
+<p>以上介绍了什么是Markdown，以及如何在PassXYZ中使用Markdown来增强安全笔记的效果。笔记类软件与专业的编辑软件各有优缺点，它们分别适合在不同的场合使用。专业编辑软件如MS Word很适合用来写正规的文章，但如果不使用电脑，没有鼠标，基本上很难使用。这也是为什么很少人在手机上用MS Word来写文章的原因。而Markdown只需要加上简单的文本编辑，就非常适合在移动应用中使用。使用Markdown加简单的文本编辑器，就如同我们在发短信时使用“:)”来代替“笑脸”的效果一样。加两个简单的符号，在阅读模式时看到的就是一个可爱的笑脸了。</p>
+<p>通过这篇文章，希望能够让看起来高高在上的Markdown成为网友们广泛使用的辅助编辑工具。</p>
+<hr>
+<p><a href="https://passxyz.github.io/">PassXYZ</a>是一款可以运行在安卓和苹果手机以及Windows10上的KeePass兼容应用。PassXYZ最大的特点是通过提供大量的个人信息记录模板来分享和传递良好的使用习惯。PassXYZ个人信息管理软件和PassXYZ公众号的目标是通过两者的结合来推动和提高公众的个人信息管理水平。</p>
+<p>您可以通过<a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">苹果应用商店</a>，<a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">微软应用商店</a>，<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>和<a target="_blank" rel="noopener" href="http://app.hicloud.com/app/C100313505">华为应用商店</a>搜索关键字PassXYZ来下载该应用。如果您想获得更多模板或对个人信息安全及管理有兴趣，可以搜索关键字PassXYZ关注公众号。您也可以通过微信号passxyz_kpclib来添加此公众号。PassXYZ公众号专注于个人信息安全及管理的相关知识。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/zh-CN/" rel="tag"># zh-CN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/PxMarkdown-en/" rel="prev" title="How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management">
+                  <i class="fa fa-chevron-left"></i> How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxCollisionAttack-zh-CN/" rel="next" title="面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？">
+                  面对大量的用户数据泄露事件，普通用户该如何保护个人的网络信息安全？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

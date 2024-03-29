@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passxyz.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="With the respective releases of PassXYZ (1.5.4) and PassXYZ Cloud (1.6.4), you can now use PassXYZ or PassXYZ Cloud to manage your one time password. One time password (or OTP) is used by many intern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ">
+<meta property="og:url" content="https://passxyz.github.io/en/PxMFA2-en/index.html">
+<meta property="og:site_name" content="PassXYZ">
+<meta property="og:description" content="With the respective releases of PassXYZ (1.5.4) and PassXYZ Cloud (1.6.4), you can now use PassXYZ or PassXYZ Cloud to manage your one time password. One time password (or OTP) is used by many intern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/cover.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/digipass_hsbc.jpg">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook_2fa_02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook02.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook_2fa_01.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook_2fa_03.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/facebook_2fa_04.png">
+<meta property="og:image" content="https://passxyz.github.io/images/PxMFA2/otplistpage.png">
+<meta property="article:published_time" content="2018-10-20T03:03:13.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:15:24.456Z">
+<meta property="article:author" content="Roger Ye">
+<meta property="article:tag" content="en">
+<meta property="article:tag" content="2FA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://passxyz.github.io/images/PxMFA2/cover.png">
+
+
+<link rel="canonical" href="https://passxyz.github.io/en/PxMFA2-en/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://passxyz.github.io/en/PxMFA2-en/","path":"en/PxMFA2-en/","title":"Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ | PassXYZ</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PassXYZ</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Factor-Authentication-and-One-Time-Password"><span class="nav-number">1.</span> <span class="nav-text">Two Factor Authentication and One Time Password</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standard-of-Time-based-OTP"><span class="nav-number">2.</span> <span class="nav-text">Standard of Time-based OTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-to-use-2FA"><span class="nav-number">3.</span> <span class="nav-text">Why to use 2FA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Store-Account-Information-in-PassXYZ"><span class="nav-number">4.</span> <span class="nav-text">Store Account Information in PassXYZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Turn-on-2FA"><span class="nav-number">5.</span> <span class="nav-text">Turn on 2FA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recovery-Codes"><span class="nav-number">6.</span> <span class="nav-text">Recovery Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beta-testing-of-PassXYZ-and-PassXYZ-Cloud"><span class="nav-number">7.</span> <span class="nav-text">Beta testing of PassXYZ and PassXYZ Cloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">8.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Roger Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://passxyz.github.io/en/PxMFA2-en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roger Ye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ | PassXYZ">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Improving Your Account Safety with Two Factor Authentication by Generating One Time Password with PassXYZ
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-20 11:03:13" itemprop="dateCreated datePublished" datetime="2018-10-20T11:03:13+08:00">2018-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-06 14:15:24" itemprop="dateModified" datetime="2024-03-06T14:15:24+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Help/" itemprop="url" rel="index"><span itemprop="name">Help</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/PxMFA2/cover.png" alt="cover"></p>
+<p>With the respective releases of PassXYZ (1.5.4) and PassXYZ Cloud (1.6.4), you can now use PassXYZ or PassXYZ Cloud to manage your one time password. One time password (or OTP) is used by many internet service providers as the security method to improve the safety of user information. </p>
+<p>In the past, I used to use both Google Authenticator and Microsoft Authenticator to generate OTP for respective accounts. Recently, I changed my mobile from iPhone to an Android phone since I need two SIM cards’ support. Thereafter, I found problems with both Google Authenticator and Microsoft Authenticator on the new Android phone. As there is no built-in Google Service on the Android phone in China, I cannot install Microsoft Authenticator on my new phone. I have tried to install Google Authenticator on the new phone. Even though I managed to install it, it seems that the Google Authenticator cannot work well without Google Service.</p>
+<p>Therefore, when I was working on the PassXYZ development, I considered to add this function in PassXYZ. If PassXYZ supported OTP, I could also resolve another issue which is the backup of OTP setup. As you know, with either Google authenticator or Microsoft authenticator, if you change to a new phone, you have to setup all accounts again on the new device. However, with PassXYZ, the only thing that we need to do is to re-synchronize the database. That’s the reason why I have brought this feature to the new releases of PassXYZ&#x2F;PassXYZ Cloud.</p>
+<h2 id="Two-Factor-Authentication-and-One-Time-Password"><a href="#Two-Factor-Authentication-and-One-Time-Password" class="headerlink" title="Two Factor Authentication and One Time Password"></a>Two Factor Authentication and One Time Password</h2><p>Two factor authentication, or 2FA, is the most frequently used multi-factor authentication method. In 2FA, besides the username and password, one more authentication factor will be used. The most popular additional authentication method used nowadays is One Time Password (or OTP).</p>
+<p>There are two ways for the end users to get one time password during an authentication session.</p>
+<ul>
+<li>Send an OTP through SMS</li>
+<li>Generate an OTP using a hardware or software token generator</li>
+</ul>
+<p>Hardware-based token generators are popular in the past, but they are gradually replaced by software token generators due to the costs. The hardware tokens are still used today in some applications. For example, the popular hardware tokens used nowadays are for banking applications, like the one as shown below.</p>
+<p><img src="/images/PxMFA2/digipass_hsbc.jpg" alt="digipass_hsbc"></p>
+<p>As we can see, these hardware tokens used by the banks are more complicated comparing to the common used time-based OTP. The common OTP solution for most internet service providers are time-based OTP based on rfc4226 and rfc6238, such as Google Authenticator. In this article, we will discuss time-based OTP based on rfc4226 and rfc6238. </p>
+<h2 id="Standard-of-Time-based-OTP"><a href="#Standard-of-Time-based-OTP" class="headerlink" title="Standard of Time-based OTP"></a>Standard of Time-based OTP</h2><p>For the time-based OTP, the default standards are rfc4226 and rfc6238. They are used by major service providers, such as Google, Facebook, GitHub, Dropbox, Microsoft or Aliyuan etc.</p>
+<p>Most people may not know what are rfc4226 and rfc6238. RFC means “Request for Comments”. It is used to propose a standard for the standards organization. Both rfc4226 and rfc6238 are the proposed standards for OTP implementation. Rfc4226 is a RFC for event-based OTP whilst rfc6238 is for time-based OTP.</p>
+<h2 id="Why-to-use-2FA"><a href="#Why-to-use-2FA" class="headerlink" title="Why to use 2FA"></a>Why to use 2FA</h2><p>Why we use 2FA? This is because the authentication based on username and password is vulnerable to the attack. As you might be aware, there were about 50 millions Facebook user profiles affected by the recent data breach in 2018. You might have seen the below message when you login to your Facebook account.</p>
+<p><img src="/images/PxMFA2/facebook_2fa_02.png" alt="facebook_2fa_02"></p>
+<p>Hackers gain the access to the system utilizing the flaw of Facebook so that they can obtain user database as they wish. One way to improve the safety of our account is to turn on the multi-factor authentication. Same as other service providers, Facebook supports both software-based OTP token and SMS-based OTP token. </p>
+<p>Let’s take the Facebook as an example to demonstrate how to enable 2FA to improve the account safety.</p>
+<h2 id="Store-Account-Information-in-PassXYZ"><a href="#Store-Account-Information-in-PassXYZ" class="headerlink" title="Store Account Information in PassXYZ"></a>Store Account Information in PassXYZ</h2><p>Before talking about two factor authentication for Facebook, you need to register a Facebook account first. Once the account is created, the best practice is to record down the relevant information using a password management app such as PassXYZ. To save the Facebook account information, you can choose Facebook from the PassXYZ template as shown below.</p>
+<p><img src="/images/PxMFA2/facebook01.png" alt="facebook01"></p>
+<p>After selecting Facebook from the above figure, you can see the screen as shown below which can be used to enter the account information for Facebook.</p>
+<p><img src="/images/PxMFA2/facebook02.png" alt="facebook02"></p>
+<p>The information that can be recorded includes name used for Facebook, email address, password and mobile number, etc. For any additional information, it can be taken down in the “Notes” section. After filling in all the information, the record can be saved by clicking the “Save” button at the top right corner. There are four buttons at the top right corner which are:</p>
+<ul>
+<li><strong>Scan</strong> - scanning QR code to setup OTP</li>
+<li><strong>Attach</strong> - attaching pictures or documents to the record</li>
+<li><strong>Cancel</strong> - cancelling the editing</li>
+<li><strong>Save</strong> - Saving the record</li>
+</ul>
+<p>We will discuss on the “Scan” button shortly.</p>
+<h2 id="Turn-on-2FA"><a href="#Turn-on-2FA" class="headerlink" title="Turn on 2FA"></a>Turn on 2FA</h2><p>To turn on 2FA for Facebook, you can use a browser from your PC or laptop. Once you login to Facebook from a browser, the setting for 2FA can be found in “Security and Login” section as shown below.</p>
+<p><img src="/images/PxMFA2/facebook_2fa_01.png" alt="facebook_2fa_01"></p>
+<p>As shown above, you can find an option “Use two-factor authentication”. By clicking the “Edit” button at its right hand side, you will see another page as shown below.</p>
+<p><img src="/images/PxMFA2/facebook_2fa_03.png" alt="facebook_2fa_03"></p>
+<p>As you can see from the above screenshot, the preferred method is “Authentication App” as shown at the top. Other backup methods are available as well, such as “Text Message”, “Security Key” or “Recovery Codes” etc.</p>
+<p>After choosing “Authentication App”, a popup window will be show as below.</p>
+<p><img src="/images/PxMFA2/facebook_2fa_04.png" alt="facebook_2fa_04"></p>
+<p>Now you can see that there is a QR code at the left hand side which can be used to setup the OTP in a software OTP generator. You can scan it using the “Scan” button as mentioned above when we edit the account information for Facebook. Once you scan the QR code, you can start to use PassXYZ as a software OTP generator. </p>
+<p>In the menu of PassXYZ, there is an option “OTP” which will show all the OTP tokens within one page. Please refer to the below screenshot of the OTP page in PassXYZ. </p>
+<p><img src="/images/PxMFA2/otplistpage.png" alt="otplistpage"></p>
+<p>In this page, you can see multiple OTP tokens which are shown in the same page. Each row is for one service account. You can find “Facebook” at the bottom of the screen. Most of the OTP settings generate a new code every half or one minute. The timeline below the code shows the remaining time for the current code.</p>
+<h2 id="Recovery-Codes"><a href="#Recovery-Codes" class="headerlink" title="Recovery Codes"></a>Recovery Codes</h2><p>In the 2FA setup of Facebook, there are some additional backup methods available as we introduced above. One of them is “Recovery Codes”. This is a mechanism used by most of the service providers to prevent the issues during the login. For an example, assuming in an emergency case during the login, you could not get the OTP through SMS due to the network issue. At this time, you would be able to use “Recovery Codes” to login. “Recovery Codes” are one time password as well. They can usually be generated in a group of ten at a time. You may keep them in the “Notes” section of PassXYZ. But please make sure to remove any of the used codes from the “Notes” once you finished using, for, they are one time use only.</p>
+<h2 id="Beta-testing-of-PassXYZ-and-PassXYZ-Cloud"><a href="#Beta-testing-of-PassXYZ-and-PassXYZ-Cloud" class="headerlink" title="Beta testing of PassXYZ and PassXYZ Cloud"></a>Beta testing of PassXYZ and PassXYZ Cloud</h2><p>In order to get feedback for the new functionalities as much as possible, the beta test versions for both PassXYZ and PassXYZ Cloud are available at the app stores. The beta versions can be installed from the app stores as below:</p>
+<p><strong>iOS</strong>:</p>
+<ul>
+<li>PassXYZ Cloud:<br><a target="_blank" rel="noopener" href="https://testflight.apple.com/join/UDDw3AJf">https://testflight.apple.com/join/UDDw3AJf</a></li>
+<li>PassXYZ:<br><a target="_blank" rel="noopener" href="https://testflight.apple.com/join/hAiiGJRJ">https://testflight.apple.com/join/hAiiGJRJ</a></li>
+</ul>
+<p><strong>Android</strong>:</p>
+<ul>
+<li>PassXYZ Cloud:<br><a target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.passxyz.cloud">https://play.google.com/apps/testing/com.passxyz.cloud</a></li>
+<li>PassXYZ:<br><a target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.passxyz.PassXYZ">https://play.google.com/apps/testing/com.passxyz.PassXYZ</a></li>
+</ul>
+<p><strong>Windows 10</strong>:<br>The beta version for Windows 10 is available as well, but there is no test link as Android or iOS. To join the beta test group, you can send the email address of your Microsoft account to our email address <a href="mailto:&#112;&#x61;&#x73;&#115;&#x78;&#121;&#122;&#x40;&#x66;&#111;&#120;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#112;&#x61;&#x73;&#115;&#x78;&#121;&#122;&#x40;&#x66;&#111;&#120;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>We have introduced what two factor authentication is and the most frequently used two factor authentication method One Time Password. Based on the introduction, we explained how to use PassXYZ as a tool to record account information and to generate OTP. PassXYZ uses the same open source implementation of rfc4226 and rfc6238 as Google Authenticator.  Thus, it can be used as the OTP generator for all the cases which Google Authenticator can be used. PassXYZ is a cross platform application which supports Android, iOS and Windows 10.</p>
+<hr>
+<p><strong>Further reading</strong>:</p>
+<ul>
+<li><a href="https://passxyz.github.io/en/PxMFA1-en/">What is multi-factor authentication&#x2F;MFA? Why MFA can improve the safety of password management database?</a></li>
+<li><a href="https://passxyz.github.io/en/PxMarkdown-en/">How to use Markdown in Secure Notes of PassXYZ, Markdown and Password Management</a></li>
+<li><a href="https://passxyz.github.io/en/PxCloud-en/">A balance between security and convenience, PassXYZ and PassXYZ Cloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/story-password-management-software-from-keepass-passxyz-roger-ye/">A story of password management software, from KeePass to PassXYZ</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/can-passwords-replaced-biometrics-like-fingerprint-face-roger-ye/">Can the passwords be replaced by biometrics like fingerprint or face recognition?</a></li>
+</ul>
+<hr>
+<p>PassXYZ is a cross platform password management software developed using KeePass. PassXYZ can run on Android, iOS and Windows 10.<br>If you are interested in the personal information management, please add PassXYZ Wechat public account by searching the keyword <strong>PassXYZ</strong> or link it using Wechat name <strong>passxyz_kpclib</strong>. The source code of <strong>KPCLib</strong> can be found at GitHub at <a target="_blank" rel="noopener" href="https://github.com/passxyz/KPCLib">https://github.com/passxyz/KPCLib</a>.</p>
+<p>You can also find more information about <strong>PassXYZ</strong> on its <a href="https://passxyz.github.io/">website</a> and install it from <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.passxyz.PassXYZ">Google Play</a>, <a target="_blank" rel="noopener" href="https://itunes.apple.com/us/app/passxyz/id1402887274?ls=1&mt=8">Apple Store</a> and <a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9P8GC4XP8NLB">Microsoft Store</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/en/" rel="tag"># en</a>
+              <a href="/tags/2FA/" rel="tag"># 2FA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxMFA2-zh-CN/" rel="prev" title="新版PassXYZ已上线，新增一次性密码（OTP）管理功能">
+                  <i class="fa fa-chevron-left"></i> 新版PassXYZ已上线，新增一次性密码（OTP）管理功能
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-CN/PxWebDAV1-cn/" rel="next" title="备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案">
+                  备份与同步（一）  使用密码管理软件时，如何选择适合自己的备份与同步方案 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roger Ye</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
